@@ -1,0 +1,210 @@
+[gd_scene load_steps=25 format=3 uid="uid://crxy5krtes10e"]
+
+[ext_resource type="Script" uid="uid://dl7rafpqe2a02" path="res://Scripts/Enemies/enemy_3_flier.gd" id="1_pdfu1"]
+[ext_resource type="Shader" uid="uid://c4y2ba40q8aa4" path="res://Shaders/Flash.gdshader" id="2_3ha5y"]
+[ext_resource type="Texture2D" uid="uid://butcxfl5d64px" path="res://Sprites/Enemies/Enemy3-Sheet.png" id="3_w6py2"]
+[ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="4_mehcm"]
+[ext_resource type="Script" uid="uid://jqdvepdxt54" path="res://Scripts/Utilities/hitbox.gd" id="5_pdowc"]
+[ext_resource type="AudioStream" uid="uid://7j63hj5bf4er" path="res://Audio/Notes/Violin-C6-C7.mp3" id="6_3u8ek"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fe3k"]
+resource_local_to_scene = true
+shader = ExtResource("2_3ha5y")
+shader_parameter/modulate_color = Color(0.9999997, 0.88979954, 0.9963226, 1)
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgy5e"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(2614, 0, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcqsu"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(0, 1204, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q2a4"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(1307, 1204, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r028q"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(2614, 1204, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os77y"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(0, 2408, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slcki"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(1307, 2408, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6py2"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(2614, 2408, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ukm"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(0, 0, 1307, 1204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hedfe"]
+atlas = ExtResource("3_w6py2")
+region = Rect2(1307, 0, 1307, 1204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kajv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgy5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcqsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q2a4")
+}, {
+"duration": 1.41,
+"texture": SubResource("AtlasTexture_r028q")
+}, {
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_os77y")
+}, {
+"duration": 0.31,
+"texture": SubResource("AtlasTexture_slcki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6py2")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3ukm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hedfe")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_bgy5e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6py2"]
+resource_name = "over"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqsu"]
+_data = {
+&"RESET": SubResource("Animation_bgy5e"),
+&"over": SubResource("Animation_w6py2")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ir7mu"]
+radius = 33.230637
+height = 206.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbwnu"]
+radius = 108.488785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6py2"]
+radius = 397.66348
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgy5e"]
+size = Vector2(186, 373)
+
+[node name="Enemy3-Flier" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+script = ExtResource("1_pdfu1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.99560624, 0.7125137, 1, 1)
+material = SubResource("ShaderMaterial_2fe3k")
+scale = Vector2(0.24, 0.24)
+sprite_frames = SubResource("SpriteFrames_5kajv")
+animation = &"Attack"
+autoplay = "Idle"
+frame = 6
+frame_progress = 1.0
+speed_scale = 2.0
+offset = Vector2(27.375, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_jcqsu")
+}
+autoplay = "over"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 11)
+shape = SubResource("CapsuleShape2D_ir7mu")
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
+visible = false
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_mehcm")
+health = 10000
+sprite = NodePath("../Sprite")
+flash_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_mbwnu")
+
+[node name="Rays" type="Node2D" parent="."]
+
+[node name="RayWall" type="RayCast2D" parent="Rays"]
+position = Vector2(7, -4)
+target_position = Vector2(-127, 3)
+
+[node name="RayLedge" type="RayCast2D" parent="Rays"]
+position = Vector2(-36, 78)
+target_position = Vector2(0, 52)
+
+[node name="PlayerDetect" type="Area2D" parent="Rays"]
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rays/PlayerDetect"]
+position = Vector2(-36, 12)
+shape = SubResource("CircleShape2D_w6py2")
+
+[node name="Hitbox" type="Area2D" parent="Rays" node_paths=PackedStringArray("hurt_box")]
+collision_layer = 16
+collision_mask = 8
+monitoring = false
+script = ExtResource("5_pdowc")
+hurt_box = NodePath("../../HurtBox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rays/Hitbox"]
+position = Vector2(-104, 30.5)
+shape = SubResource("RectangleShape2D_bgy5e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3u8ek")
+volume_db = -80.0

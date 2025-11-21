@@ -100,6 +100,7 @@ func attack_player() -> void:
 
 	await get_tree().create_timer(0.4).timeout  # wind-up
 	hitbox.monitoring = true
+	detect_area.monitoring = false
 
 	if player_ref == null:
 		attacking = false
@@ -126,3 +127,4 @@ func attack_player() -> void:
 	velocity.x = 0
 	attacking = false
 	hitbox.monitoring = false
+	detect_area.monitoring = true

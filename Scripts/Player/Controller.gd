@@ -11,10 +11,11 @@ const WALL_SLIDE_SPEED = 80.0
 const GRAVITY = 1200.0
 
 var current_speed = SPEED
-var can_double_jump = false
-var is_sprinting = false
-var can_attack = false
-var queued_sound = false
+var can_double_jump := false
+var can_move := true
+var is_sprinting := false
+var can_attack := false
+var queued_sound := false
 
 var coyote_time = 0.1
 var coyote_timer = 0.0
@@ -34,7 +35,6 @@ var beats_since_attack = 0
 func _ready() -> void:
 	BeatManager.beat_window.connect(_on_beat_window)
 	BeatManager.beat.connect(_on_perfect_beat)
-	BeatManager.play_song(preload("res://Audio/Music/Ost1.mp3"))
 
 func _physics_process(delta):
 	handle_gravity(delta)
@@ -62,7 +62,17 @@ func handle_gravity(delta):
 		velocity.y += GRAVITY * delta
 
 func handle_input(delta):
+	
+	violin_sprite.flip_h = sprite.flip_h 
+	
+	if !can_move: return
+	
 	var dir = Input.get_axis("left", "right")
+	
+
+	# flip
+	if dir != 0:
+		sprite.flip_h = dir < 0
 
 	# sprint input (boolean)
 	is_sprinting = Input.is_action_pressed("sprint") and dir != 0 and is_on_floor()
@@ -76,12 +86,6 @@ func handle_input(delta):
 
 	# movement
 	velocity.x = dir * current_speed
-
-	violin_sprite.flip_h = sprite.flip_h 
-
-	# flip
-	if dir != 0:
-		sprite.flip_h = dir < 0
 
 func update_animation():
 	if not is_on_floor():
@@ -108,10 +112,10 @@ func handle_jump():
 		coyote_timer = 0
 
 	# wall jump
-	elif jump_buffer_timer > 0 and is_on_wall():
-		velocity.y = jump_force
-		velocity.x = -get_wall_normal().x * SPEED
-		jump_buffer_timer = 0
+	#elif jump_buffer_timer > 0 and is_on_wall():
+		#velocity.y = jump_force
+		#velocity.x = -get_wall_normal().x * SPEED
+		#jump_buffer_timer = 0
 
 	# short hop
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -157,7 +161,8 @@ func _on_perfect_beat():
 		var slash = preload("uid://bhs8qinhy7pnf").instantiate()
 		slash.global_position = $SlashSpawn.global_position
 		slash.direction = (get_global_mouse_position() - global_position).normalized()
-		get_tree().current_scene.add_child(slash)
+		if get_tree():
+			get_tree().current_scene.add_child(slash)
 		slash.hitbox.hurt_box = $HurtBox
 
 		# play note
@@ -194,5 +199,6 @@ func do_pogo():
 
 func _on_beat_window():
 	can_attack = true
-	await get_tree().process_frame
+	if get_tree():
+		await get_tree().process_frame
 	can_attack = false

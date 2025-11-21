@@ -9,7 +9,7 @@ var lifetime = 0.12
 
 func _ready() -> void:
 	sprite_2d.look_at(get_global_mouse_position())
-	hitbox.connect("area_entered", self._on_hit)
+	hitbox.connect("on_hit", self._on_hit)
 
 func _process(delta):
 	position += speed * direction * delta
@@ -29,6 +29,8 @@ func _on_hit(area):
 	# only pogo if player is ABOVE enemy + falling down
 	if player.global_position.y < area.global_position.y and player.velocity.y > 0:
 		player.do_pogo()
+	
+	queue_free()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	queue_free()
