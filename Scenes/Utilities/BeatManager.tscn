@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3t2uw8cbhhcu"]
+
+[ext_resource type="Script" uid="uid://45jdkyutfobg" path="res://Scripts/Utilities/BeatManager.gd" id="1_rxqjg"]
+[ext_resource type="Texture2D" uid="uid://tndlxupjgwa5" path="res://Sprites/Player/ProgressNote-UI.png" id="2_4vs5j"]
+[ext_resource type="Script" uid="uid://c1t72ib5ld2ly" path="res://Scripts/Utilities/beat_ui.gd" id="2_igs6c"]
+[ext_resource type="Script" uid="uid://c418bbh18uk4b" path="res://Scripts/Utilities/line_2d.gd" id="4_pmf0v"]
+[ext_resource type="Texture2D" uid="uid://ecaf5vunpnna" path="res://Sprites/Player/MusicalNote.png" id="4_w2nni"]
+
+[node name="BeatManager" type="Node"]
+script = ExtResource("1_rxqjg")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -8.114
+
+[node name="BeatUI" type="CanvasLayer" parent="."]
+layer = 166
+
+[node name="Control" type="Control" parent="BeatUI"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -157.0
+offset_right = 375.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_igs6c")
+line_template_path = NodePath("TextureRect/Line2D")
+
+[node name="TextureRect" type="TextureRect" parent="BeatUI/Control"]
+modulate = Color(1, 1, 1, 0.8352941)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -76.0
+offset_right = 325.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4vs5j")
+
+[node name="Line2D" type="TextureRect" parent="BeatUI/Control/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 54.5
+offset_right = 51.0
+offset_bottom = 118.32945
+texture = ExtResource("4_w2nni")
+expand_mode = 1
+script = ExtResource("4_pmf0v")

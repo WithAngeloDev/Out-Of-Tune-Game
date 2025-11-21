@@ -1,0 +1,46 @@
+extends Node
+
+signal beat()        # fired exactly on beat
+signal beat_window() # fired slightly before/after beat for player input
+
+@onready var music_player = $MusicPlayer
+
+var last_beat = -1
+
+var bpm = 150
+var seconds_per_beat = 0.0
+
+var beat_timer = 0.0
+var window_size = 0.2   # how forgiving the timing is (120ms)
+var song_offset = 0.0    # use if the song starts a little late
+
+func play_song(stream: AudioStreamMP3):
+	beat_timer = 0.0
+	music_player.stream = stream
+	music_player.play(song_offset)
+	seconds_per_beat = 60.0 / stream.bpm
+
+var window_active = false
+var window_timer = 0.0
+
+func _process(delta):
+	if not music_player.playing:
+		return
+
+	var pos = music_player.get_playback_position()
+
+	# exact beat number using audio time
+	var beat_pos = pos / seconds_per_beat
+
+	# detect beat (integer crossing)
+	var current_beat = int(beat_pos)
+
+	if current_beat != last_beat:
+		last_beat = current_beat
+		emit_signal("beat")
+
+	# beat window (early / late)
+	var distance_to_nearest = abs(beat_pos - round(beat_pos))
+	if distance_to_nearest <= window_size:
+		emit_signal("beat_window")
+		#print("BEAT")

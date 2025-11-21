@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://sq7knoydgyoj"]
+
+[ext_resource type="Shader" uid="uid://c4y2ba40q8aa4" path="res://Shaders/Flash.gdshader" id="1_7ycdt"]
+[ext_resource type="Texture2D" uid="uid://be37sbc1epsu6" path="res://Sprites/Enemies/tenker-sheet.png" id="2_u3lqn"]
+[ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="3_t4cta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fe3k"]
+resource_local_to_scene = true
+shader = ExtResource("1_7ycdt")
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seu5h"]
+atlas = ExtResource("2_u3lqn")
+region = Rect2(0, 0, 298, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8mfx"]
+atlas = ExtResource("2_u3lqn")
+region = Rect2(298, 0, 298, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3t6j"]
+atlas = ExtResource("2_u3lqn")
+region = Rect2(0, 299, 298, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2548d"]
+atlas = ExtResource("2_u3lqn")
+region = Rect2(298, 299, 298, 299)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_litq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seu5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8mfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3t6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2548d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jh04l"]
+radius = 110.27616
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fe3k"]
+radius = 108.488785
+
+[node name="Enemy1" type="CharacterBody2D"]
+rotation = -0.40142572
+scale = Vector2(0.58100003, 0.58100003)
+collision_layer = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_2fe3k")
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_litq2")
+autoplay = "default"
+frame_progress = 0.048110288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jh04l")
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_t4cta")
+health = 10000
+sprite = NodePath("../Sprite")
+flash_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_2fe3k")
