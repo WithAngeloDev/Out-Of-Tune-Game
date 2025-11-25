@@ -14,11 +14,23 @@ var beat_timer = 0.0
 var window_size = 0.2   # how forgiving the timing is (120ms)
 var song_offset = 0.0    # use if the song starts a little late
 
+var fade_speed = 1.5   # how fast it fades in
+
 func play_song(stream: AudioStreamMP3):
 	beat_timer = 0.0
 	music_player.stream = stream
+	music_player.volume_db = -40
 	music_player.play(song_offset)
 	seconds_per_beat = 60.0 / stream.bpm
+
+	var fade_tween = get_tree().create_tween()
+
+	# fade in using tween
+	if fade_tween:
+		fade_tween.kill()
+
+	fade_tween = create_tween()
+	fade_tween.tween_property(music_player, "volume_db", -10.0, fade_speed).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 var window_active = false
 var window_timer = 0.0

@@ -171,7 +171,7 @@ rotation = 1.3264502
 scale = Vector2(0.19767442, 0.19767441)
 texture = ExtResource("4_ah63u")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Slash"]]
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("5_3ip50")

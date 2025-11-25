@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cwh45ljthrv5v"]
+[gd_scene load_steps=81 format=3 uid="uid://cwh45ljthrv5v"]
 
 [ext_resource type="Texture2D" uid="uid://fdefjmhskoqd" path="res://Sprites/Enviroment/Black_Tile.png" id="1_41ao5"]
 [ext_resource type="Script" uid="uid://dp8bcvck32nmr" path="res://Scripts/Utilities/Level.gd" id="1_c0ln3"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://sq7knoydgyoj" path="res://Scenes/Characters/Enemies/enemy1.tscn" id="2_ob62c"]
 [ext_resource type="Texture2D" uid="uid://4hmydilfa7u8" path="res://Sprites/Enviroment/GroundOverlay-Lowend.png" id="3_2vleb"]
 [ext_resource type="Texture2D" uid="uid://bs2de6wvc7io7" path="res://Sprites/Npcs/MrGary-Sheet.png" id="3_c6lyb"]
+[ext_resource type="Script" uid="uid://cvcd1ili3hker" path="res://Scripts/Npcs/MrGary.gd" id="3_d7cca"]
 [ext_resource type="Texture2D" uid="uid://cyuqpkts6fck1" path="res://Sprites/Particles/Particle1.png" id="3_ev04k"]
+[ext_resource type="Texture2D" uid="uid://dc7pb7p0dufhd" path="res://Sprites/Npcs/Indecator.png" id="4_dbxnu"]
 [ext_resource type="PackedScene" uid="uid://byulcq74epm8n" path="res://Scenes/Characters/player.tscn" id="4_k1h85"]
 [ext_resource type="Texture2D" uid="uid://ca1demej5f87e" path="res://Sprites/Enviroment/Spikes.png" id="5_1yphr"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_3udux"]
@@ -30,8 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://boudaqxwy66jo" path="res://Sprites/Enviroment/Spikes-Bg.png" id="19_obu67"]
 [ext_resource type="Texture2D" uid="uid://du1s206knktbr" path="res://Sprites/Enviroment/AnotherRock-Bg.png" id="20_dmwh3"]
 [ext_resource type="Shader" uid="uid://bke4a3e4d1jeu" path="res://Shaders/Fog.gdshader" id="23_nkccm"]
-[ext_resource type="PackedScene" uid="uid://ddft4by2q6iww" path="res://Scenes/Characters/Enemies/enemy_2-Walker.tscn" id="41_2fe3k"]
-[ext_resource type="PackedScene" uid="uid://crxy5krtes10e" path="res://Scenes/Characters/Enemies/enemy_3_flier.tscn" id="43_oxjvy"]
+[ext_resource type="Texture2D" uid="uid://5ptyv6i4am6b" path="res://Sprites/Enviroment/Bg-Bridge.png" id="26_gvqpj"]
+[ext_resource type="Texture2D" uid="uid://bo3blvm2qde6s" path="res://Sprites/Enviroment/Bell.png" id="31_d7cca"]
 [ext_resource type="Script" uid="uid://d3fj36s05brni" path="res://Scripts/Utilities/door.gd" id="44_uul5j"]
 
 [sub_resource type="Animation" id="Animation_nkccm"]
@@ -107,8 +109,84 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbxnu"]
+size = Vector2(383, 871)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvqpj"]
+atlas = ExtResource("4_dbxnu")
+region = Rect2(0, 0, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7cca"]
+atlas = ExtResource("4_dbxnu")
+region = Rect2(284, 0, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbxnu"]
+atlas = ExtResource("4_dbxnu")
+region = Rect2(0, 200, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85i3b"]
+atlas = ExtResource("4_dbxnu")
+region = Rect2(284, 200, 284, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2fe3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvqpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7cca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbxnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85i3b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_04pv1"]
+resource_name = "Entered"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oxjvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uul5j"]
+_data = {
+&"Entered": SubResource("Animation_04pv1"),
+&"RESET": SubResource("Animation_oxjvy")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mq1v"]
-size = Vector2(6698, 1399)
+size = Vector2(5467, 1399)
 
 [sub_resource type="Resource" id="Resource_gvqpj"]
 script = ExtResource("6_2mq1v")
@@ -326,7 +404,7 @@ adjustment_saturation = 1.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qjwh"]
 size = Vector2(284, 829)
 
-[node name="Node2D" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_c0ln3")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -346,9 +424,43 @@ scale = Vector2(0.22, 0.22)
 sprite_frames = SubResource("SpriteFrames_dmwh3")
 autoplay = "default"
 frame_progress = 0.65790087
+script = ExtResource("3_d7cca")
+
+[node name="PlayerDetect" type="Area2D" parent="MrGary"]
+scale = Vector2(4.5454545, 4.5454545)
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MrGary/PlayerDetect"]
+position = Vector2(-23, -287)
+shape = SubResource("RectangleShape2D_dbxnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MrGary"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-172.72711, -850)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2fe3k")
+frame = 3
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="MrGary/AnimatedSprite2D"]
+offset_left = -65.15158
+offset_top = -68.181854
+offset_right = 62.84842
+offset_bottom = 19.818146
+theme_override_font_sizes/font_size = 64
+text = "Talk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MrGary"]
+libraries = {
+&"": SubResource("AnimationLibrary_uul5j")
+}
+speed_scale = 2.0
 
 [node name="Enemy1" parent="." instance=ExtResource("2_ob62c")]
 position = Vector2(3776.0005, 425.00015)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_ob62c")]
+position = Vector2(4488, 425.00012)
 
 [node name="Player" parent="." instance=ExtResource("4_k1h85")]
 position = Vector2(198, 632)
@@ -357,7 +469,8 @@ position = Vector2(198, 632)
 script = ExtResource("5_edoo1")
 
 [node name="RoomSize" type="CollisionShape2D" parent="Camera"]
-position = Vector2(3339, 417.5)
+z_index = -4096
+position = Vector2(2723.5, 417.5)
 shape = SubResource("RectangleShape2D_2mq1v")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera" node_paths=PackedStringArray("follow_target")]
@@ -372,6 +485,7 @@ follow_offset = Vector2(0, -180)
 follow_damping = true
 dead_zone_width = 0.08
 dead_zone_height = 0.2
+draw_limits = true
 limit_target = NodePath("../RoomSize")
 noise = SubResource("Resource_edoo1")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -379,11 +493,12 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 physics_interpolation_mode = 1
 position = Vector2(950, 452)
-offset = Vector2(3.011253, 1.3730074)
+offset = Vector2(-1.7312906, -1.3937886)
 limit_left = -10
 limit_top = -282
-limit_right = 6688
+limit_right = 5457
 limit_bottom = 1117
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera/Camera2D"]
 process_priority = 300
@@ -417,6 +532,13 @@ offset_bottom = 7890.0
 modulate = Color(0.8164147, 0.81672096, 0.9109149, 1)
 position = Vector2(-99.000015, 758.00006)
 scale = Vector2(19.46875, 17.7916)
+texture = SubResource("GradientTexture2D_c6lyb")
+flip_h = true
+
+[node name="Light2" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.8164147, 0.81672096, 0.9109149, 1)
+position = Vector2(5579.0005, 495)
+scale = Vector2(25.296883, 23.117664)
 texture = SubResource("GradientTexture2D_c6lyb")
 flip_h = true
 
@@ -816,6 +938,11 @@ position = Vector2(-83.937485, -62.499977)
 scale = Vector2(1.5458981, 5.5703125)
 texture = ExtResource("1_41ao5")
 
+[node name="BlackTile5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(5574, -335.00003)
+scale = Vector2(4.6948256, 7.246094)
+texture = ExtResource("1_41ao5")
+
 [node name="GroundOverlayLowend27" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
 position = Vector2(5620, 759)
@@ -828,6 +955,46 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(4613, 764)
 rotation = -1.5707964
+texture = ExtResource("3_2vleb")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend37" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5268, -19)
+rotation = -1.5707964
+texture = ExtResource("3_2vleb")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend38" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5273, -333)
+rotation = -1.5707964
+texture = ExtResource("3_2vleb")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend39" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5271, -622)
+rotation = -1.5707964
+texture = ExtResource("3_2vleb")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend40" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5455, 129)
+rotation = 3.1415927
+texture = ExtResource("3_2vleb")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend41" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5753, 127)
+rotation = 3.1415927
 texture = ExtResource("3_2vleb")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -2396,6 +2563,34 @@ position = Vector2(149.33328, 942.66675)
 scale = Vector2(0.8510129, 0.8510129)
 texture = ExtResource("12_2548d")
 
+[node name="Background11" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.37036446, 0.3703645, 0.37036443, 1)
+z_index = -400
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.56, 0.56)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-137, 119)
+
+[node name="Bg-Bridge" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(800.2285, 1509.5714)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("26_gvqpj")
+
+[node name="Bg-Bridge2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(2024.2286, 1512.2383)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("26_gvqpj")
+
+[node name="Bg-Bridge3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(3251.6953, 1507.2715)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("26_gvqpj")
+
+[node name="Bg-Bridge4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(4475.6953, 1509.9384)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("26_gvqpj")
+
 [node name="ColorRect" type="ColorRect" parent="Enviroment/ParallaxBackground"]
 z_index = -174
 material = SubResource("ShaderMaterial_litq2")
@@ -3010,10 +3205,41 @@ position = Vector2(451, 461.72668)
 scale = Vector2(0.7204969, 0.72049683)
 texture = ExtResource("7_404h8")
 
+[node name="HangingThing3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+use_parent_material = true
+position = Vector2(422, 1134)
+scale = Vector2(0.7204969, 0.72049683)
+texture = ExtResource("7_404h8")
+
 [node name="HangingThing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
 use_parent_material = true
 position = Vector2(4818, 593)
 texture = ExtResource("7_404h8")
+
+[node name="Bell" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7600.0737, 255.40393)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("31_d7cca")
+
+[node name="Bellthing" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7600.0737, -276.59607)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("31_d7cca")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
+
+[node name="Bellthing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7598.0737, -523.59607)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("31_d7cca")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
 
 [node name="ForGround3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0, 0, 0, 1)
@@ -3040,7 +3266,7 @@ region_rect = Rect2(0, 0, 136.39139, 351.80066)
 
 [node name="HangingThing4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
 use_parent_material = true
-position = Vector2(6001.321, 468.0385)
+position = Vector2(779.09894, 521.07697)
 scale = Vector2(1.3988351, 1.3988352)
 texture = ExtResource("19_4y433")
 region_enabled = true
@@ -3048,24 +3274,24 @@ region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
 
 [node name="HangingThing6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
 use_parent_material = true
-position = Vector2(6004.0005, -120.99994)
+position = Vector2(781.7786, -67.9615)
 scale = Vector2(1.3988351, 1.3988352)
 texture = ExtResource("19_4y433")
 region_enabled = true
 region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
 
-[node name="Cart1" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
-position = Vector2(982, 1234)
-rotation = 0.54105204
-scale = Vector2(1.580537, 1.580537)
-texture = ExtResource("11_j5bn5")
-
 [node name="Cart2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
-position = Vector2(6155.778, 958.0001)
+position = Vector2(911.77765, 978.03845)
 rotation = -0.3577925
 scale = Vector2(1.976, 1.976)
 texture = ExtResource("11_j5bn5")
 flip_h = true
+
+[node name="Cart3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+position = Vector2(223.08582, 1164.4429)
+rotation = 0.54105204
+scale = Vector2(1.580537, 1.580537)
+texture = ExtResource("11_j5bn5")
 
 [node name="ForGround2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0, 0, 0, 1)
@@ -3207,14 +3433,14 @@ scroll_scale = Vector2(1.6, 1.6)
 scroll_offset = Vector2(-329, -274)
 
 [node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2472.6982, 1398)
+position = Vector2(1132.3964, 1303)
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2299.6978, 1415)
+position = Vector2(959.3959, 1320)
 rotation = -0.23561946
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3222,7 +3448,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2700.698, 1433)
+position = Vector2(1360.3962, 1338)
 rotation = 0.54105204
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3230,7 +3456,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2825.6982, 1596.0001)
+position = Vector2(1485.3965, 1501.0001)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3238,7 +3464,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend12" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2883.0002, 1765.0001)
+position = Vector2(1542.6985, 1670.0001)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3246,7 +3472,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend5" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2159.6982, 1548.9999)
+position = Vector2(819.39636, 1453.9999)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3254,22 +3480,15 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend11" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(2100, 1704.9999)
+position = Vector2(759.6981, 1609.9999)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
-[node name="GroundOverlayLowend6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(4134.3965, 1380.2927)
-scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("3_2vleb")
-region_enabled = true
-region_rect = Rect2(0, 0, 151.81818, 314)
-
 [node name="GroundOverlayLowend7" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(3961.396, 1397.2927)
+position = Vector2(2014.0001, 1189.0001)
 rotation = -0.23561946
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3277,7 +3496,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend8" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(4362.396, 1415.2927)
+position = Vector2(2333.0002, 1239)
 rotation = 0.54105204
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3285,7 +3504,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend9" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(4487.3965, 1578.2928)
+position = Vector2(2513.6982, 1356.2928)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3293,7 +3512,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend10" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
-position = Vector2(3821.3965, 1531.2926)
+position = Vector2(1847.6981, 1309.2926)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
 texture = ExtResource("3_2vleb")
@@ -3341,12 +3560,6 @@ color = Color(0.091507114, 0.0915005, 0.13394576, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_j5bn5")
 
-[node name="Enemy2-Walker" parent="." instance=ExtResource("41_2fe3k")]
-position = Vector2(5366, 630)
-
-[node name="Enemy2-Flier" parent="." instance=ExtResource("43_oxjvy")]
-position = Vector2(4329, 391)
-
 [node name="Door" type="Area2D" parent="."]
 position = Vector2(-164, 726)
 collision_mask = 64
@@ -3355,5 +3568,17 @@ door_id = "1"
 target_scene = "uid://bhtt7fgfty0vi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_0qjwh")
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(5463, 555)
+collision_mask = 64
+script = ExtResource("44_uul5j")
+door_id = "2"
+exit_push = Vector2(-500, 0)
+target_scene = "uid://baou0r06rrf0j"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_0qjwh")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3t2uw8cbhhcu"]
+[gd_scene load_steps=7 format=3 uid="uid://d3t2uw8cbhhcu"]
 
 [ext_resource type="Script" uid="uid://45jdkyutfobg" path="res://Scripts/Utilities/BeatManager.gd" id="1_rxqjg"]
+[ext_resource type="AudioStream" uid="uid://bu5vqqthv14jr" path="res://Audio/Ambient/AMB_Beds_GrassField.mp3" id="2_2s2o2"]
 [ext_resource type="Texture2D" uid="uid://tndlxupjgwa5" path="res://Sprites/Player/ProgressNote-UI.png" id="2_4vs5j"]
 [ext_resource type="Script" uid="uid://c1t72ib5ld2ly" path="res://Scripts/Utilities/beat_ui.gd" id="2_igs6c"]
 [ext_resource type="Script" uid="uid://c418bbh18uk4b" path="res://Scripts/Utilities/line_2d.gd" id="4_pmf0v"]
@@ -10,7 +11,13 @@
 script = ExtResource("1_rxqjg")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -8.114
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2s2o2")
+volume_db = -5.595
+autoplay = true
 
 [node name="BeatUI" type="CanvasLayer" parent="."]
 layer = 166

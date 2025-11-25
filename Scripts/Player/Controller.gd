@@ -11,6 +11,7 @@ const WALL_SLIDE_SPEED = 80.0
 const GRAVITY = 1200.0
 
 var current_speed = SPEED
+var can_double_jump_unlocked := true 
 var can_double_jump := false
 var can_move := true
 var is_sprinting := false
@@ -42,6 +43,7 @@ func _physics_process(delta):
 	
 	# update coyote timer
 	if is_on_floor():
+		can_double_jump = false
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta
@@ -110,6 +112,13 @@ func handle_jump():
 		velocity.y = jump_force
 		jump_buffer_timer = 0
 		coyote_timer = 0
+
+	# DOUBLE JUMP
+	if can_double_jump_unlocked and jump_buffer_timer > 0 and not is_on_floor() and not can_double_jump:
+		velocity.y = jump_force * 0.85  
+		can_double_jump = true
+		jump_buffer_timer = 0
+		return
 
 	# wall jump
 	#elif jump_buffer_timer > 0 and is_on_wall():

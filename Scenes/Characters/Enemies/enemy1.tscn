@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://sq7knoydgyoj"]
+[gd_scene load_steps=14 format=3 uid="uid://sq7knoydgyoj"]
 
 [ext_resource type="Shader" uid="uid://c4y2ba40q8aa4" path="res://Shaders/Flash.gdshader" id="1_7ycdt"]
 [ext_resource type="Texture2D" uid="uid://be37sbc1epsu6" path="res://Sprites/Enemies/tenker-sheet.png" id="2_u3lqn"]
 [ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="3_t4cta"]
+[ext_resource type="Script" uid="uid://jqdvepdxt54" path="res://Scripts/Utilities/hitbox.gd" id="4_u3lqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2fe3k"]
 resource_local_to_scene = true
@@ -52,6 +53,9 @@ radius = 110.27616
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fe3k"]
 radius = 108.488785
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4cta"]
+radius = 122.093956
+
 [node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
 rotation = -0.40142572
 scale = Vector2(0.58100003, 0.58100003)
@@ -78,3 +82,14 @@ flash_time = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_2fe3k")
+
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("hurt_box")]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("4_u3lqn")
+damage = null
+hurt_box = NodePath("../HurtBox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-15.364823, 0.9572642)
+shape = SubResource("CircleShape2D_t4cta")

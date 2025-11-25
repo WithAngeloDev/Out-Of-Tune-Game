@@ -29,7 +29,6 @@ func _on_body_entered(body: Node2D, pcam: PhantomCamera2D) -> void:
 		pcam.set_follow_target(player)
 		pcam.set_priority(20)
 
-
 func _on_body_exited(body: Node2D, pcam: PhantomCamera2D) -> void:
 	if body == player:
 		pcam.set_priority(0)

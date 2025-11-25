@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bhtt7fgfty0vi"]
+[gd_scene load_steps=60 format=3 uid="uid://bhtt7fgfty0vi"]
 
 [ext_resource type="Script" uid="uid://dp8bcvck32nmr" path="res://Scripts/Utilities/Level.gd" id="1_gypwu"]
 [ext_resource type="PackedScene" uid="uid://byulcq74epm8n" path="res://Scenes/Characters/player.tscn" id="2_l5qgb"]
@@ -13,11 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://bjpvb8sqdq6sf" path="res://Sprites/Enviroment/Spear1.png" id="10_7snlv"]
 [ext_resource type="Shader" uid="uid://4dxjakmo5wcb" path="res://Shaders/Wind.gdshader" id="11_0rr6t"]
 [ext_resource type="Texture2D" uid="uid://fdefjmhskoqd" path="res://Sprites/Enviroment/Black_Tile.png" id="12_404nf"]
+[ext_resource type="Shader" uid="uid://bevhthvild5k6" path="res://Shaders/God-rays.gdshader" id="13_5yslb"]
 [ext_resource type="Texture2D" uid="uid://4hmydilfa7u8" path="res://Sprites/Enviroment/GroundOverlay-Lowend.png" id="13_kdp1q"]
 [ext_resource type="Texture2D" uid="uid://di62asx3wbmvq" path="res://Sprites/Enviroment/Background-Rock1.png" id="14_le5sr"]
+[ext_resource type="Texture2D" uid="uid://bi5eck1a1jr57" path="res://Sprites/Enviroment/LightGlaze.png" id="14_sbta5"]
 [ext_resource type="Texture2D" uid="uid://boudaqxwy66jo" path="res://Sprites/Enviroment/Spikes-Bg.png" id="15_88alo"]
+[ext_resource type="Texture2D" uid="uid://jrsjkqyt4l61" path="res://Sprites/Enviroment/BG-element.png" id="16_0gg6y"]
 [ext_resource type="Texture2D" uid="uid://bcsjocl0xpfb7" path="res://Sprites/Enviroment/Background-Tower1.png" id="16_5ew5d"]
 [ext_resource type="Texture2D" uid="uid://du1s206knktbr" path="res://Sprites/Enviroment/AnotherRock-Bg.png" id="17_nwslj"]
+[ext_resource type="Texture2D" uid="uid://btm43f23gru3y" path="res://Sprites/Enviroment/Grass1.png" id="17_owdnt"]
 [ext_resource type="Shader" uid="uid://dvepolfbltogl" path="res://Shaders/Blurr.gdshader" id="18_0vixo"]
 [ext_resource type="Texture2D" uid="uid://ca1demej5f87e" path="res://Sprites/Enviroment/Spikes.png" id="19_ix833"]
 [ext_resource type="Texture2D" uid="uid://d3o4xmnaymbxl" path="res://Sprites/Enviroment/HangingThing1.png" id="20_e5ddb"]
@@ -26,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bmmwmxcff2xwq" path="res://Sprites/Enviroment/GrassThings1.png" id="23_jhcpo"]
 [ext_resource type="Shader" uid="uid://cutpmv4mhi2yp" path="res://Shaders/film-grain.gdshader" id="24_qti45"]
 [ext_resource type="Script" uid="uid://d3fj36s05brni" path="res://Scripts/Utilities/door.gd" id="25_h8mms"]
+[ext_resource type="Texture2D" uid="uid://bo3blvm2qde6s" path="res://Sprites/Enviroment/Bell.png" id="29_sbta5"]
 
 [sub_resource type="Animation" id="Animation_nkccm"]
 length = 0.001
@@ -127,6 +132,34 @@ gradient = SubResource("Gradient_s03kc")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_277o3"]
+shader = ExtResource("13_5yslb")
+shader_parameter/angle = -0.26
+shader_parameter/position = -0.115
+shader_parameter/spread = 0.2250000106875
+shader_parameter/cutoff = -0.04499995463749995
+shader_parameter/falloff = 0.5110000242725
+shader_parameter/edge_fade = 0.21200001007
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3200000152
+shader_parameter/color = Color(0.23921569, 0.22352941, 0.34117648, 0.654902)
+shader_parameter/hdr = false
+shader_parameter/seed = 126.94
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7snlv"]
+shader = ExtResource("11_0rr6t")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.2450000116375
+shader_parameter/strengthScale = 111.82
+shader_parameter/interval = 10.345
+shader_parameter/detail = 1.535
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u7unx"]
 shader = ExtResource("11_0rr6t")
 shader_parameter/speed = 1.0
@@ -207,7 +240,7 @@ adjustment_saturation = 1.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qjwh"]
 size = Vector2(284, 829)
 
-[node name="Level2" type="Node2D"]
+[node name="Level0" type="Node2D"]
 script = ExtResource("1_gypwu")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -243,6 +276,7 @@ follow_offset = Vector2(0, -180)
 follow_damping = true
 dead_zone_width = 0.08
 dead_zone_height = 0.2
+draw_limits = true
 limit_target = NodePath("../RoomSize")
 noise = SubResource("Resource_y3i32")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -250,11 +284,12 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 physics_interpolation_mode = 1
 position = Vector2(950, 495)
-offset = Vector2(0.4961573, 0.80865544)
+offset = Vector2(-0.7450634, 0.16316798)
 limit_left = -10
 limit_top = -282
 limit_right = 5746
 limit_bottom = 1117
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera/Camera2D"]
 process_priority = 300
@@ -292,6 +327,143 @@ texture = SubResource("GradientTexture2D_0gg6y")
 flip_h = true
 
 [node name="Decorations" type="Node2D" parent="Enviroment"]
+
+[node name="Sign1" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 1
+position = Vector2(3228, 743)
+texture = ExtResource("9_277o3")
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(3858, 1135)
+texture = ExtResource("19_ix833")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1478.6925, 0, 197.3075, 240)
+
+[node name="God-Rays4" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 10
+material = SubResource("ShaderMaterial_277o3")
+position = Vector2(1933.9999, 271.00012)
+rotation = 0.3577925
+scale = Vector2(0.8007099, 1)
+texture = ExtResource("14_sbta5")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Cart1" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = -1
+position = Vector2(1958, 891.00006)
+rotation = 0.72431165
+texture = ExtResource("22_8oarw")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Grass" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(1101, 870)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass2" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(1163, 866)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass3" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(1224, 870)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass4" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(1286, 866)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass5" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(2167, 688)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass15" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(5453, 984)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass16" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(5503, 977)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass17" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(5555, 983)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass18" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(5400, 982)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass6" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3280, 841)
+scale = Vector2(1, 1.5416666)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass7" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3185.0002, 844)
+scale = Vector2(1.484375, 1.5416666)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass8" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3108.0002, 852.99994)
+scale = Vector2(1.0546863, 1.2499999)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass9" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3059, 872.00006)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass10" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3950, 681)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass11" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(3987, 678)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass12" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(4163, 680.00006)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass13" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(4205, 682)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("17_owdnt")
+
+[node name="Grass14" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_7snlv")
+position = Vector2(4066, 643)
+scale = Vector2(0.82421505, 0.9768485)
+texture = ExtResource("10_7snlv")
+
+[node name="LightGlaze" type="Sprite2D" parent="Enviroment/Decorations"]
+modulate = Color(1, 1, 1, 0.39607844)
+position = Vector2(1729, 759)
+rotation = -1.012291
+texture = ExtResource("14_sbta5")
+
+[node name="GrassThings1" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(1828, 724)
+texture = ExtResource("23_jhcpo")
 
 [node name="BGDecorations" type="Node2D" parent="Enviroment"]
 
@@ -726,7 +898,43 @@ offset_right = 4432.0
 offset_bottom = 4160.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.060859784, 0.060855605, 0.095364116, 1)
+color = Color(0.040018324, 0.040010847, 0.067315154, 1)
+
+[node name="OverLay1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+z_index = -200
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(-111, -428)
+
+[node name="BG" type="ColorRect" parent="Enviroment/ParallaxBackground/OverLay1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -840.0
+offset_right = 4432.0
+offset_bottom = 4160.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="OverLay2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+z_index = -250
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(-111, -428)
+
+[node name="BG" type="ColorRect" parent="Enviroment/ParallaxBackground/OverLay2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -840.0
+offset_right = 4432.0
+offset_bottom = 4160.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10520015, 0.10606263, 0.15408191, 0.105882354)
 
 [node name="Background1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 z_index = -150
@@ -793,6 +1001,32 @@ texture = ExtResource("14_le5sr")
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(645, 1123)
 texture = ExtResource("14_le5sr")
+
+[node name="Background13" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.23392546, 0.23392546, 0.23392543, 1)
+z_index = -150
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-485, -320)
+
+[node name="Sprite2D" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background13"]
+position = Vector2(682, 911)
+texture = ExtResource("16_0gg6y")
+
+[node name="Background14" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.23392546, 0.23392546, 0.23392543, 1)
+z_index = -300
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(-211, -358)
+
+[node name="Sprite2D" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background14"]
+position = Vector2(878, 899)
+texture = ExtResource("16_0gg6y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background14"]
+position = Vector2(878, 899)
+texture = ExtResource("16_0gg6y")
 
 [node name="Background2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
@@ -3077,6 +3311,31 @@ texture = ExtResource("13_kdp1q")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
+[node name="Bell" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(3693.074, 1012.40393)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("29_sbta5")
+
+[node name="Bellthing" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(3693.074, 480.40393)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("29_sbta5")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
+
+[node name="Bellthing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(3691.074, 233.40393)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("29_sbta5")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
+
 [node name="Collisions" type="StaticBody2D" parent="Enviroment"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
@@ -3093,6 +3352,10 @@ polygon = PackedVector2Array(3383, 799, 4783, 801, 4783, 1092, 3952.0803, 1096.1
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
 position = Vector2(839, -53)
 polygon = PackedVector2Array(615, 995, 615, 781, 1367, 786, 1367, 1000)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(42, -1424)
+polygon = PackedVector2Array(-197, 900, 138.5857, 899.9999, 690.5444, 900.00006, 3420.0398, 900, 5498, 929, 5483, 1313, -200, 1343)
 
 [node name="Effects" type="CanvasLayer" parent="Enviroment"]
 
@@ -3111,6 +3374,10 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 621.0
+offset_top = -254.0
+offset_right = 621.0
+offset_bottom = -254.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.091507114, 0.0915005, 0.13394576, 1)
