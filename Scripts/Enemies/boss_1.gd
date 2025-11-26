@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var dust_particle: GPUParticles2D = $"../DustParticle"
+@onready var anim: AnimationPlayer = $Anim
 
 @export var sweep_speed := 900.0
 @export var jump_speed := 1600.0
@@ -10,8 +12,15 @@ extends CharacterBody2D
 @export var left_wall: Marker2D
 @export var right_wall: Marker2D
 
+@export var spike_markers: Array[Marker2D]
+@export var spike_scene: PackedScene   # the spike you will spawn
+@export var big_spike_scene: PackedScene   # the spike you will spawn
+
 var last_sweep_dir := -1  # -1 = left→right, 1 = right→left
 var can_act := true
+var is_top := false
+
+var last_attack := ""
 
 func _ready() -> void:
 	BeatManager.connect("beat_window", on_beat)
@@ -20,7 +29,18 @@ func _physics_process(delta):
 	
 	#print(global_position)
 
-	sprite_2d.flip_h = false if velocity.x < 0 else true
+	if !is_top:
+		if velocity.x < 0:
+			sprite_2d.flip_h = false 
+		elif velocity.x > 0:
+			sprite_2d.flip_h = true 
+	else:
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			if player.global_position.x < global_position.x:
+				sprite_2d.flip_h = false
+			else:
+				sprite_2d.flip_h = true
 
 	move_and_slide()
 
@@ -29,28 +49,38 @@ func on_beat():
 	if can_act:
 		do_random_attack()
 
-func do_random_attack():
-	var attacks = [
-		attack_sweep,
-		#attack_jump_lunge,
-		#attack_summon_top,
-		#attack_summon_bottom
-	]
-	attacks.pick_random().call()
+var attack_order = [
+	"attack_sweep",
+	"attack_sweep",
+	"attack_summon_bottom",
+	"attack_summon_top",
+	"attack_sweep",
+	"attack_summon_top",
+	"attack_sweep",
+	"attack_summon_bottom",
+]
 
-# Called by music time system
-func do_timed_attack(name: String):
-	match name:
-		"sweep": attack_sweep()
-		#"jump": attack_jump_lunge()
-		#"top": attack_summon_top()
-		#"bottom": attack_summon_bottom()
+var attack_index = 0
+
+func do_random_attack():
+	var chosen = attack_order[attack_index]
+	attack_index += 1
+
+	# loop back when reaching the end
+	if attack_index >= attack_order.size():
+		attack_index = 0
+
+	last_attack = chosen
+	call(chosen)
 
 func attack_sweep() -> void:
-	
 	if not can_act:
 		return
 	can_act = false
+
+	print("SWEEEEEEEP")
+	
+	sprite_2d.play("Walk")
 
 	# alternate direction every attack
 	last_sweep_dir *= -1
@@ -62,7 +92,7 @@ func attack_sweep() -> void:
 	# find the target x based on direction
 	var target_x := right_wall_x if dir == 1 else left_wall_x
 	
-	global_position.x  = left_wall_x if target_x == right_wall_x else right_wall_x
+	#global_position.x  = left_wall_x if target_x == right_wall_x else right_wall_x
 
 	# windup
 	await get_tree().create_timer(0.15).timeout
@@ -87,3 +117,94 @@ func attack_sweep() -> void:
 	# tiny recovery
 	await get_tree().create_timer(0.2).timeout
 	can_act = true
+
+func attack_summon_bottom() -> void:
+	if not can_act:
+		return
+	can_act = false
+
+	await BeatManager.beat
+	await BeatManager.beat
+
+	print("BOSS: bottom spikes")
+
+	var used_positions := 0
+	var total := spike_markers.size()
+
+	# cycle in order
+	for i in range(total):
+
+		var pos := spike_markers[i].global_position
+		
+		dust_particle.global_position = pos
+		dust_particle.emitting = true
+		await BeatManager.beat
+
+		# spawn spike
+		var spike = spike_scene.instantiate()
+		spike.global_position = pos
+		get_tree().current_scene.add_child(spike)
+
+		used_positions += 1
+
+		# wait next beat
+		#await BeatManager.beat
+		dust_particle.emitting = false
+
+	# done
+	await get_tree().create_timer(0.2).timeout
+	can_act = true
+
+func attack_summon_top() -> void:
+	if not can_act:
+		return
+	can_act = false
+	#sprite_2d.flip_h = false
+	
+	var player = get_tree().get_first_node_in_group("player")
+
+	is_top = true
+	
+	dust_particle.emitting = true
+	dust_particle.global_position = global_position
+	
+	await BeatManager.beat
+	
+	sprite_2d.play("Walk")
+	anim.play("Summon")
+	
+	await BeatManager.beat
+	await BeatManager.beat
+	
+	dust_particle.emitting = false
+	
+	var total := 5
+
+
+	# cycle in order
+	for i in range(total):
+		
+		sprite_2d.play("Summon")
+		
+		var pos = player.global_position.x
+		
+		$"../Indecator/AnimationPlayer".play("Indecate")
+		$"../Indecator".global_position.x = pos
+		
+		await BeatManager.beat
+		await BeatManager.beat
+		
+		# spawn spike
+		var spike = big_spike_scene.instantiate()
+		spike.global_position.x = pos
+		spike.global_position.y = $"../Spikepos1".global_position.y
+		get_tree().current_scene.add_child(spike)
+	
+	$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+	
+	#anim.play_backwards("Summon")
+	#await anim.animation_finished
+	
+	await get_tree().create_timer(0.2).timeout
+	can_act = true
+	is_top = false

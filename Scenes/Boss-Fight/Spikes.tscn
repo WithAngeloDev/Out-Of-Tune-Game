@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://8r4uptvxch2l"]
+
+[ext_resource type="Script" uid="uid://jqdvepdxt54" path="res://Scripts/Utilities/hitbox.gd" id="1_68gje"]
+[ext_resource type="Texture2D" uid="uid://csx7mait76ulh" path="res://Sprites/Enviroment/Trap1.png" id="1_ye5cb"]
+[ext_resource type="AudioStream" uid="uid://dmdbdjxlom4k2" path="res://Audio/Notes/Flute-C6-C7.mp3" id="3_q2q23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye5cb"]
+size = Vector2(334, 92)
+
+[sub_resource type="Animation" id="Animation_68gje"]
+resource_name = "Down-up"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stuff:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3),
+"transitions": PackedFloat32Array(-2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(0, 327), Vector2(6, 0), Vector2(6, 0), Vector2(0, 327)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ye5cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stuff:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2q23"]
+_data = {
+&"Down-up": SubResource("Animation_68gje"),
+&"RESET": SubResource("Animation_ye5cb")
+}
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_5n8y8"]
+shuffle = true
+loop = false
+fade_time = 0.0
+stream_count = 1
+stream_0 = ExtResource("3_q2q23")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff"]
+position = Vector2(-7, -76)
+texture = ExtResource("1_ye5cb")
+region_rect = Rect2(234.36557, 0, 486.7913, 240)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Stuff"]
+position = Vector2(116, -78)
+texture = ExtResource("1_ye5cb")
+region_rect = Rect2(234.36557, 0, 486.7913, 240)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Stuff"]
+position = Vector2(-133, -80)
+texture = ExtResource("1_ye5cb")
+region_rect = Rect2(234.36557, 0, 486.7913, 240)
+
+[node name="Hitbox" type="Area2D" parent="Stuff"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_68gje")
+damage = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Hitbox"]
+position = Vector2(-9.000008, -40)
+shape = SubResource("RectangleShape2D_ye5cb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q2q23")
+}
+autoplay = "Down-up"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPlaylist_5n8y8")
+volume_db = 6.22
+autoplay = true
+bus = &"Notes"
