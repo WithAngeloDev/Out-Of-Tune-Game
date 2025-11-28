@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy2vrede0gam0"]
+
+[ext_resource type="Texture2D" uid="uid://csx7mait76ulh" path="res://Sprites/Enviroment/Trap1.png" id="1_g0dlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnt8x"]
+size = Vector2(54, 84)
+
+[node name="Trap1" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g0dlh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 43)
+shape = SubResource("RectangleShape2D_fnt8x")

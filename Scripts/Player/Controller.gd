@@ -11,12 +11,13 @@ const WALL_SLIDE_SPEED = 80.0
 const GRAVITY = 1200.0
 
 var current_speed = SPEED
-var can_double_jump_unlocked := true 
+var can_double_jump_unlocked := false 
 var can_double_jump := false
 var can_move := true
 var is_sprinting := false
 var can_attack := false
 var queued_sound := false
+var stop_moving_dialogue := true
 
 var coyote_time = 0.1
 var coyote_timer = 0.0
@@ -38,6 +39,12 @@ func _ready() -> void:
 	BeatManager.beat.connect(_on_perfect_beat)
 
 func _physics_process(delta):
+	
+	if Dialogic.current_timeline != null:
+		if stop_moving_dialogue:
+			velocity.x = 0
+		can_move = false
+	
 	handle_gravity(delta)
 	handle_input(delta)
 	
@@ -102,6 +109,9 @@ func update_animation():
 			sprite.play("Walk")
 
 func handle_jump():
+	
+	if !can_move: return
+	
 	# check sprint jump boost
 	var jump_force = JUMP_VELOCITY
 	if is_sprinting:
@@ -115,7 +125,7 @@ func handle_jump():
 
 	# DOUBLE JUMP
 	if can_double_jump_unlocked and jump_buffer_timer > 0 and not is_on_floor() and not can_double_jump:
-		velocity.y = jump_force * 0.85  
+		velocity.y = jump_force  
 		can_double_jump = true
 		jump_buffer_timer = 0
 		return
@@ -135,11 +145,15 @@ var missed_attack = false  # new flag
 var queued_attack = false
 
 func handle_attack():
+	
+	if !can_move: return
+	
 	if Input.is_action_just_pressed("attack"):
 		if can_attack:
 			# click inside beat window → queue attack
 			queued_attack = true
-			can_attack = false
+			can_attack = false	
+			
 			print("ATTACK QUEUED!")
 		else:
 			# click outside beat window → miss immediately
@@ -154,11 +168,17 @@ func _on_perfect_beat():
 	if queued_attack and not missed_attack:
 		queued_attack = false
 		
+		if get_tree().get_first_node_in_group("Camera"):
+			get_tree().get_first_node_in_group("Camera").add_shake(0.8)
+			get_tree().get_first_node_in_group("Camera").zoom_punch(0.005)
+		
 		# alternate forward/backward each time
 		if reverse_violin:
 			violin_sprite.play_backwards("Violin")
 		else:
 			violin_sprite.play("Violin")
+		
+		BeatManager.effect.play("default")
 		
 		long_particle.play("default")
 		long_particle.rotation = randf_range(-360, 360)

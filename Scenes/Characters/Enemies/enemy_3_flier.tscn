@@ -134,7 +134,7 @@ height = 206.0
 radius = 108.488785
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w6py2"]
-radius = 397.66348
+radius = 501.83862
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgy5e"]
 size = Vector2(186, 373)

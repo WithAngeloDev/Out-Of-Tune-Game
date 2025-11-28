@@ -1,0 +1,4172 @@
+[gd_scene load_steps=87 format=3 uid="uid://bjklnr7lngm6n"]
+
+[ext_resource type="Script" uid="uid://dp8bcvck32nmr" path="res://Scripts/Utilities/Level.gd" id="1_v23fv"]
+[ext_resource type="Texture2D" uid="uid://b14cbr6roep0c" path="res://Sprites/Npcs/Ven.png" id="2_lpb07"]
+[ext_resource type="Script" uid="uid://drtglsceeyc6s" path="res://Scripts/Npcs/ven.gd" id="3_60que"]
+[ext_resource type="Resource" uid="uid://b3swso8k75m0i" path="res://Dialogue/TimeLines/Ven the Scout.dtl" id="4_lpb07"]
+[ext_resource type="Texture2D" uid="uid://dc7pb7p0dufhd" path="res://Sprites/Npcs/Indecator.png" id="5_onlya"]
+[ext_resource type="PackedScene" uid="uid://byulcq74epm8n" path="res://Scenes/Characters/player.tscn" id="7_1e52s"]
+[ext_resource type="Script" uid="uid://ciy55ykdm701h" path="res://Scripts/Utilities/camera_manager.gd" id="8_q4ui2"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_mid6x"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_3heap"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_n50km"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_cuj1g"]
+[ext_resource type="Texture2D" uid="uid://cyuqpkts6fck1" path="res://Sprites/Particles/Particle1.png" id="13_qt5jj"]
+[ext_resource type="Shader" uid="uid://bke4a3e4d1jeu" path="res://Shaders/Fog.gdshader" id="14_dsbf4"]
+[ext_resource type="Texture2D" uid="uid://2dws8uvwlr1" path="res://Sprites/Enviroment/Sign1.png" id="15_0n7co"]
+[ext_resource type="Texture2D" uid="uid://ca1demej5f87e" path="res://Sprites/Enviroment/Spikes.png" id="16_erebi"]
+[ext_resource type="Texture2D" uid="uid://bjpvb8sqdq6sf" path="res://Sprites/Enviroment/Spear1.png" id="17_2u7j4"]
+[ext_resource type="Shader" uid="uid://bevhthvild5k6" path="res://Shaders/God-rays.gdshader" id="18_nrkm5"]
+[ext_resource type="Texture2D" uid="uid://bi5eck1a1jr57" path="res://Sprites/Enviroment/LightGlaze.png" id="19_h5evr"]
+[ext_resource type="Texture2D" uid="uid://c0im6sf2if1p2" path="res://Sprites/Enviroment/cart1.png" id="20_7txni"]
+[ext_resource type="Shader" uid="uid://4dxjakmo5wcb" path="res://Shaders/Wind.gdshader" id="21_t0t4j"]
+[ext_resource type="Texture2D" uid="uid://btm43f23gru3y" path="res://Sprites/Enviroment/Grass1.png" id="22_nhv4b"]
+[ext_resource type="Texture2D" uid="uid://fdefjmhskoqd" path="res://Sprites/Enviroment/Black_Tile.png" id="23_podyb"]
+[ext_resource type="Texture2D" uid="uid://4hmydilfa7u8" path="res://Sprites/Enviroment/GroundOverlay-Lowend.png" id="24_x4w5w"]
+[ext_resource type="Texture2D" uid="uid://di62asx3wbmvq" path="res://Sprites/Enviroment/Background-Rock1.png" id="25_nkhx2"]
+[ext_resource type="Texture2D" uid="uid://boudaqxwy66jo" path="res://Sprites/Enviroment/Spikes-Bg.png" id="26_nyrda"]
+[ext_resource type="Texture2D" uid="uid://bcsjocl0xpfb7" path="res://Sprites/Enviroment/Background-Tower1.png" id="27_t51nw"]
+[ext_resource type="Texture2D" uid="uid://du1s206knktbr" path="res://Sprites/Enviroment/AnotherRock-Bg.png" id="28_yiy5s"]
+[ext_resource type="Texture2D" uid="uid://5ptyv6i4am6b" path="res://Sprites/Enviroment/Bg-Bridge.png" id="29_p5oxk"]
+[ext_resource type="Shader" uid="uid://dvepolfbltogl" path="res://Shaders/Blurr.gdshader" id="30_wxiwl"]
+[ext_resource type="Texture2D" uid="uid://d3o4xmnaymbxl" path="res://Sprites/Enviroment/HangingThing1.png" id="31_c1fib"]
+[ext_resource type="Texture2D" uid="uid://bo3blvm2qde6s" path="res://Sprites/Enviroment/Bell.png" id="32_pnjvu"]
+[ext_resource type="Texture2D" uid="uid://cfdg1lpf12kqa" path="res://Sprites/Enviroment/ForGroundStuff.png" id="33_nsh3m"]
+[ext_resource type="Texture2D" uid="uid://bmmwmxcff2xwq" path="res://Sprites/Enviroment/GrassThings1.png" id="34_7s4is"]
+[ext_resource type="Shader" uid="uid://cutpmv4mhi2yp" path="res://Shaders/film-grain.gdshader" id="35_5ycn2"]
+[ext_resource type="Script" uid="uid://d3fj36s05brni" path="res://Scripts/Utilities/door.gd" id="36_3og7r"]
+
+[sub_resource type="Animation" id="Animation_nkccm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j5bn5"]
+resource_name = "visible"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjfom"]
+_data = {
+&"RESET": SubResource("Animation_nkccm"),
+&"visible": SubResource("Animation_j5bn5")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpb07"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 2.11
+shader_parameter/minStrength = 0.3950000187625
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 80.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.6250000296875
+shader_parameter/offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpb07"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(0, 0, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v23fv"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(1236, 0, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fnuv"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(0, 549, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3yxp"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(0, 0, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suvoj"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(1236, 0, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onlya"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(0, 549, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0og1"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(0, 0, 1236, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e52s"]
+atlas = ExtResource("2_lpb07")
+region = Rect2(1236, 0, 1236, 549)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpb07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpb07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v23fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fnuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3yxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suvoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onlya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0og1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e52s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbxnu"]
+size = Vector2(383, 871)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvqpj"]
+atlas = ExtResource("5_onlya")
+region = Rect2(0, 0, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7cca"]
+atlas = ExtResource("5_onlya")
+region = Rect2(284, 0, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbxnu"]
+atlas = ExtResource("5_onlya")
+region = Rect2(0, 200, 284, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85i3b"]
+atlas = ExtResource("5_onlya")
+region = Rect2(284, 200, 284, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2fe3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvqpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7cca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbxnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85i3b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_04pv1"]
+resource_name = "Entered"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oxjvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uul5j"]
+_data = {
+&"Entered": SubResource("Animation_04pv1"),
+&"RESET": SubResource("Animation_oxjvy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mq1v"]
+size = Vector2(5467, 3648)
+
+[sub_resource type="Resource" id="Resource_gvqpj"]
+script = ExtResource("10_3heap")
+
+[sub_resource type="Resource" id="Resource_edoo1"]
+script = ExtResource("11_n50km")
+amplitude = 12.0
+frequency = 0.2
+randomize_noise_seed = 1
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="Gradient" id="Gradient_seu5h"]
+offsets = PackedFloat32Array(0, 0.33918127, 0.61403507, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.96474224, 0.96474224, 0.9647421, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a8mfx"]
+gradient = SubResource("Gradient_seu5h")
+
+[sub_resource type="Curve" id="Curve_w3t6j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.8727272, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2548d"]
+curve = SubResource("Curve_w3t6j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nusu1"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5000.0
+gravity = Vector3(10, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.01
+scale_max = 0.12
+scale_curve = SubResource("CurveTexture_2548d")
+color_ramp = SubResource("GradientTexture1D_a8mfx")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.009999977
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fjfom"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dmwh3"]
+noise = SubResource("FastNoiseLite_fjfom")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obu67"]
+shader = ExtResource("14_dsbf4")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_dmwh3")
+shader_parameter/smoke_color = Color(0.24122617, 0.19863045, 0.2838695, 1)
+shader_parameter/distortion_speed = 0.2000000095
+shader_parameter/density = 0.42000001995
+
+[sub_resource type="Gradient" id="Gradient_s03kc"]
+offsets = PackedFloat32Array(0, 0.6465116)
+colors = PackedColorArray(1, 1, 1, 0.6627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c6lyb"]
+gradient = SubResource("Gradient_s03kc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev04k"]
+shader = ExtResource("18_nrkm5")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 1.0
+shader_parameter/color = Color(0.17254902, 0.16862746, 0.22745098, 0.64705884)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu5h"]
+shader = ExtResource("18_nrkm5")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(0.236752, 0.23184356, 0.30614522, 0.64705884)
+shader_parameter/hdr = false
+shader_parameter/seed = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8mfx"]
+shader = ExtResource("18_nrkm5")
+shader_parameter/angle = -0.26
+shader_parameter/position = -0.115
+shader_parameter/spread = 0.2250000106875
+shader_parameter/cutoff = 0.2250000581875
+shader_parameter/falloff = 0.5110000242725
+shader_parameter/edge_fade = 0.2170000103075
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3950000187625
+shader_parameter/color = Color(0.407734, 0.40374616, 0.50868267, 0.64705884)
+shader_parameter/hdr = false
+shader_parameter/seed = 126.94
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjfom"]
+shader = ExtResource("18_nrkm5")
+shader_parameter/angle = -0.26
+shader_parameter/position = -0.115
+shader_parameter/spread = 0.2250000106875
+shader_parameter/cutoff = 0.2250000581875
+shader_parameter/falloff = 0.5110000242725
+shader_parameter/edge_fade = 0.2170000103075
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 1.0
+shader_parameter/color = Color(0.23921569, 0.22352941, 0.34117648, 0.654902)
+shader_parameter/hdr = false
+shader_parameter/seed = 126.94
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6lyb"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.2450000116375
+shader_parameter/strengthScale = 111.82
+shader_parameter/interval = 10.345
+shader_parameter/detail = 1.535
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7unx"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.030000001425
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 1.0
+
+[sub_resource type="Gradient" id="Gradient_litq2"]
+offsets = PackedFloat32Array(0.13023256, 0.65581393)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s03kc"]
+gradient = SubResource("Gradient_litq2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk0x2"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 1.415
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.2000000095
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 2.04
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_litq2"]
+shader = ExtResource("30_wxiwl")
+shader_parameter/blur_size = 7.3950003512624995
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4y433"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 0.5
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.0400000019
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 2.04
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6etmk"]
+shader = ExtResource("21_t0t4j")
+shader_parameter/speed = 1.485
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s03kc"]
+shader = ExtResource("35_5ycn2")
+shader_parameter/grain_amount = 0.00800000038
+shader_parameter/grain_size = 2.92900013586762
+
+[sub_resource type="Environment" id="Environment_j5bn5"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_white = 4.97
+glow_enabled = true
+glow_intensity = 2.02
+glow_bloom = 0.1
+adjustment_enabled = true
+adjustment_contrast = 1.05
+adjustment_saturation = 1.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpb07"]
+size = Vector2(1569.5, 458.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qjwh"]
+size = Vector2(284, 829)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_v23fv")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+blend_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalLight2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_fjfom")
+}
+autoplay = "visible"
+
+[node name="Ven" type="AnimatedSprite2D" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_lpb07")
+position = Vector2(2790, -210.99998)
+scale = Vector2(0.25025502, 0.25025502)
+sprite_frames = SubResource("SpriteFrames_lpb07")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("3_60que")
+dialogue = ExtResource("4_lpb07")
+
+[node name="PlayerDetect" type="Area2D" parent="Ven"]
+position = Vector2(187.80841, 1642.3247)
+scale = Vector2(4.5454545, 4.5454545)
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ven/PlayerDetect"]
+position = Vector2(-23, -287)
+shape = SubResource("RectangleShape2D_dbxnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ven"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-151.8451, -587.40076)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2fe3k")
+frame = 3
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="Ven/AnimatedSprite2D"]
+offset_left = -78.788025
+offset_top = -45.454575
+offset_right = 81.211975
+offset_bottom = 18.545425
+theme_override_font_sizes/font_size = 64
+text = "Talk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ven"]
+libraries = {
+&"": SubResource("AnimationLibrary_uul5j")
+}
+speed_scale = 2.0
+
+[node name="Player" parent="." instance=ExtResource("7_1e52s")]
+position = Vector2(2483, 101)
+
+[node name="Camera" type="Node2D" parent="." groups=["Camera"]]
+script = ExtResource("8_q4ui2")
+
+[node name="RoomSize" type="CollisionShape2D" parent="Camera"]
+z_index = -4096
+position = Vector2(2723.5, 831)
+shape = SubResource("RectangleShape2D_2mq1v")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera" node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(2483, -79)
+script = ExtResource("9_mid6x")
+follow_mode = 5
+follow_target = NodePath("../../Player")
+tween_resource = SubResource("Resource_gvqpj")
+tween_on_load = false
+follow_offset = Vector2(0, -180)
+follow_damping = true
+dead_zone_width = 0.08
+dead_zone_height = 0.2
+draw_limits = true
+limit_target = NodePath("../RoomSize")
+noise = SubResource("Resource_edoo1")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+physics_interpolation_mode = 1
+position = Vector2(2483, -79)
+offset = Vector2(0.4451757, 1.9127951)
+limit_left = -10
+limit_top = -1354
+limit_right = 5746
+limit_bottom = 1737
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera/Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("12_cuj1g")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Enviroment" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Enviroment"]
+z_index = -1
+position = Vector2(3684, 761)
+amount = 200
+texture = ExtResource("13_qt5jj")
+lifetime = 8.0
+preprocess = 33.05
+speed_scale = 0.2
+randomness = 1.0
+visibility_rect = Rect2(-10000, -10000, 20000, 20000)
+process_material = SubResource("ParticleProcessMaterial_nusu1")
+
+[node name="Fog" type="ColorRect" parent="Enviroment"]
+z_index = 3
+material = SubResource("ShaderMaterial_obu67")
+offset_left = -1894.0
+offset_top = -406.0
+offset_right = 10106.0
+offset_bottom = 7890.0
+
+[node name="Light" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.8164147, 0.81672096, 0.9109149, 1)
+position = Vector2(-99.000015, 758.00006)
+scale = Vector2(19.46875, 17.7916)
+texture = SubResource("GradientTexture2D_c6lyb")
+flip_h = true
+
+[node name="Light2" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.8164147, 0.81672096, 0.9109149, 1)
+position = Vector2(5579.0005, 495)
+scale = Vector2(25.296883, 23.117664)
+texture = SubResource("GradientTexture2D_c6lyb")
+flip_h = true
+
+[node name="Decorations" type="Node2D" parent="Enviroment"]
+visible = false
+
+[node name="Sign1" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 1
+position = Vector2(3228, 743)
+texture = ExtResource("15_0n7co")
+
+[node name="Sign2" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 1
+position = Vector2(4586.9995, 749)
+rotation = -0.8552113
+texture = ExtResource("15_0n7co")
+
+[node name="Sign3" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 1
+position = Vector2(5474, 701.99976)
+rotation = 2.6179938
+texture = ExtResource("15_0n7co")
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(4086, 1136)
+texture = ExtResource("16_erebi")
+region_enabled = true
+region_rect = Rect2(1478.6925, 0, 197.3075, 240)
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(3858, 1135)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1478.6925, 0, 197.3075, 240)
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(3971, 1101)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Spear1" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(2717.0002, 852)
+rotation = -0.28797933
+texture = ExtResource("17_2u7j4")
+
+[node name="Spear3" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(5067, 691)
+rotation = -0.28797933
+texture = ExtResource("17_2u7j4")
+
+[node name="Spear2" type="Sprite2D" parent="Enviroment/Decorations"]
+position = Vector2(2709, 851)
+rotation = 0.31415927
+texture = ExtResource("17_2u7j4")
+
+[node name="God-Rays1" type="Sprite2D" parent="Enviroment/Decorations"]
+visible = false
+z_index = 10
+material = SubResource("ShaderMaterial_ev04k")
+position = Vector2(1082.0001, 340)
+scale = Vector2(0.8007099, 1)
+texture = ExtResource("19_h5evr")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="God-Rays2" type="Sprite2D" parent="Enviroment/Decorations"]
+visible = false
+z_index = 10
+material = SubResource("ShaderMaterial_seu5h")
+position = Vector2(2750, 350)
+scale = Vector2(0.8007099, 1)
+texture = ExtResource("19_h5evr")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="God-Rays3" type="Sprite2D" parent="Enviroment/Decorations"]
+visible = false
+z_index = 10
+material = SubResource("ShaderMaterial_a8mfx")
+position = Vector2(4480.0005, 355)
+scale = Vector2(0.8007099, 1)
+texture = ExtResource("19_h5evr")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="God-Rays4" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = 10
+material = SubResource("ShaderMaterial_fjfom")
+position = Vector2(2383.9998, 345.00003)
+rotation = 0.3577925
+scale = Vector2(0.8007099, 1)
+texture = ExtResource("19_h5evr")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Cart1" type="Sprite2D" parent="Enviroment/Decorations"]
+z_index = -1
+position = Vector2(1958, 891.00006)
+rotation = 0.72431165
+texture = ExtResource("20_7txni")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Cart2" type="Sprite2D" parent="Enviroment/Decorations"]
+visible = false
+z_index = -1
+position = Vector2(3113, 779)
+texture = ExtResource("20_7txni")
+region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
+
+[node name="Grass" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(1101, 870)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass2" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(1046, 867.00006)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass24" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5036, 691)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass32" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(4755, 702.00006)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass33" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5605, 690)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass34" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5644.0005, 823)
+rotation = 0.8115781
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass35" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5656.0005, 867)
+rotation = 0.8115781
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass36" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5668.9995, 955.0002)
+rotation = 1.4137167
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass37" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(4599, 738.00006)
+rotation = -0.8290314
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass38" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5176, 703.0001)
+rotation = -0.40142572
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass39" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(5232.0005, 706.00006)
+rotation = -0.40142572
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass3" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(996, 884.49994)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass4" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(941, 881.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass5" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(889, 883.49994)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass6" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(834, 880.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass7" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(728, 861.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass8" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(678, 878.9999)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass9" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(623, 875.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass10" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(571, 877.9999)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass11" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(516, 874.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass12" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(406, 894.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass13" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(356, 911.9999)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass14" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(301, 908.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass15" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(249, 910.9999)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass16" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(194, 907.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass17" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(2890, 858.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass18" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(2840, 875.9999)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass19" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(2785, 872.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass20" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(2733, 874.9999)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass21" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(2678, 871.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass22" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(4177, 672)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass23" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(4116, 678)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass25" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3913, 674)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass26" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3862.0002, 783.00006)
+rotation = -1.1868238
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass27" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3854.0002, 843.0001)
+rotation = -1.1868238
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass28" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(4322.0005, 800.9999)
+rotation = 1.1519173
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass29" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3509, 852.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+
+[node name="Grass30" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3457, 854.9999)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="Grass31" type="Sprite2D" parent="Enviroment/Decorations"]
+material = SubResource("ShaderMaterial_c6lyb")
+position = Vector2(3402, 851.99994)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("22_nhv4b")
+flip_h = true
+
+[node name="LightGlaze" type="Sprite2D" parent="Enviroment/Decorations"]
+modulate = Color(1, 1, 1, 0.39607844)
+position = Vector2(2250, 804)
+texture = ExtResource("19_h5evr")
+
+[node name="LightGlaze2" type="Sprite2D" parent="Enviroment/Decorations"]
+modulate = Color(1, 1, 1, 0.39607844)
+position = Vector2(2191, 780)
+texture = ExtResource("19_h5evr")
+flip_h = true
+
+[node name="BGDecorations" type="Node2D" parent="Enviroment"]
+
+[node name="ColorRect" type="ColorRect" parent="Enviroment/BGDecorations"]
+offset_left = -4798.0
+offset_top = -4569.0
+offset_right = 13799.0
+offset_bottom = 5885.0
+color = Color(0.2, 0.19215687, 0.28235295, 0.4117647)
+
+[node name="GroundOverlay" type="Node2D" parent="Enviroment"]
+z_index = 2
+material = SubResource("ShaderMaterial_u7unx")
+position = Vector2(3, 130)
+
+[node name="BlackTile" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(715.49994, 995)
+scale = Vector2(14.351563, 3.4375)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile3" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1856.5001, -955)
+scale = Vector2(29.507814, 6.59375)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(5113, 766)
+scale = Vector2(6.874999, 2.4687493)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2788.0002, 2297)
+scale = Vector2(8.695309, 6.6796875)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2357.1875, 2129)
+scale = Vector2(1.1533201, 6.6796875)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile4" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(-83.937485, -62.499977)
+scale = Vector2(1.5458981, 5.5703125)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(5574, -335.00003)
+scale = Vector2(4.6948256, 7.246094)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3560.7346, -927)
+scale = Vector2(2.152107, 7.246094)
+texture = ExtResource("23_podyb")
+
+[node name="GroundOverlayLowend27" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5620, 759)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend36" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4613, 764)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend44" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1931, 645)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend43" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2100, 725)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend46" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1923, 803)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend42" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1777, 734)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend51" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1275, 423)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 75, 314)
+
+[node name="GroundOverlayLowend91" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1597, 428)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 75, 314)
+
+[node name="GroundOverlayLowend48" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1433, 339)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 213.5)
+
+[node name="GroundOverlayLowend49" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2756, -418)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend146" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2458, -421)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend148" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2152.5, -413.5)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend149" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1854.5, -416.5)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend150" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1025, -418)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend153" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(700, -426)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend154" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(410, -426)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend155" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(131, -438)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend156" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(901, -448)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend151" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1620.5, -416.5)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend152" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1322.5, -419.5)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend143" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3010, -418)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend144" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3270, -408)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend145" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3437, -367)
+rotation = 3.551745
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 311.5)
+
+[node name="GroundOverlayLowend50" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1434, 525)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 213.5)
+
+[node name="GroundOverlayLowend81" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2382, 1486)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend82" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2551, 1566)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend83" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2228, 1575)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend84" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2393, 1665)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend85" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2893, 1266)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend86" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3062, 1346)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend87" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2739, 1355)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend88" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2904, 1445)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend89" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3458, 1869)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 253.5)
+
+[node name="GroundOverlayLowend90" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3620, 1940)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 101, 314)
+
+[node name="GroundOverlayLowend92" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3470, 2037)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend103" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3458, 1869)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 253.5)
+
+[node name="GroundOverlayLowend129" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3620, 1940)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 101, 314)
+
+[node name="GroundOverlayLowend130" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3470, 2037)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend131" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2384.5, 986.5)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 253.5)
+
+[node name="GroundOverlayLowend132" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2546.5, 1057.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 101, 314)
+
+[node name="GroundOverlayLowend133" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2396.5, 1154.5)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend135" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2975.5, 843.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 101, 314)
+
+[node name="GroundOverlayLowend93" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4057, 2144)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend94" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4226, 2224)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend95" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3903, 2233)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend96" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4068, 2323)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend97" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3484, 2358)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend98" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3653, 2438)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend99" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3330, 2447)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend100" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3495, 2537)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 217.5)
+
+[node name="GroundOverlayLowend52" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1978, 190)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend53" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2147, 270)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend54" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1970, 348)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend55" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1824, 279)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend56" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2409, 102)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend57" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3564, 189)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend58" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2400, 286)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend134" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2682.5, 104)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend136" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2673.5, 288)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend137" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2951.5, 102)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend138" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2942.5, 286)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend139" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3224.5, 97)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend140" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3215.5, 281)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend141" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3395.5, 99)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend142" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3386.5, 283)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend59" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2247, 180)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend37" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5268, -19)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend38" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5273, -333)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend39" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5271, -622)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend40" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5455, 129)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend41" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5753, 127)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend60" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3840, -639.1876)
+rotation = 1.5707964
+scale = Vector2(1.1610509, 1)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend61" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3845, -927.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend62" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3843, -1216.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend63" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3717, -400.99997)
+rotation = 2.6092672
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend21" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4823, 611)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend22" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5116, 614)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend25" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5421, 616)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend33" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4825.5, 905)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend34" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5118.5, 908)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend35" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5423.5, 910)
+rotation = 3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend29" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3880, 685)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 223.44473, 314)
+
+[node name="GroundOverlayLowend32" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3880, 685)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 223.44473, 314)
+
+[node name="GroundOverlayLowend24" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4076, 590)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend26" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4351, 593)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend31" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4622, 597)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend28" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4066, 805)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend45" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4341, 812)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend47" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4559, 812)
+rotation = -3.1415925
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(146.5, 778)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend19" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(-157, 771)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(463, 779)
+texture = ExtResource("24_x4w5w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1392, 783)
+texture = ExtResource("24_x4w5w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1548, 798)
+texture = ExtResource("24_x4w5w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend3" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(776, 781)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend4" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1082, 785)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend16" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1710.1323, 948.49817)
+rotation = 1.6231562
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend69" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2306, 771)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend72" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2945, 751)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend73" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2540, 1767)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend74" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2774, 1767)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend75" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3004, 1771)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend76" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3246, 1771)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 254, 314)
+
+[node name="GroundOverlayLowend17" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(1710.1323, 1190.4982)
+rotation = 1.6231562
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend20" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2183, 949)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend23" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2186, 1231)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend30" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2186, 1474)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend64" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2421, 943.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend65" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2424, 1225.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend66" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2424, 1468.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend77" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2422, 1640)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend104" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3363, 1910.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend105" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3366, 2192.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend106" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3366, 2435.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend107" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3364, 2607)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend108" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4036, 1895)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend109" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4039, 2177)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend110" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4039, 2420)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend111" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4274, 1889.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend112" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4277, 2171.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend113" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4277, 2414.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend114" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4275, 2586)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend115" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4035, 1124)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend116" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4038, 1406)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend117" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4038, 1649)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend118" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4273, 1118.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend119" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4276, 1400.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend120" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4276, 1643.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend121" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4274, 1815)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend122" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4029, 719)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend123" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4032, 1001)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend124" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4032, 1244)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend125" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4267, 713.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend126" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4270, 995.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend127" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4270, 1238.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend128" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4268, 1410)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend78" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2171, 1668)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend79" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2169, 1932)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend80" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2167, 2177)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend101" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2158, 2391)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend102" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2155, 2619)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend10" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(123.69792, -227.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend67" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2828.302, 939)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend68" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(2831.302, 1217)
+rotation = -1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend70" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3066.302, 933.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend71" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3069.302, 1215.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend11" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(121, -521)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend15" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(28.000015, 291)
+rotation = 2.4521875
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend18" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(-233.99998, 378)
+rotation = -3.1415927
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend14" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(129.69792, 60.5)
+rotation = 1.5707964
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="ParallaxBackground" type="Node2D" parent="Enviroment"]
+z_index = 2
+position = Vector2(-2, -120)
+
+[node name="PointLight2D" type="PointLight2D" parent="Enviroment/ParallaxBackground"]
+z_index = -250
+position = Vector2(2466, 215)
+energy = 1.48
+range_z_max = -200
+texture = SubResource("GradientTexture2D_s03kc")
+texture_scale = 26.3
+
+[node name="Background0" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+z_index = -1000
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(-111, -428)
+
+[node name="BG" type="ColorRect" parent="Enviroment/ParallaxBackground/Background0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11227.0
+offset_top = -7183.0
+offset_right = 20971.994
+offset_bottom = 10484.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.060859784, 0.060855605, 0.095364116, 1)
+
+[node name="Background1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+z_index = -150
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-485, -320)
+
+[node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(641, 1142)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(458, 917)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(439, 1154)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(263, 687)
+texture = ExtResource("25_nkhx2")
+
+[node name="Background2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
+z_index = -200
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(1948, -419)
+
+[node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1064, 1168)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+
+[node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1456, 1168)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1063.6, 1362.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+flip_v = true
+
+[node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1455.6001, 1362.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_v = true
+
+[node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1070, 1523.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+
+[node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1462, 1523.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1069.6, 1718.6499)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+flip_v = true
+
+[node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1461.6001, 1718.6499)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_v = true
+
+[node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1062, 434.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+
+[node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1454, 434.825)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1061.6, 629.64996)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+flip_v = true
+
+[node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1453.6001, 629.64996)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_v = true
+
+[node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1068, 790.64996)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+
+[node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1460, 790.64996)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1067.6, 985.4749)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_h = true
+flip_v = true
+
+[node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1459.6001, 985.4749)
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("25_nkhx2")
+flip_v = true
+
+[node name="Background10" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+z_index = -155
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(1667.0001, 111.000015)
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(274.9112, 156.00002)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(477.5778, 200.00002)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(3013.578, 169.33336)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(3216.2446, 213.33336)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(5242.911, 154.66669)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
+position = Vector2(5445.578, 198.66669)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Background9" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+z_index = -155
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(1349, 222)
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(274.9112, 156.00002)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(477.5778, 200.00002)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(3013.578, 169.33336)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(3216.2446, 213.33336)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(5242.911, 154.66669)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
+position = Vector2(5445.578, 198.66669)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Background7" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+z_index = -155
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(1628.0001, 115)
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(274.9112, 156.00002)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(477.5778, 200.00002)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(3013.578, 169.33336)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(3216.2446, 213.33336)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(5242.911, 154.66669)
+scale = Vector2(2.5444446, 2.5444446)
+texture = ExtResource("26_nyrda")
+
+[node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
+position = Vector2(5445.578, 198.66669)
+scale = Vector2(2.427778, 2.427778)
+texture = ExtResource("26_nyrda")
+
+[node name="Background3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.3366076, 0.33660764, 0.33660752, 1)
+z_index = -220
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-174, -452)
+
+[node name="BackgroundTower1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(1186.6666, 1184)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(1178.6666, 2045)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(2754.6667, 1101)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(2746.6667, 1962)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(3999.6667, 995)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(3991.6667, 1856)
+texture = ExtResource("27_t51nw")
+
+[node name="BackgroundTower3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
+position = Vector2(1176.6666, 319)
+texture = ExtResource("27_t51nw")
+
+[node name="Background5" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
+z_index = -250
+material = SubResource("ShaderMaterial_wk0x2")
+rotation = 2.3561945
+scale = Vector2(0.74999994, 0.74999994)
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1638.0001, 529.9999)
+
+[node name="BackgroundRock21" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(745.5162, 1789.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(597.5161, 1588.331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(412.18268, 1360.3312)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(232.1827, 1134.9977)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(745.5162, 1789.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(597.5161, 1588.331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(412.18268, 1360.3312)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(232.1827, 1134.9977)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(962.8493, 1937.6648)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(0.18266296, 889.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1109.5162, 1760.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(961.5161, 1558.9978)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(776.1827, 1330.9979)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(596.18274, 1105.6644)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1109.5162, 1760.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(961.5161, 1558.9978)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(776.1827, 1330.9979)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(596.18274, 1105.6644)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1326.8494, 1908.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(364.1827, 860.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(894.66675, 1842.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(746.6666, 1641.3331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(561.33325, 1413.3333)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(381.3333, 1187.9999)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(894.66675, 1842.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(746.6666, 1641.3331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(561.33325, 1413.3333)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(381.3333, 1187.9999)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1112, 1990.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(149.33328, 942.66675)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock31" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(584.3241, 1895.5884)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock32" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(436.324, 1694.2548)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock33" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(250.99057, 1466.2549)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock34" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(70.990585, 1240.9214)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock35" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(584.3241, 1895.5884)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock36" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(436.324, 1694.2548)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock37" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(250.99057, 1466.2549)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock38" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(70.990585, 1240.9214)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock39" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(801.6572, 2043.5885)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock40" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(-161.00945, 995.5884)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock41" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(948.3241, 1866.255)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock42" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(800.324, 1664.9215)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock43" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(614.9906, 1436.9216)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock44" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(434.99063, 1211.5881)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock45" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(948.3241, 1866.255)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock46" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(800.324, 1664.9215)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock47" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(614.9906, 1436.9216)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock48" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(434.99063, 1211.5881)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock49" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1165.6572, 2014.255)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock50" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(202.9906, 966.255)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock51" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(733.4746, 1948.5903)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock52" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(585.4745, 1747.2568)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock53" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(400.14114, 1519.257)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock54" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(220.1412, 1293.9236)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock55" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(733.4746, 1948.5903)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock56" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(585.4745, 1747.2568)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock57" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(400.14114, 1519.257)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock58" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(220.1412, 1293.9236)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock59" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(950.80786, 2096.5903)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock60" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(-11.858826, 1048.5905)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="Background6" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
+z_index = -250
+material = SubResource("ShaderMaterial_wk0x2")
+rotation = 2.3561945
+scale = Vector2(0.74999994, 0.74999994)
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(3117.0002, 554)
+
+[node name="BackgroundRock21" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(850.818, 1945.8787)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(702.81793, 1744.545)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(517.4845, 1516.5452)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(337.4845, 1291.2117)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(850.818, 1945.8787)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(702.81793, 1744.545)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(517.4845, 1516.5452)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(337.4845, 1291.2117)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1068.1511, 2093.8787)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(105.4845, 1045.8787)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1214.8181, 1916.5453)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1066.8179, 1715.2118)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(881.4845, 1487.2119)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(701.48456, 1261.8784)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1214.8181, 1916.5453)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1066.8179, 1715.2118)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(881.4845, 1487.2119)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(701.48456, 1261.8784)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1432.1511, 2064.5452)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(469.48456, 1016.5453)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(999.96857, 1998.8806)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(851.96844, 1797.5471)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(666.6351, 1569.5472)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(486.63513, 1344.2139)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(999.96857, 1998.8806)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(851.96844, 1797.5471)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(666.6351, 1569.5472)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(486.63513, 1344.2139)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1217.3018, 2146.8806)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(254.63512, 1098.8807)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock31" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(689.6259, 2051.8022)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock32" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(541.62585, 1850.4688)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock33" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(356.29242, 1622.4689)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock34" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(176.29242, 1397.1354)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock35" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(689.6259, 2051.8022)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock36" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(541.62585, 1850.4688)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock37" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(356.29242, 1622.4689)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock38" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(176.29242, 1397.1354)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock39" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(906.95905, 2199.8025)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock40" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(-55.70761, 1151.8024)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock41" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1053.626, 2022.469)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock42" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(905.6258, 1821.1355)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock43" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(720.2924, 1593.1356)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock44" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(540.2925, 1367.8021)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock45" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1053.626, 2022.469)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock46" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(905.6258, 1821.1355)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock47" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(720.2924, 1593.1356)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock48" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(540.2925, 1367.8021)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock49" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1270.959, 2170.469)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock50" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(308.29242, 1122.469)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock51" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(838.7764, 2104.8042)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock52" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(690.7763, 1903.4708)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock53" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(505.443, 1675.471)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock54" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(325.44305, 1450.1376)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock55" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(838.7764, 2104.8042)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock56" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(690.7763, 1903.4708)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock57" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(505.443, 1675.471)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock58" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(325.44305, 1450.1376)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock59" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1056.1097, 2252.8042)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock60" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(93.44301, 1204.8044)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="Background8" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
+z_index = -190
+material = SubResource("ShaderMaterial_wk0x2")
+rotation = 2.3561945
+scale = Vector2(0.74999994, 0.74999994)
+scroll_scale = Vector2(0.65, 0.65)
+scroll_offset = Vector2(4435, 396.99994)
+
+[node name="AnotherRockBg" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(2484.302, 1584.8623)
+rotation = -2.3561945
+scale = Vector2(1.0424058, 1.0424058)
+texture = ExtResource("28_yiy5s")
+
+[node name="AnotherRockBg5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(1086.1162, 576.9995)
+rotation = -2.3561945
+scale = Vector2(1.0424058, 1.0424058)
+texture = ExtResource("28_yiy5s")
+
+[node name="AnotherRockBg3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(989.00684, 274.35767)
+rotation = -2.3561945
+scale = Vector2(1.0424058, 1.0424058)
+texture = ExtResource("28_yiy5s")
+
+[node name="AnotherRockBg4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(1316.1617, 543.0581)
+rotation = -2.3561945
+scale = Vector2(1.0424058, 1.0424058)
+texture = ExtResource("28_yiy5s")
+
+[node name="AnotherRockBg2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(2840.684, 1967.6428)
+rotation = -2.3561945
+scale = Vector2(1.4720576, 1.4720576)
+texture = ExtResource("28_yiy5s")
+
+[node name="AnotherRockBg7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+visible = false
+position = Vector2(2537.0986, 1705.5414)
+rotation = -2.3561945
+scale = Vector2(2.9568355, 2.9568355)
+texture = ExtResource("24_x4w5w")
+
+[node name="AnotherRockBg6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
+position = Vector2(986.6497, 11.785446)
+rotation = -2.3561945
+scale = Vector2(4.122875, 2.9568355)
+texture = ExtResource("24_x4w5w")
+
+[node name="Background4" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.37036446, 0.3703645, 0.37036443, 1)
+z_index = -250
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-168, -284)
+
+[node name="BackgroundRock21" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(745.5162, 1789.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(597.5161, 1588.331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(412.18268, 1360.3312)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(232.1827, 1134.9977)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(745.5162, 1789.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(597.5161, 1588.331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(412.18268, 1360.3312)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(232.1827, 1134.9977)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(962.8493, 1937.6648)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(0.18266296, 889.6647)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1109.5162, 1760.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(961.5161, 1558.9978)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(776.1827, 1330.9979)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(596.18274, 1105.6644)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1109.5162, 1760.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(961.5161, 1558.9978)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(776.1827, 1330.9979)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(596.18274, 1105.6644)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1326.8494, 1908.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(364.1827, 860.3313)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(894.66675, 1842.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(746.6666, 1641.3331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(561.33325, 1413.3333)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(381.3333, 1187.9999)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(894.66675, 1842.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(746.6666, 1641.3331)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(561.33325, 1413.3333)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(381.3333, 1187.9999)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(1112, 1990.6666)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
+modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
+position = Vector2(149.33328, 942.66675)
+scale = Vector2(0.8510129, 0.8510129)
+texture = ExtResource("25_nkhx2")
+
+[node name="Background11" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.37036446, 0.3703645, 0.37036443, 1)
+z_index = -400
+material = SubResource("ShaderMaterial_wk0x2")
+scale = Vector2(0.56, 0.56)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-137, 119)
+
+[node name="Bg-Bridge" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(800.2285, 1509.5714)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("29_p5oxk")
+
+[node name="Bg-Bridge2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(2024.2286, 1512.2383)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("29_p5oxk")
+
+[node name="Bg-Bridge3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(3251.6953, 1507.2715)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("29_p5oxk")
+
+[node name="Bg-Bridge4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
+position = Vector2(4475.6953, 1509.9384)
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("29_p5oxk")
+
+[node name="ColorRect" type="ColorRect" parent="Enviroment/ParallaxBackground"]
+z_index = -174
+material = SubResource("ShaderMaterial_litq2")
+offset_left = -541.0
+offset_top = -2166.0
+offset_right = 10503.0
+offset_bottom = 3728.0
+color = Color(0.44705883, 0.43529412, 0.58431375, 0.20784314)
+
+[node name="Spikes1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+visible = false
+scroll_offset = Vector2(-13, -555)
+
+[node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(1026, -68.500015)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(1209, 175.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(1218, 136.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(466, 157.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(300, 140.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(970, 152.5)
+texture = ExtResource("16_erebi")
+
+[node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(2784, -68.5)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(2976, 136.50002)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(2224, 157.50002)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(2058, 140.50002)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
+position = Vector2(2728, 50)
+texture = ExtResource("16_erebi")
+
+[node name="Spikes2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+visible = false
+modulate = Color(0.61745477, 0.61745477, 0.6174547, 1)
+scroll_scale = Vector2(1.2, 1.2)
+scroll_offset = Vector2(49, -654)
+
+[node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(1026, -68.500015)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(1209, 175.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(1218, 136.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(466, 157.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(300, 140.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(970, 152.5)
+texture = ExtResource("16_erebi")
+
+[node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2790, -63.500015)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2746, 198)
+texture = ExtResource("16_erebi")
+flip_h = true
+
+[node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2982, 141.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2230, 162.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2064, 145.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
+position = Vector2(2734, 157.5)
+texture = ExtResource("16_erebi")
+
+[node name="Spikes3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0, 0, 0, 1)
+z_index = 31
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(1780, -1350)
+
+[node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(1026, -68.500015)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(1209, 175.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+
+[node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(1218, 136.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(466, 157.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(300, 140.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(2365, -35.50001)
+scale = Vector2(7.3749986, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(2233, 190.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(2067, 173.5)
+texture = ExtResource("16_erebi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(798.23895, 0, 568.0557, 240)
+
+[node name="BlackTile3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(1472, -172.00005)
+scale = Vector2(21.53125, 4.265625)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(-374, -204.99998)
+scale = Vector2(21.53125, 4.265625)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(-1321, 246)
+scale = Vector2(8.507813, 4.265625)
+texture = ExtResource("23_podyb")
+
+[node name="BlackTile4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(-514.99994, -26)
+scale = Vector2(14.0625, 2.1328125)
+texture = ExtResource("23_podyb")
+
+[node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(970, 152.5)
+texture = ExtResource("16_erebi")
+
+[node name="Spikes18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
+position = Vector2(399, 171)
+texture = ExtResource("16_erebi")
+
+[node name="ForGround1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0, 0, 0, 1)
+z_index = 200
+material = SubResource("ShaderMaterial_wk0x2")
+scroll_scale = Vector2(2, 2)
+scroll_offset = Vector2(-337, -217)
+
+[node name="HangingThing1" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+use_parent_material = true
+position = Vector2(451, 461.72668)
+scale = Vector2(0.7204969, 0.72049683)
+texture = ExtResource("31_c1fib")
+
+[node name="HangingThing3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+use_parent_material = true
+position = Vector2(422, 1134)
+scale = Vector2(0.7204969, 0.72049683)
+texture = ExtResource("31_c1fib")
+
+[node name="HangingThing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+use_parent_material = true
+position = Vector2(4818, 593)
+texture = ExtResource("31_c1fib")
+
+[node name="Bell" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7600.0737, 255.40393)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("32_pnjvu")
+
+[node name="Bellthing" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7600.0737, -276.59607)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("32_pnjvu")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
+
+[node name="Bellthing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
+modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+position = Vector2(7598.0737, -523.59607)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("32_pnjvu")
+region_enabled = true
+region_rect = Rect2(0, -25.49, 480, 188.93634)
+
+[node name="ForGround3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0, 0, 0, 1)
+z_index = 200
+material = SubResource("ShaderMaterial_4y433")
+scroll_scale = Vector2(2, 2)
+scroll_offset = Vector2(-337, -217)
+
+[node name="HangingThing3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+use_parent_material = true
+position = Vector2(2482, 539)
+scale = Vector2(1.3988351, 1.3988352)
+texture = ExtResource("33_nsh3m")
+region_enabled = true
+region_rect = Rect2(0, 0, 136.39139, 617)
+
+[node name="HangingThing5" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+use_parent_material = true
+position = Vector2(2475.0002, 48.000015)
+scale = Vector2(1.3988351, 2.095429)
+texture = ExtResource("33_nsh3m")
+region_enabled = true
+region_rect = Rect2(0, 0, 136.39139, 351.80066)
+
+[node name="HangingThing4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+use_parent_material = true
+position = Vector2(779.09894, 521.07697)
+scale = Vector2(1.3988351, 1.3988352)
+texture = ExtResource("33_nsh3m")
+region_enabled = true
+region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
+
+[node name="HangingThing6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+use_parent_material = true
+position = Vector2(781.7786, -67.9615)
+scale = Vector2(1.3988351, 1.3988352)
+texture = ExtResource("33_nsh3m")
+region_enabled = true
+region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
+
+[node name="Cart2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+position = Vector2(911.77765, 978.03845)
+rotation = -0.3577925
+scale = Vector2(1.976, 1.976)
+texture = ExtResource("20_7txni")
+flip_h = true
+
+[node name="Cart3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
+position = Vector2(223.08582, 1164.4429)
+rotation = 0.54105204
+scale = Vector2(1.580537, 1.580537)
+texture = ExtResource("20_7txni")
+
+[node name="ForGround2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0, 0, 0, 1)
+z_index = 200
+material = SubResource("ShaderMaterial_6etmk")
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(-165, 2126)
+
+[node name="GrassThings1" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(754, 1240.0002)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(1303, 1279)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(1730, 1263)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="GrassThings4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(2540.0002, 1362)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings5" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(3101.0002, 1353.0001)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(3516, 1263)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="GrassThings7" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(4266, 1207.0001)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings8" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(4815, 1248)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings9" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(5242, 1232)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+position = Vector2(5442, 2592.9902)
+scale = Vector2(82.796875, 21.109528)
+texture = ExtResource("23_podyb")
+flip_h = true
+
+[node name="GrassThings10" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(5912, 1255.25)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings11" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(6461, 1296.2499)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings12" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(6888, 1280.2499)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="GrassThings13" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(7698, 1255.25)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings14" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(8247, 1296.2499)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings15" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(8674, 1277.25)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="GrassThings16" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(9424, 1224.25)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings17" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(9973, 1265.2499)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+
+[node name="GrassThings18" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+use_parent_material = true
+position = Vector2(10400, 1249.2499)
+scale = Vector2(1.3128079, 1.3128079)
+texture = ExtResource("34_7s4is")
+flip_h = true
+
+[node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
+position = Vector2(8017.51, 1531.2401)
+scale = Vector2(42.445465, 4.2501545)
+texture = ExtResource("23_podyb")
+flip_h = true
+
+[node name="ForGround4" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+z_index = 200
+scroll_scale = Vector2(1.6, 1.6)
+scroll_offset = Vector2(-329, -274)
+
+[node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(1132.3964, 1303)
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(959.3959, 1320)
+rotation = -0.23561946
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(1360.3962, 1338)
+rotation = 0.54105204
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(1485.3965, 1501.0001)
+rotation = 1.2740904
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend12" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(1542.6985, 1670.0001)
+rotation = 1.2740904
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend5" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(819.39636, 1453.9999)
+rotation = -1.1082841
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend11" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(759.6981, 1609.9999)
+rotation = -1.1082841
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend7" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(2014.0001, 1189.0001)
+rotation = -0.23561946
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend8" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(2333.0002, 1239)
+rotation = 0.54105204
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend9" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(2513.6982, 1356.2928)
+rotation = 1.2740904
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend10" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(1847.6981, 1309.2926)
+rotation = -1.1082841
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("24_x4w5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="Collisions" type="StaticBody2D" parent="Enviroment"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+visible = false
+polygon = PackedVector2Array(-1820, 942, 690.5444, 900.00006, 1775.1833, 900.00006, 1778, 775, 2100, 780, 2106, 898, 2436, 900, 2431, 1302, 2429.9795, 1635, 2557, 1645, 2562, 1760, 2429.442, 1760.9226, 2429, 1891, 3365, 1895, 3362, 2043, 3608, 2058, 3608, 2141, 3363.9097, 2148, 3363.2188, 2484.587, 3603, 2506, 3600, 2621, 3362.7178, 2650.4778, 3362, 2888, 2117, 2212, -200, 1343)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(839, -53)
+polygon = PackedVector2Array(3052, 799, 3264.0864, 799.245, 4783, 801, 4783, 1092, 3050, 1097)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(27, 1410)
+polygon = PackedVector2Array(3903, 864, 4236, 862, 4235, 1016, 3903, 1013)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-1174, 526)
+polygon = PackedVector2Array(3903, 864, 4236, 862, 4235, 1016, 3903, 1013)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-1071, 514)
+polygon = PackedVector2Array(3903, 367, 4145, 369, 4146, 1016, 3903, 1013)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(125, 1668)
+polygon = PackedVector2Array(3903, -947, 4131, -947, 4146, 1016, 3903, 1013)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-2136, -85)
+polygon = PackedVector2Array(3903, 864, 4236, 862, 4235, 1016, 3903, 1013)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-2616, -318)
+polygon = PackedVector2Array(3903, 864, 4205, 862, 4202, 922, 3903, 926)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-2067, -526)
+polygon = PackedVector2Array(3903, 864, 4205, 862, 4202, 982, 3903, 988)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-1655, -609)
+polygon = PackedVector2Array(3903, 864, 5219, 862, 5217, 982, 3903, 988)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+z_index = 3
+position = Vector2(-1706, 287)
+polygon = PackedVector2Array(3903, 864, 4236, 862, 4235, 912, 3903, 912)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(839, -53)
+polygon = PackedVector2Array(-1032, 489, -1032, -1173, 2996, -1069, 2880, -377, -733, -387, -737, 435)
+
+[node name="Effects" type="CanvasLayer" parent="Enviroment"]
+
+[node name="ColorRect" type="ColorRect" parent="Enviroment/Effects"]
+material = SubResource("ShaderMaterial_s03kc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="CanvasLayer" parent="Enviroment"]
+layer = -1
+
+[node name="BG" type="ColorRect" parent="Enviroment/BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.091507114, 0.0915005, 0.13394576, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j5bn5")
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(3808, 2705)
+collision_mask = 64
+script = ExtResource("36_3og7r")
+door_id = "to-Level10"
+exit_push = Vector2(-300, -1150)
+target_scene = "uid://bytlq3xnxs415"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-29.25, 175)
+shape = SubResource("RectangleShape2D_lpb07")
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(5463, 555)
+collision_mask = 64
+script = ExtResource("36_3og7r")
+door_id = "2"
+exit_push = Vector2(-500, 0)
+target_scene = "uid://dmg6i85nmtd58"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_0qjwh")

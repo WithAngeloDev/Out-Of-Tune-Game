@@ -175,7 +175,7 @@ shape = SubResource("CircleShape2D_2fe3k")
 [node name="Rays" type="Node2D" parent="."]
 
 [node name="RayWall" type="RayCast2D" parent="Rays"]
-position = Vector2(7, -4)
+position = Vector2(7, 37)
 target_position = Vector2(-127, 3)
 
 [node name="RayLedge" type="RayCast2D" parent="Rays"]

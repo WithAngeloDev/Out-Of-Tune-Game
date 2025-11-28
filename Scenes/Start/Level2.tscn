@@ -1,42 +1,43 @@
-[gd_scene load_steps=76 format=3 uid="uid://baou0r06rrf0j"]
+[gd_scene load_steps=77 format=3 uid="uid://dmg6i85nmtd58"]
 
-[ext_resource type="Script" uid="uid://dp8bcvck32nmr" path="res://Scripts/Utilities/Level.gd" id="1_c77hu"]
-[ext_resource type="PackedScene" uid="uid://byulcq74epm8n" path="res://Scenes/Characters/player.tscn" id="2_y3i32"]
-[ext_resource type="Script" uid="uid://ciy55ykdm701h" path="res://Scripts/Utilities/camera_manager.gd" id="3_a3acn"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_2lxrc"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_rqygv"]
-[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="6_hh005"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_1el5g"]
-[ext_resource type="Script" uid="uid://b7ahm0tfsadvg" path="res://Scripts/Utilities/CameraArea.gd" id="8_2lxrc"]
-[ext_resource type="Texture2D" uid="uid://cyuqpkts6fck1" path="res://Sprites/Particles/Particle1.png" id="8_tagpq"]
-[ext_resource type="Shader" uid="uid://bke4a3e4d1jeu" path="res://Shaders/Fog.gdshader" id="9_mqfy7"]
-[ext_resource type="Texture2D" uid="uid://2dws8uvwlr1" path="res://Sprites/Enviroment/Sign1.png" id="10_8j24w"]
-[ext_resource type="Texture2D" uid="uid://ca1demej5f87e" path="res://Sprites/Enviroment/Spikes.png" id="11_7t843"]
-[ext_resource type="Shader" uid="uid://bevhthvild5k6" path="res://Shaders/God-rays.gdshader" id="12_iq3hh"]
-[ext_resource type="Texture2D" uid="uid://bi5eck1a1jr57" path="res://Sprites/Enviroment/LightGlaze.png" id="13_2gc0a"]
-[ext_resource type="Texture2D" uid="uid://c0im6sf2if1p2" path="res://Sprites/Enviroment/cart1.png" id="14_xkgjg"]
-[ext_resource type="Shader" uid="uid://4dxjakmo5wcb" path="res://Shaders/Wind.gdshader" id="15_vrex4"]
-[ext_resource type="Texture2D" uid="uid://btm43f23gru3y" path="res://Sprites/Enviroment/Grass1.png" id="16_fyi5n"]
-[ext_resource type="Texture2D" uid="uid://bjpvb8sqdq6sf" path="res://Sprites/Enviroment/Spear1.png" id="17_n3r6o"]
-[ext_resource type="Texture2D" uid="uid://bmmwmxcff2xwq" path="res://Sprites/Enviroment/GrassThings1.png" id="18_ite0n"]
-[ext_resource type="Texture2D" uid="uid://fdefjmhskoqd" path="res://Sprites/Enviroment/Black_Tile.png" id="19_ce7oj"]
-[ext_resource type="Texture2D" uid="uid://4hmydilfa7u8" path="res://Sprites/Enviroment/GroundOverlay-Lowend.png" id="20_8jsgd"]
-[ext_resource type="Texture2D" uid="uid://di62asx3wbmvq" path="res://Sprites/Enviroment/Background-Rock1.png" id="21_38rsi"]
-[ext_resource type="Texture2D" uid="uid://jrsjkqyt4l61" path="res://Sprites/Enviroment/BG-element.png" id="22_dvfke"]
-[ext_resource type="Texture2D" uid="uid://boudaqxwy66jo" path="res://Sprites/Enviroment/Spikes-Bg.png" id="23_5vlkp"]
-[ext_resource type="Texture2D" uid="uid://bcsjocl0xpfb7" path="res://Sprites/Enviroment/Background-Tower1.png" id="24_owvnx"]
-[ext_resource type="Texture2D" uid="uid://du1s206knktbr" path="res://Sprites/Enviroment/AnotherRock-Bg.png" id="25_dw1we"]
-[ext_resource type="Shader" uid="uid://dvepolfbltogl" path="res://Shaders/Blurr.gdshader" id="26_cfd2q"]
-[ext_resource type="Texture2D" uid="uid://d3o4xmnaymbxl" path="res://Sprites/Enviroment/HangingThing1.png" id="27_lq7i4"]
-[ext_resource type="Texture2D" uid="uid://cfdg1lpf12kqa" path="res://Sprites/Enviroment/ForGroundStuff.png" id="28_dxubt"]
-[ext_resource type="Shader" uid="uid://cutpmv4mhi2yp" path="res://Shaders/film-grain.gdshader" id="29_ol0s6"]
-[ext_resource type="Script" uid="uid://d3fj36s05brni" path="res://Scripts/Utilities/door.gd" id="30_ggg5d"]
-[ext_resource type="PackedScene" uid="uid://ddft4by2q6iww" path="res://Scenes/Characters/Enemies/enemy_2-Walker.tscn" id="31_y3i32"]
-[ext_resource type="Texture2D" uid="uid://b6lu3dmhnn75q" path="res://Sprites/Enviroment/Break-Floor.png" id="32_a3acn"]
-[ext_resource type="Script" uid="uid://cis035vndji0n" path="res://Scripts/Utilities/Checkpoint-Bell.gd" id="34_hh005"]
-[ext_resource type="Texture2D" uid="uid://bo3blvm2qde6s" path="res://Sprites/Enviroment/Bell.png" id="34_rqygv"]
-[ext_resource type="Shader" uid="uid://bp0ejmlaaurfi" path="res://Shaders/ShockWave.gdshader" id="35_tagpq"]
-[ext_resource type="AudioStream" uid="uid://bbf16yc56jdbh" path="res://Audio/Bell-Checpoint.mp3" id="36_1el5g"]
+[ext_resource type="Script" uid="uid://dp8bcvck32nmr" path="res://Scripts/Utilities/Level.gd" id="1_tagpq"]
+[ext_resource type="PackedScene" uid="uid://byulcq74epm8n" path="res://Scenes/Characters/player.tscn" id="2_mqfy7"]
+[ext_resource type="Script" uid="uid://ciy55ykdm701h" path="res://Scripts/Utilities/camera_manager.gd" id="3_8j24w"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_7t843"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_iq3hh"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="6_2gc0a"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_xkgjg"]
+[ext_resource type="Script" uid="uid://b7ahm0tfsadvg" path="res://Scripts/Utilities/CameraArea.gd" id="8_vrex4"]
+[ext_resource type="Texture2D" uid="uid://cyuqpkts6fck1" path="res://Sprites/Particles/Particle1.png" id="9_fyi5n"]
+[ext_resource type="Shader" uid="uid://bke4a3e4d1jeu" path="res://Shaders/Fog.gdshader" id="10_n3r6o"]
+[ext_resource type="Shader" uid="uid://bevhthvild5k6" path="res://Shaders/God-rays.gdshader" id="11_ite0n"]
+[ext_resource type="Texture2D" uid="uid://bi5eck1a1jr57" path="res://Sprites/Enviroment/LightGlaze.png" id="12_ce7oj"]
+[ext_resource type="Texture2D" uid="uid://c0im6sf2if1p2" path="res://Sprites/Enviroment/cart1.png" id="13_8jsgd"]
+[ext_resource type="Shader" uid="uid://4dxjakmo5wcb" path="res://Shaders/Wind.gdshader" id="14_38rsi"]
+[ext_resource type="Texture2D" uid="uid://btm43f23gru3y" path="res://Sprites/Enviroment/Grass1.png" id="15_dvfke"]
+[ext_resource type="Texture2D" uid="uid://bmmwmxcff2xwq" path="res://Sprites/Enviroment/GrassThings1.png" id="16_5vlkp"]
+[ext_resource type="Texture2D" uid="uid://2dws8uvwlr1" path="res://Sprites/Enviroment/Sign1.png" id="17_owvnx"]
+[ext_resource type="Texture2D" uid="uid://bjpvb8sqdq6sf" path="res://Sprites/Enviroment/Spear1.png" id="18_dw1we"]
+[ext_resource type="Texture2D" uid="uid://fdefjmhskoqd" path="res://Sprites/Enviroment/Black_Tile.png" id="19_cfd2q"]
+[ext_resource type="Texture2D" uid="uid://4hmydilfa7u8" path="res://Sprites/Enviroment/GroundOverlay-Lowend.png" id="20_lq7i4"]
+[ext_resource type="Texture2D" uid="uid://b6lu3dmhnn75q" path="res://Sprites/Enviroment/Break-Floor.png" id="21_dxubt"]
+[ext_resource type="Texture2D" uid="uid://di62asx3wbmvq" path="res://Sprites/Enviroment/Background-Rock1.png" id="22_ol0s6"]
+[ext_resource type="Texture2D" uid="uid://jrsjkqyt4l61" path="res://Sprites/Enviroment/BG-element.png" id="23_ggg5d"]
+[ext_resource type="Texture2D" uid="uid://boudaqxwy66jo" path="res://Sprites/Enviroment/Spikes-Bg.png" id="24_ylfgl"]
+[ext_resource type="Texture2D" uid="uid://bcsjocl0xpfb7" path="res://Sprites/Enviroment/Background-Tower1.png" id="25_mojow"]
+[ext_resource type="Texture2D" uid="uid://du1s206knktbr" path="res://Sprites/Enviroment/AnotherRock-Bg.png" id="26_owouj"]
+[ext_resource type="Shader" uid="uid://dvepolfbltogl" path="res://Shaders/Blurr.gdshader" id="27_qvvg7"]
+[ext_resource type="Texture2D" uid="uid://ca1demej5f87e" path="res://Sprites/Enviroment/Spikes.png" id="28_ndxan"]
+[ext_resource type="Texture2D" uid="uid://d3o4xmnaymbxl" path="res://Sprites/Enviroment/HangingThing1.png" id="29_jp71f"]
+[ext_resource type="Texture2D" uid="uid://cfdg1lpf12kqa" path="res://Sprites/Enviroment/ForGroundStuff.png" id="30_d312v"]
+[ext_resource type="Shader" uid="uid://cutpmv4mhi2yp" path="res://Shaders/film-grain.gdshader" id="31_885kl"]
+[ext_resource type="Script" uid="uid://d3fj36s05brni" path="res://Scripts/Utilities/door.gd" id="32_n1pk2"]
+[ext_resource type="PackedScene" uid="uid://ddft4by2q6iww" path="res://Scenes/Characters/Enemies/enemy_2-Walker.tscn" id="33_nkqgu"]
+[ext_resource type="Script" uid="uid://cis035vndji0n" path="res://Scripts/Utilities/Checkpoint-Bell.gd" id="34_lmcvj"]
+[ext_resource type="Shader" uid="uid://bp0ejmlaaurfi" path="res://Shaders/ShockWave.gdshader" id="35_ulv5i"]
+[ext_resource type="Texture2D" uid="uid://bo3blvm2qde6s" path="res://Sprites/Enviroment/Bell.png" id="36_1wnbb"]
+[ext_resource type="AudioStream" uid="uid://bbf16yc56jdbh" path="res://Audio/Bell-Checpoint.mp3" id="37_urlf3"]
+[ext_resource type="PackedScene" uid="uid://lfvffuifh15u" path="res://Scenes/Characters/enemy_4_small.tscn" id="38_mqfy7"]
 
 [sub_resource type="Animation" id="Animation_nkccm"]
 length = 0.001
@@ -76,15 +77,15 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5qgb"]
-size = Vector2(5756, 2052)
+size = Vector2(5756, 2019)
 
 [sub_resource type="Resource" id="Resource_c77hu"]
-script = ExtResource("5_rqygv")
+script = ExtResource("5_iq3hh")
 duration = 0.6
 transition = 4
 
 [sub_resource type="Resource" id="Resource_y3i32"]
-script = ExtResource("6_hh005")
+script = ExtResource("6_2gc0a")
 amplitude = 12.0
 frequency = 0.2
 randomize_noise_seed = 1
@@ -128,7 +129,7 @@ noise = SubResource("FastNoiseLite_fjfom")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obu67"]
-shader = ExtResource("9_mqfy7")
+shader = ExtResource("10_n3r6o")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_dmwh3")
 shader_parameter/smoke_color = Color(0.24122617, 0.19863045, 0.2838695, 1)
 shader_parameter/distortion_speed = 0.2000000095
@@ -144,7 +145,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_277o3"]
-shader = ExtResource("12_iq3hh")
+shader = ExtResource("11_ite0n")
 shader_parameter/angle = -0.26
 shader_parameter/position = -0.115
 shader_parameter/spread = 0.2250000106875
@@ -160,7 +161,7 @@ shader_parameter/hdr = false
 shader_parameter/seed = 126.94
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7snlv"]
-shader = ExtResource("15_vrex4")
+shader = ExtResource("14_38rsi")
 shader_parameter/speed = 1.0
 shader_parameter/minStrength = 0.05
 shader_parameter/maxStrength = 0.2450000116375
@@ -172,7 +173,7 @@ shader_parameter/heightOffset = 0.0
 shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u7unx"]
-shader = ExtResource("15_vrex4")
+shader = ExtResource("14_38rsi")
 shader_parameter/speed = 1.0
 shader_parameter/minStrength = 0.030000001425
 shader_parameter/maxStrength = 0.01
@@ -193,7 +194,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk0x2"]
-shader = ExtResource("15_vrex4")
+shader = ExtResource("14_38rsi")
 shader_parameter/speed = 1.415
 shader_parameter/minStrength = 0.05
 shader_parameter/maxStrength = 0.2000000095
@@ -205,11 +206,11 @@ shader_parameter/heightOffset = 0.0
 shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_litq2"]
-shader = ExtResource("26_cfd2q")
+shader = ExtResource("27_qvvg7")
 shader_parameter/blur_size = 7.3950003512624995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4y433"]
-shader = ExtResource("15_vrex4")
+shader = ExtResource("14_38rsi")
 shader_parameter/speed = 0.5
 shader_parameter/minStrength = 0.05
 shader_parameter/maxStrength = 0.0400000019
@@ -221,7 +222,7 @@ shader_parameter/heightOffset = 0.0
 shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6etmk"]
-shader = ExtResource("15_vrex4")
+shader = ExtResource("14_38rsi")
 shader_parameter/speed = 1.485
 shader_parameter/minStrength = 0.05
 shader_parameter/maxStrength = 0.01
@@ -233,7 +234,7 @@ shader_parameter/heightOffset = 0.0
 shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s03kc"]
-shader = ExtResource("29_ol0s6")
+shader = ExtResource("31_885kl")
 shader_parameter/grain_amount = 0.00800000038
 shader_parameter/grain_size = 2.92900013586762
 
@@ -252,10 +253,10 @@ adjustment_saturation = 1.1
 size = Vector2(284, 829)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c77hu"]
-size = Vector2(284, 829)
+size = Vector2(284, 1134.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mqfy7"]
-shader = ExtResource("35_tagpq")
+shader = ExtResource("35_ulv5i")
 shader_parameter/strength = 0.0750000035625
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/radius = 0.0
@@ -413,7 +414,7 @@ _data = {
 }
 
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_c77hu")
+script = ExtResource("1_tagpq")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -425,27 +426,27 @@ libraries = {
 }
 autoplay = "visible"
 
-[node name="Player" parent="." instance=ExtResource("2_y3i32")]
-position = Vector2(3165, 970)
+[node name="Player" parent="." instance=ExtResource("2_mqfy7")]
+position = Vector2(170, 690)
 
-[node name="Camera" type="Node2D" parent="."]
-script = ExtResource("3_a3acn")
+[node name="Camera" type="Node2D" parent="." groups=["Camera"]]
+script = ExtResource("3_8j24w")
 
 [node name="RoomSize" type="CollisionShape2D" parent="Camera"]
 z_index = -4096
-position = Vector2(2868, 744)
+position = Vector2(2868, 727.5)
 shape = SubResource("RectangleShape2D_l5qgb")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(3165, 790)
-script = ExtResource("4_2lxrc")
+position = Vector2(950, 415.815)
+script = ExtResource("4_7t843")
 priority = 10
 follow_mode = 5
 follow_target = NodePath("../../Player")
 tween_resource = SubResource("Resource_c77hu")
 tween_on_load = false
-follow_offset = Vector2(0, -180)
+follow_offset = Vector2(0, -274.185)
 follow_damping = true
 dead_zone_width = 0.08
 dead_zone_height = 0.2
@@ -456,23 +457,24 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 physics_interpolation_mode = 1
-position = Vector2(3165, 790)
-offset = Vector2(3.6596785, 5.240473)
+position = Vector2(950, 415.815)
+offset = Vector2(0.10650732, -0.9914439)
 limit_left = -10
-limit_top = -282
+limit_top = -1354
 limit_right = 5746
-limit_bottom = 1770
+limit_bottom = 1737
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera/Camera2D"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("7_1el5g")
+script = ExtResource("7_xkgjg")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="CameraArea" type="Area2D" parent="Camera" node_paths=PackedStringArray("original_camera", "new_camera")]
+position = Vector2(7298, -421)
 collision_mask = 96
-script = ExtResource("8_2lxrc")
+script = ExtResource("8_vrex4")
 original_camera = NodePath("../PhantomCamera2D")
 new_camera = NodePath("PhantomCamera2D")
 
@@ -482,7 +484,7 @@ shape = SubResource("RectangleShape2D_rqygv")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera/CameraArea"]
 position = Vector2(3995, 891)
-script = ExtResource("4_2lxrc")
+script = ExtResource("4_7t843")
 zoom = Vector2(0.82, 0.82)
 tween_resource = SubResource("Resource_c77hu")
 tween_on_load = false
@@ -499,7 +501,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 z_index = -1
 position = Vector2(3684, 761)
 amount = 200
-texture = ExtResource("8_tagpq")
+texture = ExtResource("9_fyi5n")
 lifetime = 8.0
 preprocess = 33.05
 speed_scale = 0.2
@@ -511,7 +513,7 @@ process_material = SubResource("ParticleProcessMaterial_nusu1")
 z_index = 3
 material = SubResource("ShaderMaterial_obu67")
 offset_left = -1894.0
-offset_top = -406.0
+offset_top = -3119.0
 offset_right = 10106.0
 offset_bottom = 7890.0
 
@@ -529,7 +531,15 @@ scale = Vector2(26.953125, 24.631227)
 texture = SubResource("GradientTexture2D_0gg6y")
 flip_h = true
 
+[node name="Light3" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.8164147, 0.81672096, 0.9109149, 1)
+position = Vector2(3142, 1802)
+scale = Vector2(17.945309, 16.399397)
+texture = SubResource("GradientTexture2D_0gg6y")
+flip_h = true
+
 [node name="Decorations" type="Node2D" parent="Enviroment"]
+visible = false
 
 [node name="God-Rays4" type="Sprite2D" parent="Enviroment/Decorations"]
 z_index = 10
@@ -537,69 +547,71 @@ material = SubResource("ShaderMaterial_277o3")
 position = Vector2(1933.9999, 271.00012)
 rotation = 0.3577925
 scale = Vector2(0.8007099, 1)
-texture = ExtResource("13_2gc0a")
+texture = ExtResource("12_ce7oj")
 region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
 
 [node name="Cart1" type="Sprite2D" parent="Enviroment/Decorations"]
 z_index = -1
 position = Vector2(1958, 891.00006)
 rotation = 0.72431165
-texture = ExtResource("14_xkgjg")
+texture = ExtResource("13_8jsgd")
 region_rect = Rect2(773.69196, -18.261322, 171.48718, 135.04617)
 
 [node name="Grass" type="Sprite2D" parent="Enviroment/Decorations"]
 material = SubResource("ShaderMaterial_7snlv")
 position = Vector2(1101, 870)
-texture = ExtResource("16_fyi5n")
+texture = ExtResource("15_dvfke")
 
 [node name="Grass2" type="Sprite2D" parent="Enviroment/Decorations"]
 material = SubResource("ShaderMaterial_7snlv")
 position = Vector2(1163, 866)
-texture = ExtResource("16_fyi5n")
+texture = ExtResource("15_dvfke")
 
 [node name="Grass3" type="Sprite2D" parent="Enviroment/Decorations"]
 material = SubResource("ShaderMaterial_7snlv")
 position = Vector2(1224, 870)
-texture = ExtResource("16_fyi5n")
+texture = ExtResource("15_dvfke")
 
 [node name="Grass4" type="Sprite2D" parent="Enviroment/Decorations"]
 material = SubResource("ShaderMaterial_7snlv")
 position = Vector2(1286, 868)
-texture = ExtResource("16_fyi5n")
+texture = ExtResource("15_dvfke")
 
 [node name="Grass5" type="Sprite2D" parent="Enviroment/Decorations"]
 material = SubResource("ShaderMaterial_7snlv")
 position = Vector2(2167, 688)
-texture = ExtResource("16_fyi5n")
+texture = ExtResource("15_dvfke")
 
 [node name="LightGlaze" type="Sprite2D" parent="Enviroment/Decorations"]
 modulate = Color(1, 1, 1, 0.39607844)
 position = Vector2(1729, 759)
 rotation = -1.012291
-texture = ExtResource("13_2gc0a")
+texture = ExtResource("12_ce7oj")
 
 [node name="GrassThings1" type="Sprite2D" parent="Enviroment/Decorations"]
 position = Vector2(1828, 724)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 
 [node name="BGDecorations" type="Node2D" parent="Enviroment"]
 
 [node name="Sign1" type="Sprite2D" parent="Enviroment/BGDecorations"]
+visible = false
 position = Vector2(1379, 863)
 rotation = 0.4712389
-texture = ExtResource("10_8j24w")
+texture = ExtResource("17_owvnx")
 
 [node name="Spear1" type="Sprite2D" parent="Enviroment/BGDecorations"]
+visible = false
 position = Vector2(1627, 870.99994)
 rotation = 0.96865773
-texture = ExtResource("17_n3r6o")
+texture = ExtResource("18_dw1we")
 
 [node name="ColorRect" type="ColorRect" parent="Enviroment/BGDecorations"]
 offset_left = -4785.0
 offset_top = -2239.0
 offset_right = 13812.0
 offset_bottom = 6023.0
-color = Color(0.44705883, 0.43529412, 0.58431375, 0.20784314)
+color = Color(0.23137255, 0.15686275, 0.23137255, 0.20784314)
 
 [node name="GroundOverlay" type="Node2D" parent="Enviroment"]
 z_index = 2
@@ -607,134 +619,50 @@ material = SubResource("ShaderMaterial_u7unx")
 position = Vector2(3, 130)
 
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(1036, 1228.0001)
-scale = Vector2(19.359377, 7.0937505)
-texture = ExtResource("19_ce7oj")
-
-[node name="BlackTile9" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(4105, 1817)
-scale = Vector2(19.359377, 7.0937505)
-texture = ExtResource("19_ce7oj")
-
-[node name="BlackTile6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(2732, 1467)
-scale = Vector2(7.640626, 3.4375)
-texture = ExtResource("19_ce7oj")
-
-[node name="BlackTile7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(2456.5, 1309)
-scale = Vector2(3.1484385, 3.4375)
-texture = ExtResource("19_ce7oj")
-
-[node name="BlackTile8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(2174, 1077.0001)
-scale = Vector2(3.1484385, 3.4375)
-texture = ExtResource("19_ce7oj")
+position = Vector2(215.49988, 1228.0001)
+scale = Vector2(6.539063, 7.0937505)
+texture = ExtResource("19_cfd2q")
 
 [node name="BlackTile2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(5348.5, 1467.5)
-scale = Vector2(9.992189, 3.3515627)
-texture = ExtResource("19_ce7oj")
+position = Vector2(3152.0002, 755.99994)
+scale = Vector2(4.1679688, 1.5390627)
+texture = ExtResource("19_cfd2q")
 
 [node name="BlackTile3" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 position = Vector2(5875, -212.00002)
 scale = Vector2(4.9921846, 6.6874995)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="BlackTile4" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 position = Vector2(-32.437477, -256)
 scale = Vector2(2.3505857, 6.8124995)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="BlackTile5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(1839.8906, 754)
-scale = Vector2(5.361084, 2.2109342)
-texture = ExtResource("19_ce7oj")
+position = Vector2(5498.2183, 1363.5)
+scale = Vector2(5.612792, 5.7421885)
+texture = ExtResource("19_cfd2q")
 
-[node name="GroundOverlayLowend37" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(1449, 706.85126)
-rotation = -1.5707964
-scale = Vector2(0.73574454, 1)
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
+[node name="BlackTile6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(5164, 1595)
+scale = Vector2(5.612792, 5.7421885)
+texture = ExtResource("19_cfd2q")
 
-[node name="GroundOverlayLowend19" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(2182, 710.00006)
-rotation = 1.5707964
-scale = Vector2(0.70344836, 1)
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
+[node name="BlackTile7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(4799, 1842.0001)
+scale = Vector2(5.612792, 5.7421885)
+texture = ExtResource("19_cfd2q")
 
-[node name="GroundOverlayLowend27" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(6026, 1363)
-rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend36" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(4621, 1365)
-rotation = -1.5707964
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend44" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(4620, 1577)
-rotation = -1.5707964
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend21" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(5229, 1215)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend22" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(5522, 1218)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend30" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(4800, 1211)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend43" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(5050, 1210)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend25" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(5827, 1220)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
+[node name="BlackTile8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(4122, 2006.9999)
+scale = Vector2(12.984378, 5.7421885)
+texture = ExtResource("19_cfd2q")
 
 [node name="GroundOverlayLowend38" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
 position = Vector2(5545, 67)
 rotation = -1.5707964
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -743,7 +671,7 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(5548, -252)
 rotation = -1.5707964
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -752,7 +680,7 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(5635, 331)
 rotation = -2.172935
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -761,7 +689,7 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(5915, 338)
 rotation = -3.1415927
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -770,123 +698,140 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(6203, 327)
 rotation = -3.1415927
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(146.5, 778)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(463, 779)
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(1330, 781)
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(1654, 610)
-texture = ExtResource("20_8jsgd")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(1970, 610)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
 [node name="GroundOverlayLowend3" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(776, 781)
-texture = ExtResource("20_8jsgd")
+position = Vector2(681, 920)
+rotation = 1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
 [node name="GroundOverlayLowend4" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(1082, 785)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(2334, 773)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend9" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(2487, 963)
+position = Vector2(689, 1208)
 rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(699, 1496)
+rotation = 1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(710, 1732)
+rotation = 1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(146.5, 780)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(463, 779)
+texture = ExtResource("20_lq7i4")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3652.5, 1560)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend16" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4611.25, 1372)
+scale = Vector2(1.145768, 1)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend17" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4984, 1134)
+scale = Vector2(1.145768, 1)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend19" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5339, 935)
+scale = Vector2(1.145768, 1)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend20" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(5680, 937)
+scale = Vector2(1.145768, 1)
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
 [node name="GroundOverlayLowend11" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(2576.9998, 1017)
-scale = Vector2(0.96394986, 1)
-texture = ExtResource("20_8jsgd")
+position = Vector2(4405, 1531)
+rotation = -1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
 [node name="GroundOverlayLowend12" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(2731, 1155.3099)
-rotation = 1.5707964
-scale = Vector2(0.89722055, 1)
-texture = ExtResource("20_8jsgd")
+position = Vector2(4784, 1272)
+rotation = -1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 259, 314)
 
 [node name="GroundOverlayLowend13" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(2867, 1202)
-texture = ExtResource("20_8jsgd")
+position = Vector2(5132, 1059)
+rotation = -1.5707964
+texture = ExtResource("20_lq7i4")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 259, 314)
+
+[node name="GroundOverlayLowend8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(3969, 1559)
+texture = ExtResource("20_lq7i4")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
-[node name="GroundOverlayLowend23" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+[node name="GroundOverlayLowend9" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
-position = Vector2(3146, 1208)
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend24" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(3290, 1377)
-rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
-region_enabled = true
-region_rect = Rect2(0, 0, 319.39804, 314)
-
-[node name="GroundOverlayLowend26" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-use_parent_material = true
-position = Vector2(3294, 1638)
-rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
+position = Vector2(4258.5, 1567)
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
@@ -894,7 +839,7 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(123.69792, -229.5)
 rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
@@ -903,7 +848,7 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(129.69792, 60.5)
 rotation = 1.5707964
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
@@ -911,32 +856,226 @@ region_rect = Rect2(0, 0, 319.39804, 314)
 use_parent_material = true
 position = Vector2(25, 262)
 rotation = 2.3387413
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
 [node name="GroundOverlayLowend18" type="Sprite2D" parent="Enviroment/GroundOverlay"]
 use_parent_material = true
 position = Vector2(-63, 762)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 319.39804, 314)
 
-[node name="BreakFloor" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(3443, 1273)
-texture = ExtResource("32_a3acn")
+[node name="BreakFloor6" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1134, 869)
+rotation = -3.1415925
+texture = ExtResource("21_dxubt")
 
 [node name="BreakFloor2" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(3780, 1272)
-texture = ExtResource("32_a3acn")
+position = Vector2(1009, 797)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor5" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1258, 803)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1119, 764)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor7" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1793, 845)
+rotation = -3.1415925
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor8" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1668, 773)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor9" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1917, 779)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor10" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(1778, 740)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor11" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2358, 879)
+rotation = -3.1415925
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor12" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2233, 807)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor13" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2482, 813)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(49.5, 0, 208, 184)
+
+[node name="BreakFloor14" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2343, 774)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor15" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2846, 745)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor16" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2846, 1064)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor28" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2921, 1105)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor29" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2921, 1438)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor30" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2927, 1715)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor17" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2842, 1375)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor18" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3658, 714)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(0, 0, 288.5, 184)
+
+[node name="BreakFloor19" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3381, 789)
+rotation = 3.1415927
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor25" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3547, 787)
+rotation = 3.1415927
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor24" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3415, 1246)
+scale = Vector2(1, 1.0978261)
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(72.5, 0, 251, 184)
+
+[node name="BreakFloor22" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3109, 785)
+rotation = 3.1415927
+scale = Vector2(1.0511272, 1)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor20" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3465, 1502)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor32" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3470, 1378)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor23" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3360, 1508)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor33" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3361, 1393)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor21" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2836, 1627)
+rotation = -1.5707964
+texture = ExtResource("21_dxubt")
 
 [node name="BreakFloor3" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(4112, 1273)
-texture = ExtResource("32_a3acn")
+position = Vector2(2972.5, 645)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor31" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(2929, 947)
+rotation = 1.5707964
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(0, 0, 267.5, 184)
+
+[node name="BreakFloor26" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3514, 646)
+texture = ExtResource("21_dxubt")
+
+[node name="BreakFloor27" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+position = Vector2(3477, 772)
+texture = ExtResource("21_dxubt")
+region_enabled = true
+region_rect = Rect2(0, 75.5, 355, 108.5)
 
 [node name="BreakFloor4" type="Sprite2D" parent="Enviroment/GroundOverlay"]
-position = Vector2(4447, 1272)
-texture = ExtResource("32_a3acn")
+position = Vector2(3307.5, 644)
+texture = ExtResource("21_dxubt")
+
+[node name="GroundOverlayLowend56" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4190, 793)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend57" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4359, 873)
+rotation = 1.5707964
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
+
+[node name="GroundOverlayLowend58" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4182, 951)
+rotation = 3.1415927
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 319.39804, 314)
+
+[node name="GroundOverlayLowend59" type="Sprite2D" parent="Enviroment/GroundOverlay"]
+use_parent_material = true
+position = Vector2(4036, 882)
+rotation = -1.5707964
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 131, 314)
 
 [node name="ParallaxBackground" type="Node2D" parent="Enviroment"]
 z_index = 2
@@ -944,7 +1083,7 @@ position = Vector2(-2, -120)
 
 [node name="PointLight2D" type="PointLight2D" parent="Enviroment/ParallaxBackground"]
 z_index = -250
-position = Vector2(3148, 1084)
+position = Vector2(153, 804)
 energy = 1.48
 range_z_max = -200
 texture = SubResource("GradientTexture2D_s03kc")
@@ -1013,62 +1152,62 @@ scroll_offset = Vector2(-485, -320)
 [node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(641, 1142)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(458, 917)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(439, 1154)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(263, 687)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1391, 1705)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1208, 1480)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1189, 1717)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1013, 1250)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1023, 1578)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(840, 1353)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(821, 1590)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background1"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(645, 1123)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="Background13" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.23392546, 0.23392546, 0.23392543, 1)
@@ -1079,7 +1218,7 @@ scroll_offset = Vector2(-485, -320)
 
 [node name="Sprite2D" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background13"]
 position = Vector2(682, 911)
-texture = ExtResource("22_dvfke")
+texture = ExtResource("23_ggg5d")
 
 [node name="Background14" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.23392546, 0.23392546, 0.23392543, 1)
@@ -1090,11 +1229,11 @@ scroll_offset = Vector2(-211, -358)
 
 [node name="Sprite2D" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background14"]
 position = Vector2(878, 899)
-texture = ExtResource("22_dvfke")
+texture = ExtResource("23_ggg5d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background14"]
 position = Vector2(878, 899)
-texture = ExtResource("22_dvfke")
+texture = ExtResource("23_ggg5d")
 
 [node name="Background2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
@@ -1107,20 +1246,20 @@ scroll_offset = Vector2(1948, -419)
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1064, 1168)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 
 [node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1456, 1168)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1063.6, 1362.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 flip_v = true
 
@@ -1128,27 +1267,27 @@ flip_v = true
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1455.6001, 1362.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_v = true
 
 [node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1070, 1523.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 
 [node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1462, 1523.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1069.6, 1718.6499)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 flip_v = true
 
@@ -1156,27 +1295,27 @@ flip_v = true
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1461.6001, 1718.6499)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_v = true
 
 [node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1062, 434.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 
 [node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1454, 434.825)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1061.6, 629.64996)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 flip_v = true
 
@@ -1184,27 +1323,27 @@ flip_v = true
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1453.6001, 629.64996)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_v = true
 
 [node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1068, 790.64996)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 
 [node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1460, 790.64996)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background2"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1067.6, 985.4749)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_h = true
 flip_v = true
 
@@ -1212,7 +1351,7 @@ flip_v = true
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1459.6001, 985.4749)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 flip_v = true
 
 [node name="Background10" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
@@ -1226,32 +1365,32 @@ scroll_offset = Vector2(1758.0001, 278)
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(274.9112, 156.00002)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(477.5778, 200.00002)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(3013.578, 169.33336)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(3216.2446, 213.33336)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(5242.911, 154.66669)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background10"]
 position = Vector2(5445.578, 198.66669)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Background9" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
@@ -1264,32 +1403,32 @@ scroll_offset = Vector2(1349, 222)
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(274.9112, 156.00002)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(477.5778, 200.00002)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(3013.578, 169.33336)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(3216.2446, 213.33336)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(5242.911, 154.66669)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background9"]
 position = Vector2(5445.578, 198.66669)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Background7" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 z_index = -155
@@ -1301,32 +1440,32 @@ scroll_offset = Vector2(1628.0001, 115)
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(274.9112, 156.00002)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(477.5778, 200.00002)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(3013.578, 169.33336)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(3216.2446, 213.33336)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(5242.911, 154.66669)
 scale = Vector2(2.5444446, 2.5444446)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background7"]
 position = Vector2(5445.578, 198.66669)
 scale = Vector2(2.427778, 2.427778)
-texture = ExtResource("23_5vlkp")
+texture = ExtResource("24_ylfgl")
 
 [node name="Background3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.3366076, 0.33660764, 0.33660752, 1)
@@ -1338,31 +1477,31 @@ scroll_offset = Vector2(-174, -452)
 
 [node name="BackgroundTower1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(1186.6666, 1184)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(1178.6666, 2045)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(2754.6667, 1101)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(2746.6667, 1962)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(3999.6667, 995)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(3991.6667, 1856)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background3"]
 position = Vector2(1176.6666, 319)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="Background11" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.099985994, 0.099985994, 0.099985994, 1)
@@ -1374,31 +1513,31 @@ scroll_offset = Vector2(175, -429)
 
 [node name="BackgroundTower1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(1186.6666, 1184)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(1178.6666, 2045)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(2754.6667, 1101)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(2746.6667, 1962)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(3999.6667, 995)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(3991.6667, 1856)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background11"]
 position = Vector2(1176.6666, 319)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="Background12" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.068798296, 0.06879826, 0.06879828, 1)
@@ -1410,31 +1549,31 @@ scroll_offset = Vector2(650, -399)
 
 [node name="BackgroundTower1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(1186.6666, 1184)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(1178.6666, 2045)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(2754.6667, 1101)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(2746.6667, 1962)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(3999.6667, 995)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(3991.6667, 1856)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="BackgroundTower3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background12"]
 position = Vector2(1176.6666, 319)
-texture = ExtResource("24_owvnx")
+texture = ExtResource("25_mojow")
 
 [node name="Background5" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
@@ -1449,361 +1588,361 @@ scroll_offset = Vector2(1638.0001, 529.9999)
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(745.5162, 1789.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(597.5161, 1588.331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(412.18268, 1360.3312)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(232.1827, 1134.9977)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(745.5162, 1789.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(597.5161, 1588.331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(412.18268, 1360.3312)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(232.1827, 1134.9977)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(962.8493, 1937.6648)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(0.18266296, 889.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1109.5162, 1760.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(961.5161, 1558.9978)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(776.1827, 1330.9979)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(596.18274, 1105.6644)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1109.5162, 1760.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(961.5161, 1558.9978)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(776.1827, 1330.9979)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(596.18274, 1105.6644)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1326.8494, 1908.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(364.1827, 860.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(894.66675, 1842.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(746.6666, 1641.3331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(561.33325, 1413.3333)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(381.3333, 1187.9999)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(894.66675, 1842.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(746.6666, 1641.3331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(561.33325, 1413.3333)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(381.3333, 1187.9999)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1112, 1990.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(149.33328, 942.66675)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock31" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(584.3241, 1895.5884)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock32" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(436.324, 1694.2548)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock33" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(250.99057, 1466.2549)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock34" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(70.990585, 1240.9214)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock35" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(584.3241, 1895.5884)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock36" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(436.324, 1694.2548)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock37" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(250.99057, 1466.2549)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock38" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(70.990585, 1240.9214)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock39" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(801.6572, 2043.5885)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock40" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(-161.00945, 995.5884)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock41" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(948.3241, 1866.255)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock42" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(800.324, 1664.9215)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock43" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(614.9906, 1436.9216)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock44" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(434.99063, 1211.5881)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock45" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(948.3241, 1866.255)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock46" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(800.324, 1664.9215)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock47" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(614.9906, 1436.9216)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock48" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(434.99063, 1211.5881)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock49" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1165.6572, 2014.255)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock50" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(202.9906, 966.255)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock51" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(733.4746, 1948.5903)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock52" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(585.4745, 1747.2568)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock53" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(400.14114, 1519.257)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock54" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(220.1412, 1293.9236)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock55" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(733.4746, 1948.5903)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock56" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(585.4745, 1747.2568)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock57" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(400.14114, 1519.257)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock58" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(220.1412, 1293.9236)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock59" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(950.80786, 2096.5903)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock60" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background5"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(-11.858826, 1048.5905)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="Background6" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
@@ -1818,361 +1957,361 @@ scroll_offset = Vector2(3117.0002, 554)
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(850.818, 1945.8787)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(702.81793, 1744.545)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(517.4845, 1516.5452)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(337.4845, 1291.2117)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(850.818, 1945.8787)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(702.81793, 1744.545)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(517.4845, 1516.5452)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(337.4845, 1291.2117)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1068.1511, 2093.8787)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(105.4845, 1045.8787)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1214.8181, 1916.5453)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1066.8179, 1715.2118)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(881.4845, 1487.2119)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(701.48456, 1261.8784)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1214.8181, 1916.5453)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1066.8179, 1715.2118)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(881.4845, 1487.2119)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(701.48456, 1261.8784)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1432.1511, 2064.5452)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(469.48456, 1016.5453)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(999.96857, 1998.8806)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(851.96844, 1797.5471)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(666.6351, 1569.5472)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(486.63513, 1344.2139)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(999.96857, 1998.8806)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(851.96844, 1797.5471)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(666.6351, 1569.5472)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(486.63513, 1344.2139)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1217.3018, 2146.8806)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(254.63512, 1098.8807)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock31" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(689.6259, 2051.8022)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock32" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(541.62585, 1850.4688)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock33" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(356.29242, 1622.4689)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock34" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(176.29242, 1397.1354)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock35" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(689.6259, 2051.8022)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock36" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(541.62585, 1850.4688)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock37" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(356.29242, 1622.4689)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock38" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(176.29242, 1397.1354)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock39" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(906.95905, 2199.8025)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock40" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(-55.70761, 1151.8024)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock41" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1053.626, 2022.469)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock42" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(905.6258, 1821.1355)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock43" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(720.2924, 1593.1356)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock44" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(540.2925, 1367.8021)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock45" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1053.626, 2022.469)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock46" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(905.6258, 1821.1355)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock47" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(720.2924, 1593.1356)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock48" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(540.2925, 1367.8021)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock49" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1270.959, 2170.469)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock50" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(308.29242, 1122.469)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock51" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(838.7764, 2104.8042)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock52" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(690.7763, 1903.4708)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock53" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(505.443, 1675.471)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock54" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(325.44305, 1450.1376)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock55" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(838.7764, 2104.8042)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock56" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(690.7763, 1903.4708)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock57" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(505.443, 1675.471)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock58" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(325.44305, 1450.1376)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock59" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1056.1097, 2252.8042)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock60" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background6"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(93.44301, 1204.8044)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="Background8" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.24840033, 0.24840012, 0.24840012, 1)
@@ -2187,104 +2326,104 @@ scroll_offset = Vector2(4435, 396.99994)
 position = Vector2(2484.302, 1584.8623)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(3153.6968, 2222.201)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(3382.799, 2451.3035)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(1086.1162, 576.9995)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(989.00684, 274.35767)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(1316.1617, 543.0581)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(2840.684, 1967.6428)
 rotation = -2.3561945
 scale = Vector2(1.4720576, 1.4720576)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(3740.8496, 2577.6592)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(4410.2446, 3214.9978)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(4639.3467, 3444.1003)
 rotation = -2.3561945
 scale = Vector2(1.0424058, 1.0424058)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(4097.232, 2960.4397)
 rotation = -2.3561945
 scale = Vector2(1.4720576, 1.4720576)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(2662.4546, 1666.516)
 rotation = -1.4573499
 scale = Vector2(0.667, 0.667)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(2798.9155, 1673.2207)
 rotation = -1.4573499
 scale = Vector2(0.667, 0.667)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(3028.0176, 1902.3232)
 rotation = -1.4573499
 scale = Vector2(0.667, 0.667)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(2485.9026, 1418.6624)
 rotation = -1.4573499
 scale = Vector2(0.667, 0.667)
-texture = ExtResource("25_dw1we")
+texture = ExtResource("26_owouj")
 
 [node name="AnotherRockBg7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 visible = false
 position = Vector2(2537.0986, 1705.5414)
 rotation = -2.3561945
 scale = Vector2(2.9568355, 2.9568355)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 
 [node name="AnotherRockBg6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background8"]
 position = Vector2(986.6497, 11.785446)
 rotation = -2.3561945
 scale = Vector2(4.122875, 2.9568355)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 
 [node name="Background4" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.37036446, 0.3703645, 0.37036443, 1)
@@ -2298,181 +2437,181 @@ scroll_offset = Vector2(-168, -284)
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(745.5162, 1789.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(597.5161, 1588.331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(412.18268, 1360.3312)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(232.1827, 1134.9977)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(745.5162, 1789.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(597.5161, 1588.331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(412.18268, 1360.3312)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(232.1827, 1134.9977)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(962.8493, 1937.6648)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(0.18266296, 889.6647)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1109.5162, 1760.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(961.5161, 1558.9978)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(776.1827, 1330.9979)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(596.18274, 1105.6644)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1109.5162, 1760.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(961.5161, 1558.9978)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(776.1827, 1330.9979)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(596.18274, 1105.6644)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1326.8494, 1908.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(364.1827, 860.3313)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock1" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(894.66675, 1842.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(746.6666, 1641.3331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(561.33325, 1413.3333)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(381.3333, 1187.9999)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(894.66675, 1842.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(746.6666, 1641.3331)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(561.33325, 1413.3333)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(381.3333, 1187.9999)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(1112, 1990.6666)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="BackgroundRock10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Background4"]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
 position = Vector2(149.33328, 942.66675)
 scale = Vector2(0.8510129, 0.8510129)
-texture = ExtResource("21_38rsi")
+texture = ExtResource("22_ol0s6")
 
 [node name="ColorRect" type="ColorRect" parent="Enviroment/ParallaxBackground"]
 z_index = -174
@@ -2489,107 +2628,107 @@ scroll_offset = Vector2(16, -46)
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(1026, -68.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(1209, 175.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(1218, 136.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(466, 157.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(300, 140.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(970, 152.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2784, -68.5)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2965, 37)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2976, 136.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2224, 157.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2058, 140.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(2728, 50)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(4538, -57.5)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(4708, 79)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(4730, 147.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(3978, 168.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(3812, 151.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes1"]
 position = Vector2(4482, 163.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="Spikes2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0.61745477, 0.61745477, 0.6174547, 1)
@@ -2599,107 +2738,107 @@ scroll_offset = Vector2(-32, -229)
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(1026, -68.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(1209, 175.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(1218, 136.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(466, 157.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(300, 140.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(970, 152.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2790, -63.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2973, 180.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2982, 141.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2230, 162.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2064, 145.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(2734, 157.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(4564, -46.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(4747, 197.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(4756, 158.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(4004, 179.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(3838, 162.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes2"]
 position = Vector2(4508, 174.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="Spikes4" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 scroll_scale = Vector2(1.3, 1.3)
@@ -2708,107 +2847,107 @@ scroll_offset = Vector2(4959, -170)
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(1026, -68.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(1209, 175.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(1218, 136.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(466, 157.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(300, 140.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(970, 152.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2784, -68.5)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2971, 92)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2976, 136.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2224, 157.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2058, 140.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(2728, 152.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(4538, -57.5)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(4721, 186.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(4730, 147.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(3978, 168.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(3812, 151.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes4"]
 position = Vector2(4482, 163.50002)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="Spikes3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
 modulate = Color(0, 0, 0, 1)
@@ -2819,30 +2958,30 @@ scroll_offset = Vector2(890, -475)
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(1026, -68.500015)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(1209, 175.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(1218, 136.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(466, 157.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(300, 140.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
@@ -2850,30 +2989,30 @@ region_rect = Rect2(798.23895, 0, 568.0557, 240)
 [node name="BlackTile2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(2793, -35.50001)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(2976, 208.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes7" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(2985, 169.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(2233, 190.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes9" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(2067, 173.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
@@ -2881,100 +3020,100 @@ region_rect = Rect2(798.23895, 0, 568.0557, 240)
 [node name="BlackTile3" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(5604, -172.00005)
 scale = Vector2(86.09375, 4.265625)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="BlackTile4" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(-514.99994, -26)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes10" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(4735, 146)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes11" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(4744, 169.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes12" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(3992, 190.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes13" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(3826, 173.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes2" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(970, 152.5)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="Spikes14" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(4164, 227)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes15" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(4173, 188)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes16" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(3421, 209)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes17" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(3255, 192)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes18" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(399, 171)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="BlackTile5" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(6408, 107.50005)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes19" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(6591, 351.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes20" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(6600, 312.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes21" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(5848, 333.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes22" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(5682, 316.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
@@ -2982,30 +3121,30 @@ region_rect = Rect2(798.23895, 0, 568.0557, 240)
 [node name="BlackTile6" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(8175, 140.50006)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes23" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(8358, 384.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes24" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(8367, 345.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes25" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(7615, 366.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes26" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(7449, 349.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
@@ -3013,70 +3152,69 @@ region_rect = Rect2(798.23895, 0, 568.0557, 240)
 [node name="BlackTile8" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(4972, -79.00003)
 scale = Vector2(14.0625, 2.1328125)
-texture = ExtResource("19_ce7oj")
+texture = ExtResource("19_cfd2q")
 
 [node name="Spikes27" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(10117, 322.00006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes28" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(10126, 345.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes29" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(9374, 366.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes30" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(9208, 349.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes31" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(6352, 328.50006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="Spikes32" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(9546, 403.00006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 
 [node name="Spikes33" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(9555, 364.00006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes34" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(8803, 385.00006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes35" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(8637, 368.00006)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(798.23895, 0, 568.0557, 240)
 
 [node name="Spikes36" type="Sprite2D" parent="Enviroment/ParallaxBackground/Spikes3"]
 position = Vector2(5766, 170)
-texture = ExtResource("11_7t843")
+texture = ExtResource("28_ndxan")
 
 [node name="ForGround1" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 200
 material = SubResource("ShaderMaterial_wk0x2")
@@ -3087,15 +3225,14 @@ scroll_offset = Vector2(-337, -217)
 use_parent_material = true
 position = Vector2(451, 461.72668)
 scale = Vector2(0.7204969, 0.72049683)
-texture = ExtResource("27_lq7i4")
+texture = ExtResource("29_jp71f")
 
 [node name="HangingThing2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround1"]
 use_parent_material = true
 position = Vector2(4818, 593)
-texture = ExtResource("27_lq7i4")
+texture = ExtResource("29_jp71f")
 
 [node name="ForGround3" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 200
 material = SubResource("ShaderMaterial_4y433")
@@ -3106,7 +3243,7 @@ scroll_offset = Vector2(-337, -217)
 use_parent_material = true
 position = Vector2(2482, 539)
 scale = Vector2(1.3988351, 1.3988352)
-texture = ExtResource("28_dxubt")
+texture = ExtResource("30_d312v")
 region_enabled = true
 region_rect = Rect2(0, 0, 136.39139, 617)
 
@@ -3114,41 +3251,40 @@ region_rect = Rect2(0, 0, 136.39139, 617)
 use_parent_material = true
 position = Vector2(2475.0002, 48.000015)
 scale = Vector2(1.3988351, 2.095429)
-texture = ExtResource("28_dxubt")
+texture = ExtResource("30_d312v")
 region_enabled = true
 region_rect = Rect2(0, 0, 136.39139, 351.80066)
 
 [node name="HangingThing4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
 use_parent_material = true
-position = Vector2(6001.321, 468.0385)
+position = Vector2(3894.321, 574.07697)
 scale = Vector2(1.3988351, 1.3988352)
-texture = ExtResource("28_dxubt")
+texture = ExtResource("30_d312v")
 region_enabled = true
 region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
 
 [node name="HangingThing6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
 use_parent_material = true
-position = Vector2(6004.0005, -120.99994)
+position = Vector2(3897.0007, -14.961494)
 scale = Vector2(1.3988351, 1.3988352)
-texture = ExtResource("28_dxubt")
+texture = ExtResource("30_d312v")
 region_enabled = true
 region_rect = Rect2(358.73306, 1.7707043, 98.094666, 449.47873)
 
 [node name="Cart1" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
-position = Vector2(982, 1234)
+position = Vector2(1788, 1401)
 rotation = 0.54105204
 scale = Vector2(1.580537, 1.580537)
-texture = ExtResource("14_xkgjg")
+texture = ExtResource("13_8jsgd")
 
 [node name="Cart2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround3"]
-position = Vector2(6155.778, 958.0001)
+position = Vector2(4048.7778, 1064.0386)
 rotation = -0.3577925
 scale = Vector2(1.976, 1.976)
-texture = ExtResource("14_xkgjg")
+texture = ExtResource("13_8jsgd")
 flip_h = true
 
 [node name="ForGround2" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 200
 material = SubResource("ShaderMaterial_6etmk")
@@ -3159,125 +3295,54 @@ scroll_offset = Vector2(-337, -155)
 use_parent_material = true
 position = Vector2(754, 1240.0002)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 
 [node name="GrassThings2" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
 position = Vector2(1303, 1279)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 
 [node name="GrassThings3" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
 position = Vector2(1730, 1263)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 flip_h = true
 
 [node name="GrassThings4" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
 position = Vector2(2540.0002, 1362)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 
 [node name="GrassThings5" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
 position = Vector2(3101.0002, 1353.0001)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 
 [node name="GrassThings6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
 position = Vector2(3516, 1263)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
 flip_h = true
 
 [node name="GrassThings7" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
 use_parent_material = true
-position = Vector2(4266, 1207.0001)
+position = Vector2(2882.0002, 1199.0001)
 scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings8" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(4815, 1248)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+texture = ExtResource("16_5vlkp")
+flip_h = true
 
 [node name="BlackTile" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-position = Vector2(2596.4998, 2592.9902)
-scale = Vector2(38.335938, 21.109528)
-texture = ExtResource("19_ce7oj")
-flip_h = true
-
-[node name="GrassThings11" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(5097.771, 1429.2499)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings19" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(5239, 1520)
-rotation = 0.9075712
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings20" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(5195, 1559)
-rotation = 0.9075712
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings12" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(5524.771, 1413.2499)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-flip_h = true
-
-[node name="GrassThings13" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(6334.771, 1388.25)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings14" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(6883.771, 1429.2499)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings15" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(7310.771, 1410.25)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-flip_h = true
-
-[node name="GrassThings16" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(8060.771, 1357.25)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings17" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(8609.771, 1398.2499)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
-
-[node name="GrassThings18" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround2"]
-use_parent_material = true
-position = Vector2(9036.771, 1382.2499)
-scale = Vector2(1.3128079, 1.3128079)
-texture = ExtResource("18_ite0n")
+position = Vector2(1985.9999, 2592.9902)
+scale = Vector2(28.796877, 21.109528)
+texture = ExtResource("19_cfd2q")
 flip_h = true
 
 [node name="ForGround4" type="Parallax2D" parent="Enviroment/ParallaxBackground"]
-visible = false
 modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
 z_index = 200
 scroll_scale = Vector2(1.6, 1.6)
@@ -3286,7 +3351,7 @@ scroll_offset = Vector2(-329, -274)
 [node name="GroundOverlayLowend" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
 position = Vector2(2472.6982, 1398)
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3294,7 +3359,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2299.6978, 1415)
 rotation = -0.23561946
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3302,7 +3367,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2700.698, 1433)
 rotation = 0.54105204
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3310,7 +3375,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2825.6982, 1596.0001)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3318,7 +3383,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2883.0002, 1765.0001)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3326,7 +3391,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2159.6982, 1548.9999)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3334,14 +3399,14 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(2100, 1704.9999)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="GroundOverlayLowend6" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
 position = Vector2(4134.3965, 1380.2927)
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3349,7 +3414,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(3961.396, 1397.2927)
 rotation = -0.23561946
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3357,7 +3422,7 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(4362.396, 1415.2927)
 rotation = 0.54105204
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3365,7 +3430,39 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(4487.3965, 1578.2928)
 rotation = 1.2740904
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend13" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(4490, 1814.0002)
+rotation = 2.0158553
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend14" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(4251, 1894.0001)
+rotation = 3.3946655
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend15" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(4128.0005, 1848.9999)
+rotation = 3.3946655
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("20_lq7i4")
+region_enabled = true
+region_rect = Rect2(0, 0, 151.81818, 314)
+
+[node name="GroundOverlayLowend16" type="Sprite2D" parent="Enviroment/ParallaxBackground/ForGround4"]
+position = Vector2(3939, 1750)
+rotation = 3.3946655
+scale = Vector2(1.6401274, 1.6401274)
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
@@ -3373,14 +3470,14 @@ region_rect = Rect2(0, 0, 151.81818, 314)
 position = Vector2(3821.3965, 1531.2926)
 rotation = -1.1082841
 scale = Vector2(1.6401274, 1.6401274)
-texture = ExtResource("20_8jsgd")
+texture = ExtResource("20_lq7i4")
 region_enabled = true
 region_rect = Rect2(0, 0, 151.81818, 314)
 
 [node name="Collisions" type="StaticBody2D" parent="Enviroment"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
-polygon = PackedVector2Array(-197, 900, 138.5857, 899.9999, 690.5444, 900.00006, 2481, 886, 2493, 1131, 2740, 1133, 2740, 1336, 6023, 1361, 6027, 1772, -200, 1343)
+polygon = PackedVector2Array(-390, 884, 681, 894, 676, 1783, -219, 1808)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
 position = Vector2(42, -1424)
@@ -3391,8 +3488,28 @@ position = Vector2(1869, -597)
 polygon = PackedVector2Array(3665, 369, 4315, 343, 4355, 1026, 3693, 1026)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
-position = Vector2(839, -53)
-polygon = PackedVector2Array(615, 995, 615, 781, 1367, 786, 1367, 1000)
+position = Vector2(329, 56)
+polygon = PackedVector2Array(615, 995, 615, 781, 995, 786, 995, 1000)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(978, 33)
+polygon = PackedVector2Array(615, 995, 615, 781, 995, 786, 995, 1000)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(1547, 60)
+polygon = PackedVector2Array(615, 995, 615, 781, 995, 786, 995, 1000)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(3434, 145)
+polygon = PackedVector2Array(613, 941, 615, 781, 918, 786, 915, 938)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(2701, 641)
+polygon = PackedVector2Array(615, 1167, 615, 661, 825, 659, 828, 1047, 1638.9192, 1044.3829, 1700, 1044.2654, 1702, 876, 2058.6836, 875.0947, 2092, 640, 2432, 633, 2422, 429, 3231, 417, 3217, 1209, 821, 1178)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Enviroment/Collisions"]
+position = Vector2(2174, -51)
+polygon = PackedVector2Array(615, 1971, 615, 758, 1536, 764, 1536, 1022, 829, 1019, 820, 1972)
 
 [node name="Effects" type="CanvasLayer" parent="Enviroment"]
 
@@ -3423,11 +3540,10 @@ color = Color(0.091507114, 0.0915005, 0.13394576, 1)
 environment = SubResource("Environment_j5bn5")
 
 [node name="Door" type="Area2D" parent="."]
-position = Vector2(5824, 801)
+position = Vector2(-94, 719)
 collision_mask = 64
-script = ExtResource("30_ggg5d")
-door_id = "1"
-exit_push = Vector2(-500, 0)
+script = ExtResource("32_n1pk2")
+door_id = "2"
 target_scene = "uid://cwh45ljthrv5v"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
@@ -3435,23 +3551,27 @@ position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_0qjwh")
 
 [node name="Door2" type="Area2D" parent="."]
-position = Vector2(-73, 723)
+position = Vector2(5720, 851)
 collision_mask = 64
-script = ExtResource("30_ggg5d")
-door_id = "2"
-target_scene = "uid://cwh45ljthrv5v"
+script = ExtResource("32_n1pk2")
+door_id = "3"
+exit_push = Vector2(-500, 0)
+target_scene = "uid://bytlq3xnxs415"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-position = Vector2(4, 4)
+position = Vector2(4, -148.75)
 shape = SubResource("RectangleShape2D_c77hu")
 
-[node name="Enemy2-Walker" parent="." instance=ExtResource("31_y3i32")]
-position = Vector2(2017, 606)
+[node name="Enemy2-Walker" parent="." instance=ExtResource("33_nkqgu")]
+position = Vector2(1841, 707)
+
+[node name="Enemy2-Walker2" parent="." instance=ExtResource("33_nkqgu")]
+position = Vector2(3507, 587)
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(3975, -145)
+position = Vector2(8464, -347)
 collision_mask = 16
-script = ExtResource("34_hh005")
+script = ExtResource("34_lmcvj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Checkpoint"]
 
@@ -3472,33 +3592,33 @@ libraries = {
 
 [node name="Bell" type="Sprite2D" parent="Checkpoint"]
 position = Vector2(0, 1002)
-texture = ExtResource("34_rqygv")
+texture = ExtResource("36_1wnbb")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Checkpoint"]
 z_index = -1
 position = Vector2(0, 603)
-texture = ExtResource("34_rqygv")
+texture = ExtResource("36_1wnbb")
 region_enabled = true
 region_rect = Rect2(0, 0, 480, 173.59816)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Checkpoint"]
 z_index = -1
 position = Vector2(0, 435)
-texture = ExtResource("34_rqygv")
+texture = ExtResource("36_1wnbb")
 region_enabled = true
 region_rect = Rect2(0, 0, 480, 173.59816)
 
 [node name="Sprite2D4" type="Sprite2D" parent="Checkpoint"]
 z_index = -1
 position = Vector2(0, 263.5)
-texture = ExtResource("34_rqygv")
+texture = ExtResource("36_1wnbb")
 region_enabled = true
 region_rect = Rect2(0, 0, 480, 173.59816)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Checkpoint"]
 z_index = -1
 position = Vector2(0, 94.5)
-texture = ExtResource("34_rqygv")
+texture = ExtResource("36_1wnbb")
 region_enabled = true
 region_rect = Rect2(0, 0, 480, 173.59816)
 
@@ -3507,7 +3627,7 @@ position = Vector2(-2, 1103)
 shape = SubResource("CircleShape2D_1el5g")
 
 [node name="BellSFX" type="AudioStreamPlayer" parent="Checkpoint"]
-stream = ExtResource("36_1el5g")
+stream = ExtResource("37_urlf3")
 volume_db = 8.525
 bus = &"Notes"
 
@@ -3516,3 +3636,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_mqfy7")
 }
 speed_scale = 0.2
+
+[node name="Enemy4-Small" parent="." instance=ExtResource("38_mqfy7")]
+position = Vector2(4190, 639)
+
+[node name="Enemy4-Small2" parent="." instance=ExtResource("38_mqfy7")]
+position = Vector2(5072, 533)

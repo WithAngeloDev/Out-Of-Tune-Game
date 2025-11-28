@@ -7,6 +7,8 @@ class_name Hurtbox
 
 var flashing := false
 
+signal on_damaged
+
 func _ready() -> void:
 	add_to_group("hurtbox")
 
@@ -19,6 +21,8 @@ func apply_damage(amount, dir):
 
 	ParticleEffects.spawn_particle(preload("uid://c81myf4bsv7ed"), global_position, rot)
 	ParticleEffects.spawn_particle(preload("uid://jq10wm7hhrd"), global_position, rot)
+
+	emit_signal("on_damaged")
 
 	if sprite:
 		flash()

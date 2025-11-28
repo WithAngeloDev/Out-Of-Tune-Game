@@ -4,6 +4,7 @@ signal beat()        # fired exactly on beat
 signal beat_window() # fired slightly before/after beat for player input
 
 @onready var music_player = $MusicPlayer
+@onready var effect: AnimatedSprite2D = $BeatUI/Effect
 
 var last_beat = -1
 
@@ -31,6 +32,14 @@ func play_song(stream: AudioStreamMP3):
 
 	fade_tween = create_tween()
 	fade_tween.tween_property(music_player, "volume_db", -10.0, fade_speed).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func stop_song():
+	if not music_player.playing:
+		return
+
+	var fade_out = create_tween()
+	fade_out.tween_property(music_player, "volume_db", -80.0, fade_speed/2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	fade_out.tween_callback(Callable(music_player, "stop"))
 
 var window_active = false
 var window_timer = 0.0

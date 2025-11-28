@@ -84,6 +84,7 @@ func attack_and_backoff() -> void:
 		velocity = velocity.move_toward(target_vel, accel * get_process_delta_time())
 		move_and_slide()
 		dash_timer -= get_process_delta_time()
+		if !get_tree(): return
 		await get_tree().process_frame
 
 	# --------------------------------
@@ -92,6 +93,7 @@ func attack_and_backoff() -> void:
 	if player_ref and global_position.distance_to(player_ref.global_position) <= attack_range:
 
 		sprite.play("Attack")
+		if !get_tree(): return
 		await get_tree().create_timer(0.3).timeout
 
 		hitbox.monitoring = true

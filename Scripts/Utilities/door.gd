@@ -26,6 +26,8 @@ func _on_body_entered(body):
 	
 	player.can_move = false
 	player.velocity.x = -exit_push.x
+	if exit_push.y != 0:
+		player.velocity.y = -exit_push.y
 	var light = player.get_node("light")
 	var tween = create_tween()
 

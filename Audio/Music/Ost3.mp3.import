@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/Ost3.mp3-7904c033bd074b3268c85500ca7a5c6d.mp3
 
 loop=true
 loop_offset=0.0
-bpm=170.0
+bpm=185.0
 beat_count=0
 bar_beats=4

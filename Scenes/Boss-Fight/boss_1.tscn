@@ -1,0 +1,184 @@
+[gd_scene load_steps=24 format=3 uid="uid://cv1y5secdbj2h"]
+
+[ext_resource type="Script" uid="uid://kyut3aiak1pv" path="res://Scripts/Enemies/boss_1.gd" id="1_42psm"]
+[ext_resource type="PackedScene" uid="uid://8r4uptvxch2l" path="res://Scenes/Boss-Fight/Spikes.tscn" id="2_4fyxc"]
+[ext_resource type="PackedScene" uid="uid://dpdip6svf7l42" path="res://Scenes/Boss-Fight/Big-Spikes.tscn" id="3_rqvml"]
+[ext_resource type="Shader" uid="uid://c4y2ba40q8aa4" path="res://Shaders/Flash.gdshader" id="4_lascq"]
+[ext_resource type="Texture2D" uid="uid://dvgxgrkgouxg3" path="res://Sprites/Bosses/Boss1-Summon.png" id="5_6802g"]
+[ext_resource type="Texture2D" uid="uid://dej8t66sgvu8p" path="res://Sprites/Bosses/Boss1-Walk.png" id="6_w1d2g"]
+[ext_resource type="Script" uid="uid://jqdvepdxt54" path="res://Scripts/Utilities/hitbox.gd" id="7_0gy6r"]
+[ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="8_oidsg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6bcr"]
+size = Vector2(386.5, 392)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4e1n3"]
+shader = ExtResource("4_lascq")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xunf5"]
+atlas = ExtResource("5_6802g")
+region = Rect2(0, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi2si"]
+atlas = ExtResource("5_6802g")
+region = Rect2(2316, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egirx"]
+atlas = ExtResource("5_6802g")
+region = Rect2(4632, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0pue"]
+atlas = ExtResource("6_w1d2g")
+region = Rect2(0, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50kp6"]
+atlas = ExtResource("6_w1d2g")
+region = Rect2(2316, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nfjs"]
+atlas = ExtResource("6_w1d2g")
+region = Rect2(4632, 0, 2316, 1468)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxfm7"]
+atlas = ExtResource("6_w1d2g")
+region = Rect2(2316, 0, 2316, 1468)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0pue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xunf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi2si")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_egirx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi2si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xunf5")
+}],
+"loop": false,
+"name": &"Summon",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0pue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50kp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nfjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxfm7")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npl5u"]
+size = Vector2(325, 284)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fe0xl"]
+radius = 233.8568
+
+[sub_resource type="Animation" id="Animation_xunf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2913, 738)]
+}
+
+[sub_resource type="Animation" id="Animation_4e1n3"]
+resource_name = "Summon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4170, 727), Vector2(2755, 724)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mi2si"]
+_data = {
+&"RESET": SubResource("Animation_xunf5"),
+&"Summon": SubResource("Animation_4e1n3")
+}
+
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("spike_markers") groups=["Enemy"]]
+position = Vector2(2913, 738)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_42psm")
+sweep_speed = 1000.0
+spike_markers = [null, null, null, null, null, null]
+spike_scene = ExtResource("2_4fyxc")
+big_spike_scene = ExtResource("3_rqvml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-113.75, -47)
+shape = SubResource("RectangleShape2D_p6bcr")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4e1n3")
+position = Vector2(-20, -16)
+scale = Vector2(0.295, 0.295)
+sprite_frames = SubResource("SpriteFrames_w0pue")
+animation = &"Summon"
+autoplay = "Walk"
+frame = 4
+frame_progress = 1.0
+
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("hurt_box")]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("7_0gy6r")
+damage = null
+hurt_box = NodePath("../HurtBox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-63.5, 7)
+shape = SubResource("RectangleShape2D_npl5u")
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(-79, -69)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("8_oidsg")
+health = 10000
+sprite = NodePath("../Sprite2D")
+flash_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(9, 36)
+shape = SubResource("CircleShape2D_fe0xl")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mi2si")
+}
+speed_scale = 0.8
+
+[connection signal="on_damaged" from="HurtBox" to="." method="_on_hurt_box_on_damaged"]

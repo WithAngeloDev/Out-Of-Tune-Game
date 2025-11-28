@@ -24,6 +24,8 @@ func _ready():
 			#if "velocity" in player:
 			player.can_move = false
 			player.velocity.x = spawn_door.exit_push.x
+			if spawn_door.exit_push.y != 0:
+				player.velocity.y = spawn_door.exit_push.y
 			
 			var dir = sign(player.velocity.x)
 

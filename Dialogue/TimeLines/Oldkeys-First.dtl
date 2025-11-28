@@ -1,0 +1,41 @@
+if {Times_Old} == 0.0:
+	[voice path="res://Dialogue/VoiceLines/OldKeys1.mp3" volume="6.0"]
+	OldKeys: Good day traveller. Or, good as days get around here in these times! Who are you?
+	Player: My name is Leit. What do I call you?
+	[voice path="res://Dialogue/VoiceLines/olman2.mp3" volume="6.0"]
+	OldKeys: They used to call me Old Keys when the lights were still lit. An old joke about an old joke.
+	OldKeys: You truly should not have come here. There’s nothing left but the dust, the mad, and me.
+	Player: That is why I have come. I need to save my people from what was done to yours.
+	[voice path="res://Dialogue/VoiceLines/olman3.mp3" volume="6.0"]
+	OldKeys: Do you know what lies ahead?
+	Player: I know that someone has to stop them. It may as well be me.
+	[voice path="res://Dialogue/VoiceLines/olman4.mp3" volume="6.0"]
+	OldKeys: I have lost… I have lost much to them. To it.
+	Player: Then let us end it.
+	[voice path="res://Dialogue/VoiceLines/olman6.mp3" volume="6.0"]
+	OldKeys: I have heard that refrain many times. You aren’t the first to vow to stop the song.
+	OldKeys: But you bear no sword or shield, only an instrument… perhaps you’re onto something.
+	[voice path="res://Dialogue/VoiceLines/OldKeys1.mp3" volume="6.0"]
+	OldKeys: I am too frail to help you, but you have what hope I still have left.
+	Player: Farewell, Old Keys.
+	[signal arg="player_is_leaving"]
+	[wait time="1.0"]
+	[signal arg="player_stop"]
+	[voice path="res://Dialogue/VoiceLines/olman3.mp3" volume="6.0"]
+	OldKeys: You know, an odd fellow came this way some time ago. Vanished into the forest and I believe he hides there still.
+	OldKeys: One of your people, perhaps? Maybe he can offer some aid.
+	set {Times_Old} = 1.0
+elif {Times_Old} == 1.0:
+	OldKeys: I should tell you not to go on. I should say that you need not risk your life
+	Player: But you won’t?
+	OldKeys: No, I won’t. Forgive my selfishness but… I want you to give them hell.
+	set {Times_Old} = 2.0
+elif {Times_Old} == 2.0:
+	Player: You are not affected by the music?
+	OldKeys: Oh I am. Believe me, I am
+	set {Times_Old} = 3.0
+elif {Times_Old} == 3.0:
+	OldKeys: Waste no more time! The Cadence must come to an end!
+	OldKeys: Is there something else I can help you with?
+	Player: I don’t think so. Thank you, stranger!
+	set {Times_Old} = 1.0

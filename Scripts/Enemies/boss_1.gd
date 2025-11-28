@@ -22,6 +22,8 @@ var is_top := false
 
 var last_attack := ""
 
+var health: int = 35
+
 func _ready() -> void:
 	BeatManager.connect("beat_window", on_beat)
 
@@ -198,7 +200,8 @@ func attack_summon_top() -> void:
 		var spike = big_spike_scene.instantiate()
 		spike.global_position.x = pos
 		spike.global_position.y = $"../Spikepos1".global_position.y
-		get_tree().current_scene.add_child(spike)
+		if get_tree():
+			get_tree().current_scene.add_child(spike)
 	
 	$"../Indecator/AnimationPlayer".play_backwards("Indecate")
 	
@@ -208,3 +211,44 @@ func attack_summon_top() -> void:
 	await get_tree().create_timer(0.2).timeout
 	can_act = true
 	is_top = false
+
+func _on_hurt_box_on_damaged() -> void:
+	health -= 1
+	
+	print(health)
+	
+	if health <= 0:
+		
+		health = 20
+		
+		$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+		
+		BeatManager.stop_song()
+		velocity = Vector2.ZERO
+		
+		Engine.time_scale = 0.2
+		
+		can_act = false
+		is_top = false
+		
+		await get_tree().create_timer(0.8, true, false, true).timeout
+		
+		Engine.time_scale = 1
+		$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+		
+		await get_tree().create_timer(2, true, false, true).timeout
+		
+		can_act = true
+		
+		await get_tree().process_frame
+		
+		health = 20
+		sweep_speed = 1200
+		Engine.time_scale = 1
+		
+		attack_sweep()
+		
+		await get_tree().create_timer(0.8, true, false, true).timeout
+		
+		BeatManager.play_song(preload("res://Audio/Music/Ost3.mp3"))
+		

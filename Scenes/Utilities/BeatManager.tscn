@@ -1,11 +1,111 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3t2uw8cbhhcu"]
+[gd_scene load_steps=16 format=3 uid="uid://d3t2uw8cbhhcu"]
 
 [ext_resource type="Script" uid="uid://45jdkyutfobg" path="res://Scripts/Utilities/BeatManager.gd" id="1_rxqjg"]
 [ext_resource type="AudioStream" uid="uid://bu5vqqthv14jr" path="res://Audio/Ambient/AMB_Beds_GrassField.mp3" id="2_2s2o2"]
 [ext_resource type="Texture2D" uid="uid://tndlxupjgwa5" path="res://Sprites/Player/ProgressNote-UI.png" id="2_4vs5j"]
 [ext_resource type="Script" uid="uid://c1t72ib5ld2ly" path="res://Scripts/Utilities/beat_ui.gd" id="2_igs6c"]
+[ext_resource type="Texture2D" uid="uid://2pfuxcuqqcrr" path="res://Sprites/Effects/Attack-Effect.png" id="3_n1nd3"]
 [ext_resource type="Script" uid="uid://c418bbh18uk4b" path="res://Scripts/Utilities/line_2d.gd" id="4_pmf0v"]
 [ext_resource type="Texture2D" uid="uid://ecaf5vunpnna" path="res://Sprites/Player/MusicalNote.png" id="4_w2nni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xpd0"]
+atlas = ExtResource("3_n1nd3")
+region = Rect2(0, 0, 781, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dgti"]
+atlas = ExtResource("3_n1nd3")
+region = Rect2(781, 0, 781, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxunx"]
+atlas = ExtResource("3_n1nd3")
+region = Rect2(0, 184, 781, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvmir"]
+atlas = ExtResource("3_n1nd3")
+region = Rect2(781, 184, 781, 184)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dt6ka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xpd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dgti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxunx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvmir")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 40.0
+}]
+
+[sub_resource type="Animation" id="Animation_n1nd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2s2o2"]
+resource_name = "s"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xpd0"]
+_data = {
+&"RESET": SubResource("Animation_n1nd3"),
+&"s": SubResource("Animation_2s2o2")
+}
 
 [node name="BeatManager" type="Node"]
 script = ExtResource("1_rxqjg")
@@ -21,6 +121,14 @@ autoplay = true
 
 [node name="BeatUI" type="CanvasLayer" parent="."]
 layer = 166
+
+[node name="Effect" type="AnimatedSprite2D" parent="BeatUI"]
+position = Vector2(955, 995.00006)
+rotation = 1.9896754
+scale = Vector2(0.468, 0.468)
+sprite_frames = SubResource("SpriteFrames_dt6ka")
+frame = 4
+frame_progress = 1.0
 
 [node name="Control" type="Control" parent="BeatUI"]
 clip_contents = true
@@ -55,12 +163,21 @@ grow_vertical = 2
 texture = ExtResource("2_4vs5j")
 
 [node name="Line2D" type="TextureRect" parent="BeatUI/Control/TextureRect"]
+modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 54.5
 offset_right = 51.0
 offset_bottom = 118.32945
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_w2nni")
 expand_mode = 1
 script = ExtResource("4_pmf0v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BeatUI/Control/TextureRect/Line2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_5xpd0")
+}
+autoplay = "s"
+speed_scale = 3.5
