@@ -42,7 +42,8 @@ func _physics_process(delta):
 		velocity.x = 0
 		sprite.play("Idle")
 
-	move_and_slide()
+	if Dialogic.current_timeline == null:
+		move_and_slide()
 
 	if not turning and not attacking:
 		if ray_wall.is_colliding() or not ray_ledge.is_colliding():
@@ -89,6 +90,9 @@ func _on_player_exit(_body):
 		#player_ref = null
 
 func attack_player() -> void:
+	
+	if !get_tree(): return
+	
 	if attacking or turning or player_ref == null:
 		return
 
@@ -118,6 +122,7 @@ func attack_player() -> void:
 	
 
 	while sprite.is_playing():
+		if !get_tree(): return
 		velocity.x = -dash_dir.x * dash_speed
 		move_and_slide()
 		dash_timer -= get_process_delta_time()

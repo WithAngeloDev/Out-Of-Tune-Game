@@ -38,7 +38,11 @@ func _input(event: InputEvent) -> void:
 		
 		animation_player.play_backwards("Entered")
 		
-		await Dialogic.timeline_ended
+		BeatManager.music_player.volume_db -= 10
+		
+		await Dialogic.timeline_ended 
+		
+		BeatManager.music_player.volume_db += 10
 		
 		#$PlayerDetect.queue_free()
 		

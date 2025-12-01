@@ -12,5 +12,10 @@ func _ready():
 func _on_area_entered(area):
 	if area.is_in_group("hurtbox") && area != hurt_box && owner.get_groups() != area.owner.get_groups():
 		var dir = (area.global_position - global_position).normalized()
-		area.apply_damage(damage, dir)
+		area.apply_damage(damage, dir, self)
 		emit_signal("on_hit", area)
+		
+		if get_tree():
+			monitoring = false
+			await get_tree().create_timer(0.2).timeout
+			monitoring = true

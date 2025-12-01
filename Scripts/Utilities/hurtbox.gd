@@ -7,14 +7,14 @@ class_name Hurtbox
 
 var flashing := false
 
-signal on_damaged
+signal on_damaged(amount, knockback, damager)
 
 func _ready() -> void:
 	add_to_group("hurtbox")
 
-func apply_damage(amount, dir):
+func apply_damage(amount, dir, damager = null):
 	health -= amount
-	print("enemy hp:", health)
+	#print("enemy hp:", health)
 
 	# rotation is the angle of the hit direction
 	var rot = dir.angle()
@@ -22,7 +22,7 @@ func apply_damage(amount, dir):
 	ParticleEffects.spawn_particle(preload("uid://c81myf4bsv7ed"), global_position, rot)
 	ParticleEffects.spawn_particle(preload("uid://jq10wm7hhrd"), global_position, rot)
 
-	emit_signal("on_damaged")
+	emit_signal("on_damaged", amount, dir, damager)
 
 	if sprite:
 		flash()
@@ -46,3 +46,5 @@ func flash():
 
 func die():
 	get_parent().queue_free()
+	get_tree().get_first_node_in_group("Camera").add_shake(1)
+	get_tree().get_first_node_in_group("Camera").zoom_punch(0.01)

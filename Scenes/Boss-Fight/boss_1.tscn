@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cv1y5secdbj2h"]
+[gd_scene load_steps=26 format=3 uid="uid://cv1y5secdbj2h"]
 
 [ext_resource type="Script" uid="uid://kyut3aiak1pv" path="res://Scripts/Enemies/boss_1.gd" id="1_42psm"]
 [ext_resource type="PackedScene" uid="uid://8r4uptvxch2l" path="res://Scenes/Boss-Fight/Spikes.tscn" id="2_4fyxc"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dej8t66sgvu8p" path="res://Sprites/Bosses/Boss1-Walk.png" id="6_w1d2g"]
 [ext_resource type="Script" uid="uid://jqdvepdxt54" path="res://Scripts/Utilities/hitbox.gd" id="7_0gy6r"]
 [ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="8_oidsg"]
+[ext_resource type="AudioStream" uid="uid://bgekamtd71lo3" path="res://Dialogue/VoiceLines/bossngiegme2.mp3" id="9_rqvml"]
+[ext_resource type="AudioStream" uid="uid://bflpr4syexsvd" path="res://Dialogue/VoiceLines/bossngiegme5.mp3" id="10_lascq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6bcr"]
 size = Vector2(386.5, 392)
@@ -86,10 +88,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npl5u"]
-size = Vector2(325, 284)
+size = Vector2(265, 259)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe0xl"]
-radius = 233.8568
+radius = 258.49564
 
 [sub_resource type="Animation" id="Animation_xunf5"]
 length = 0.001
@@ -155,11 +157,10 @@ frame_progress = 1.0
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("7_0gy6r")
-damage = null
 hurt_box = NodePath("../HurtBox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-63.5, 7)
+position = Vector2(-63.5, 19.5)
 shape = SubResource("RectangleShape2D_npl5u")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
@@ -180,5 +181,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_mi2si")
 }
 speed_scale = 0.8
+
+[node name="SweepAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_rqvml")
+volume_db = 2.08
+pitch_scale = 0.9
+
+[node name="Attacks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lascq")
+volume_db = 2.08
+pitch_scale = 0.9
+
+[node name="Attacks2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lascq")
+volume_db = 2.08
+pitch_scale = 0.9
 
 [connection signal="on_damaged" from="HurtBox" to="." method="_on_hurt_box_on_damaged"]

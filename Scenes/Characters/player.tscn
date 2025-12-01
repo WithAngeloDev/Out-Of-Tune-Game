@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://byulcq74epm8n"]
+[gd_scene load_steps=67 format=3 uid="uid://byulcq74epm8n"]
 
 [ext_resource type="Script" uid="uid://cdj7f0tiwsjw1" path="res://Scripts/Player/Controller.gd" id="1_yt1oc"]
 [ext_resource type="AudioStream" uid="uid://7j63hj5bf4er" path="res://Audio/Notes/Violin-C6-C7.mp3" id="2_jnx77"]
@@ -17,7 +17,52 @@
 [ext_resource type="Texture2D" uid="uid://cca0gj1uj6h8d" path="res://Sprites/Player/JumpingFrame.png" id="15_m75h8"]
 [ext_resource type="Texture2D" uid="uid://roeq3hbay4dw" path="res://Sprites/Player/Running-frame.png" id="16_2dmea"]
 [ext_resource type="Texture2D" uid="uid://cfxlvbdllwyxn" path="res://Sprites/Player/Walk-Sheet.png" id="17_lml76"]
+[ext_resource type="Texture2D" uid="uid://dbkxmuyv3kgwu" path="res://Sprites/Player/Dash.png" id="18_ojpki"]
 [ext_resource type="Script" uid="uid://dusbhtek8vv6m" path="res://Scripts/Utilities/hurtbox.gd" id="18_ste30"]
+[ext_resource type="Shader" uid="uid://drtmwf6bqekhp" path="res://Shaders/Liquid.gdshader" id="19_3k74t"]
+[ext_resource type="Texture2D" uid="uid://cgh83pmohufyr" path="res://Sprites/UI/Line.png" id="19_fepmq"]
+[ext_resource type="Texture2D" uid="uid://bdu6qi3yplesf" path="res://Sprites/UI/Health1.png" id="19_uxymp"]
+[ext_resource type="Texture2D" uid="uid://b3iy7y8u3xpo0" path="res://Sprites/UI/Health2.png" id="20_fepmq"]
+[ext_resource type="Texture2D" uid="uid://ecaf5vunpnna" path="res://Sprites/Player/MusicalNote.png" id="20_v8iml"]
+[ext_resource type="Texture2D" uid="uid://dvbpi2rlkcjwf" path="res://Sprites/UI/Health3.png" id="21_ddhxa"]
+[ext_resource type="Texture2D" uid="uid://cyuqpkts6fck1" path="res://Sprites/Particles/Particle1.png" id="23_ddhxa"]
+
+[sub_resource type="Animation" id="Animation_ddhxa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fepmq"]
+resource_name = "flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3k74t"]
+_data = {
+&"RESET": SubResource("Animation_ddhxa"),
+&"flash": SubResource("Animation_fepmq")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcgjn"]
 atlas = ExtResource("10_rv8bj")
@@ -134,6 +179,10 @@ region = Rect2(1800, 0, 900, 1425)
 atlas = ExtResource("17_lml76")
 region = Rect2(2700, 0, 900, 1425)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv8bj"]
+atlas = ExtResource("18_ojpki")
+region = Rect2(0, 0, 900, 1425)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6etmk"]
 animations = [{
 "frames": [{
@@ -191,11 +240,19 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv8bj")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxjvy"]
 radius = 45.0
-height = 286.0
+height = 248.0
 
 [sub_resource type="Gradient" id="Gradient_litq2"]
 offsets = PackedFloat32Array(0.13023256, 0.65581393)
@@ -207,14 +264,136 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uul5j"]
-radius = 45.0
-height = 292.0
+radius = 41.0
+height = 234.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8iml"]
+shader = ExtResource("19_3k74t")
+shader_parameter/bg_color = Color(0, 0, 0, 0.34509805)
+shader_parameter/uv_scale = 1.0
+shader_parameter/percentage = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/wave_1_speed = -1.0
+shader_parameter/wave_2_speed = 1.0
+shader_parameter/wave_1_freq = 1.2
+shader_parameter/wave_2_freq = 1.0
+shader_parameter/wave_1_amp = 0.015
+shader_parameter/wave_2_amp = 0.01
+shader_parameter/sun_dir = Vector3(-0.2, 0.4, 1)
+shader_parameter/water_colour = Color(1, 1, 1, 1)
+shader_parameter/foam_colour = Color(1, 1, 1, 1)
+shader_parameter/sky_colour = Color(1, 1, 1, 1)
+shader_parameter/specular_colour = Color(0.9515795, 0.95157963, 0.9515795, 1)
+shader_parameter/notes_texture = ExtResource("20_v8iml")
+shader_parameter/notes_count = 32.635001502662504
+shader_parameter/notes_scale = 0.23000000766512
+shader_parameter/notes_speed = 1.59
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fepmq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_rv8bj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ojpki"]
+resource_name = "d"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.3333333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_inlw8"]
+_data = {
+&"RESET": SubResource("Animation_rv8bj"),
+&"d": SubResource("Animation_ojpki")
+}
+
+[sub_resource type="Animation" id="Animation_v8iml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3k74t"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5990571, 0.79905707, 1.0000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojpki"]
+_data = {
+&"RESET": SubResource("Animation_v8iml"),
+&"flash": SubResource("Animation_3k74t")
+}
+
+[sub_resource type="Gradient" id="Gradient_3k74t"]
+offsets = PackedFloat32Array(0.0058479533, 0.14814815, 0.42328042, 0.63492066)
+colors = PackedColorArray(0.5568628, 0.5568628, 0.5568628, 0, 0.556953, 0.556953, 0.556953, 1, 0.6392157, 0.6392157, 0.6392157, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_npl5u"]
+gradient = SubResource("Gradient_3k74t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v8iml"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 36.9
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -500, 0)
+scale_min = 0.049999997
+scale_max = 0.19999999
+color = Color(0.4746713, 0.44919175, 0.6125759, 1)
+color_ramp = SubResource("GradientTexture1D_npl5u")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 collision_layer = 96
+collision_mask = 4097
 script = ExtResource("1_yt1oc")
 notes = Array[AudioStream]([ExtResource("2_jnx77"), ExtResource("3_hy8lp"), ExtResource("4_uxymp"), ExtResource("5_fepmq"), ExtResource("6_ddhxa"), ExtResource("5_fepmq"), ExtResource("7_3k74t"), ExtResource("4_uxymp"), ExtResource("3_hy8lp"), ExtResource("4_uxymp"), ExtResource("8_v8iml"), ExtResource("9_ojpki"), ExtResource("6_ddhxa"), ExtResource("5_fepmq"), ExtResource("7_3k74t"), ExtResource("4_uxymp"), ExtResource("3_hy8lp"), ExtResource("4_uxymp")])
+notes_dorian = Array[AudioStream]([ExtResource("2_jnx77"), ExtResource("3_hy8lp"), ExtResource("4_uxymp"), ExtResource("5_fepmq"), ExtResource("7_3k74t"), ExtResource("4_uxymp"), ExtResource("3_hy8lp"), ExtResource("4_uxymp"), ExtResource("8_v8iml"), ExtResource("5_fepmq"), ExtResource("7_3k74t"), ExtResource("4_uxymp"), ExtResource("3_hy8lp"), ExtResource("4_uxymp")])
 
 [node name="NoteToPlay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jnx77")
@@ -223,11 +402,51 @@ bus = &"Notes"
 [node name="SlashSpawn" type="Marker2D" parent="."]
 position = Vector2(-14, -34)
 
+[node name="Flash" type="ColorRect" parent="."]
+visible = false
+z_index = 220
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2227.0
+offset_top = -1815.0
+offset_right = 2773.0
+offset_bottom = 3185.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flash"]
+libraries = {
+&"": SubResource("AnimationLibrary_3k74t")
+}
+speed_scale = 4.0
+
+[node name="Flash2" type="ColorRect" parent="."]
+visible = false
+z_index = 515
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2227.0
+offset_top = -1815.0
+offset_right = 2773.0
+offset_bottom = 3185.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.61960787)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flash2"]
+libraries = {
+&"": SubResource("AnimationLibrary_3k74t")
+}
+speed_scale = 8.0
+
 [node name="ViolinSprite" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
 position = Vector2(-10, 11)
-scale = Vector2(0.22, 0.22)
+scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_dbxnu")
 animation = &"Violin"
 autoplay = "Violin"
@@ -245,14 +464,14 @@ frame_progress = 1.0
 z_index = 1
 material = SubResource("ShaderMaterial_85i3b")
 position = Vector2(-12, 9.999971)
-scale = Vector2(0.22, 0.22)
+scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_6etmk")
-animation = &"Idle"
+animation = &"dash"
 autoplay = "Idle"
-frame_progress = 0.35169727
+frame_progress = 0.56584954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13, 6)
+position = Vector2(-12, 14)
 shape = SubResource("CapsuleShape2D_oxjvy")
 
 [node name="light" type="PointLight2D" parent="."]
@@ -266,11 +485,209 @@ remote_path = NodePath("../../../Enviroment/ParallaxBackground/PointLight2D")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 8192
 script = ExtResource("18_ste30")
 health = 10000
 flash_time = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-13, 5)
+position = Vector2(-12, 18)
 shape = SubResource("CapsuleShape2D_uul5j")
+
+[node name="DashTree" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashTree"]
+position = Vector2(-12, 18)
+shape = SubResource("CapsuleShape2D_uul5j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+modulate = Color(0.80049086, 0.80049074, 0.80049074, 1)
+material = SubResource("ShaderMaterial_v8iml")
+layout_mode = 0
+offset_left = 97.0
+offset_top = 164.0
+offset_right = 386.0
+offset_bottom = 194.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_fepmq")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 87.0
+offset_top = -163.0
+offset_right = 407.0
+offset_bottom = 453.0
+texture = ExtResource("19_fepmq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 404.0
+offset_bottom = 161.0
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/Control/Hearts"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("19_uxymp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/Control/Hearts"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("20_fepmq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/Control/Hearts"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("21_ddhxa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer"]
+z_index = 4096
+position = Vector2(403, 92)
+scale = Vector2(0.785, 0.785)
+
+[node name="UnlockedDash" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.89411765)
+
+[node name="Label" type="Label" parent="CanvasLayer/UnlockedDash"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -317.0
+offset_right = 520.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 71
+text = "> DOUBLE JUMP UNLOCKED <"
+
+[node name="Label2" type="Label" parent="CanvasLayer/UnlockedDash"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -670.0
+offset_right = 520.0
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 71
+text = "- Jump twice mid air -
+
+
+
+- Double Space -"
+horizontal_alignment = 1
+
+[node name="DoubleJumpAnim" type="AnimationPlayer" parent="CanvasLayer/UnlockedDash"]
+libraries = {
+&"": SubResource("AnimationLibrary_inlw8")
+}
+
+[node name="UnlockedDash2" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.89411765)
+
+[node name="Label" type="Label" parent="CanvasLayer/UnlockedDash2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -317.0
+offset_right = 520.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 71
+text = "> Dash UNLOCKED <"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/UnlockedDash2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -670.0
+offset_right = 520.0
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 71
+text = "- Float in mid air -
+
+
+
+- Shift -"
+horizontal_alignment = 1
+
+[node name="DashAnim" type="AnimationPlayer" parent="CanvasLayer/UnlockedDash2"]
+libraries = {
+&"": SubResource("AnimationLibrary_inlw8")
+}
+
+[node name="FlashAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ojpki")
+}
+
+[node name="DustParticle" type="GPUParticles2D" parent="."]
+position = Vector2(-19, 127)
+amount = 100
+texture = ExtResource("23_ddhxa")
+lifetime = 0.4
+speed_scale = 0.4
+visibility_rect = Rect2(-100000, -100000, 200000, 2000000)
+process_material = SubResource("ParticleProcessMaterial_v8iml")
+
+[connection signal="on_damaged" from="HurtBox" to="." method="take_damage"]
+[connection signal="area_entered" from="DashTree" to="." method="_on_dash_tree_area_entered"]
+[connection signal="area_exited" from="DashTree" to="." method="_on_dash_tree_area_exited"]

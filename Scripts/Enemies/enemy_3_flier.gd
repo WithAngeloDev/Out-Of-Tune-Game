@@ -32,14 +32,16 @@ func _physics_process(delta):
 		sprite.scale.x = abs(sprite.scale.x) * -dir
 		rays.scale.x = abs(rays.scale.x) * -dir
 
-	if attacking:
+	if attacking && Dialogic.current_timeline == null:
 		move_and_slide()
 		return
 
 	# sliding / idle movement
 	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	sprite.play("Idle")
-	move_and_slide()
+	
+	if Dialogic.current_timeline == null:
+		move_and_slide()
 
 ## -----------------------------
 ##   PLAYER DETECTION + ATTACK

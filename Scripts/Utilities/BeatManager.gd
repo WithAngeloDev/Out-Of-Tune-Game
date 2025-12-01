@@ -3,7 +3,7 @@ extends Node
 signal beat()        # fired exactly on beat
 signal beat_window() # fired slightly before/after beat for player input
 
-@onready var music_player = $MusicPlayer
+@onready var music_player : AudioStreamPlayer = $MusicPlayer
 @onready var effect: AnimatedSprite2D = $BeatUI/Effect
 
 var last_beat = -1
@@ -12,12 +12,13 @@ var bpm = 150
 var seconds_per_beat = 0.0
 
 var beat_timer = 0.0
-var window_size = 0.2   # how forgiving the timing is (120ms)
+var window_size = 0.4   # how forgiving the timing is (120ms)
 var song_offset = 0.0    # use if the song starts a little late
 
 var fade_speed = 1.5   # how fast it fades in
 
 func play_song(stream: AudioStreamMP3):
+	
 	beat_timer = 0.0
 	music_player.stream = stream
 	music_player.volume_db = -40

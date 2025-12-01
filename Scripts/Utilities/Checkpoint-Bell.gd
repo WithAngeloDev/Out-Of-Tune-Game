@@ -13,3 +13,6 @@ func player_entered(body):
 		bell_sfx.play()
 		animation_player.play("bell")
 		shockwave.play("shock")
+		Global.saved_level = get_tree().current_scene.scene_file_path
+		Global.current_health = 3
+		get_tree().get_first_node_in_group("player")._update_hearts()

@@ -32,14 +32,16 @@ func _physics_process(delta):
 		sprite.scale.x = abs(sprite.scale.x) * -dir
 		rays.scale.x = abs(rays.scale.x) * -dir
 
-	if attacking:
+	if attacking && Dialogic.current_timeline == null:
 		move_and_slide()
 		return
 
 	# sliding / idle movement
 	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	sprite.play("Idle")
-	move_and_slide()
+	
+	if Dialogic.current_timeline == null:
+		move_and_slide()
 
 ## -----------------------------
 ##   PLAYER DETECTION + ATTACK
@@ -77,7 +79,6 @@ func attack_and_backoff() -> void:
 
 	var dir_to_player = (player_ref.global_position - global_position).normalized()
 	var dash_timer = dash_time
-	#hitbox.monitoring = false
 
 	while dash_timer > 0 and player_ref:
 		var target_vel = dir_to_player * dash_speed
@@ -96,9 +97,7 @@ func attack_and_backoff() -> void:
 		if !get_tree(): return
 		await get_tree().create_timer(0.3).timeout
 
-		hitbox.monitoring = true
 		await sprite.animation_finished
-		#hitbox.monitoring = false
 
 		sprite.play("Idle")
 

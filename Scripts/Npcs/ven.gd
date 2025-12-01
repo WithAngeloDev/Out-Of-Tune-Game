@@ -16,6 +16,11 @@ func _ready() -> void:
 	Dialogic.connect("signal_event", signals)
 	Dialogic.connect("state_changed", state_changed)
 
+func _process(delta: float) -> void:
+	pass
+	#await get_tree().create_timer(2).timeout
+	#$AudioStreamPlayer2D.play()
+
 func player_entered(body):
 	if Dialogic.current_timeline != null: return 
 	if body.is_in_group("player"):
@@ -39,11 +44,22 @@ func _input(event: InputEvent) -> void:
 		
 		animation_player.play_backwards("Entered")
 		
+		BeatManager.music_player.volume_db -= 10
+		
+		$AudioStreamPlayer2D.stop()
+		
 		await Dialogic.timeline_ended
+		
+		BeatManager.music_player.volume_db += 10
 		
 		#$PlayerDetect.queue_free()
 		
+		$AudioStreamPlayer2D.play()
+		
 		get_tree().get_first_node_in_group("player").can_double_jump_unlocked = true
+		get_tree().get_first_node_in_group("player").d_anim.play("d")
+		await get_tree().get_first_node_in_group("player").d_anim.animation_finished
+		Global.has_double_jump = true
 		get_tree().get_first_node_in_group("player").can_move = true
 
 func state_changed(args):

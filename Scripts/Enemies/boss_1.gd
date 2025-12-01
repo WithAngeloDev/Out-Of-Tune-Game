@@ -17,8 +17,9 @@ extends CharacterBody2D
 @export var big_spike_scene: PackedScene   # the spike you will spawn
 
 var last_sweep_dir := -1  # -1 = left→right, 1 = right→left
-var can_act := true
+var can_act := false
 var is_top := false
+var is_in_phase2 := false
 
 var last_attack := ""
 
@@ -26,6 +27,9 @@ var health: int = 35
 
 func _ready() -> void:
 	BeatManager.connect("beat_window", on_beat)
+	
+	if Global.defeated_boss1:
+		queue_free()
 
 func _physics_process(delta):
 	
@@ -79,6 +83,8 @@ func attack_sweep() -> void:
 	if not can_act:
 		return
 	can_act = false
+
+	$SweepAttack.play()
 
 	print("SWEEEEEEEP")
 	
@@ -167,6 +173,8 @@ func attack_summon_top() -> void:
 
 	is_top = true
 	
+	$Attacks.play()
+	
 	dust_particle.emitting = true
 	dust_particle.global_position = global_position
 	
@@ -189,9 +197,11 @@ func attack_summon_top() -> void:
 		sprite_2d.play("Summon")
 		
 		var pos = player.global_position.x
-		
+		if !$"../Indecator": return
 		$"../Indecator/AnimationPlayer".play("Indecate")
 		$"../Indecator".global_position.x = pos
+		
+		#$Attacks2.play()
 		
 		await BeatManager.beat
 		await BeatManager.beat
@@ -203,7 +213,8 @@ func attack_summon_top() -> void:
 		if get_tree():
 			get_tree().current_scene.add_child(spike)
 	
-	$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+	if $"../Indecator/AnimationPlayer":
+		$"../Indecator/AnimationPlayer".play_backwards("Indecate")
 	
 	#anim.play_backwards("Summon")
 	#await anim.animation_finished
@@ -212,16 +223,19 @@ func attack_summon_top() -> void:
 	can_act = true
 	is_top = false
 
-func _on_hurt_box_on_damaged() -> void:
-	health -= 1
+func _on_hurt_box_on_damaged(amount, dir, damager) -> void:
+	health -= amount
 	
 	print(health)
 	
-	if health <= 0:
+	if health <= 0 && !is_in_phase2:
+		
+		print("PHASE 2")
 		
 		health = 20
 		
-		$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+		if $"../Indecator/AnimationPlayer":
+			$"../Indecator/AnimationPlayer".play_backwards("Indecate")
 		
 		BeatManager.stop_song()
 		velocity = Vector2.ZERO
@@ -234,13 +248,15 @@ func _on_hurt_box_on_damaged() -> void:
 		await get_tree().create_timer(0.8, true, false, true).timeout
 		
 		Engine.time_scale = 1
-		$"../Indecator/AnimationPlayer".play_backwards("Indecate")
+		if $"../Indecator/AnimationPlayer":
+			$"../Indecator/AnimationPlayer".play_backwards("Indecate")
 		
 		await get_tree().create_timer(2, true, false, true).timeout
 		
 		can_act = true
 		
 		await get_tree().process_frame
+		is_in_phase2 = true
 		
 		health = 20
 		sweep_speed = 1200
@@ -251,4 +267,35 @@ func _on_hurt_box_on_damaged() -> void:
 		await get_tree().create_timer(0.8, true, false, true).timeout
 		
 		BeatManager.play_song(preload("res://Audio/Music/Ost3.mp3"))
+	elif is_in_phase2 && health <= 0:
 		
+		
+		health = 0
+		
+		Global.defeated_boss1 = true
+		if $"../Indecator":
+			$"../Indecator".queue_free()
+		
+		$"../DustParticle".emitting = false
+		
+		BeatManager.stop_song()
+		velocity = Vector2.ZERO
+		
+		Engine.time_scale = 0.2
+		
+		is_in_phase2 = false
+		
+		can_act = false
+		is_top = false
+		
+		await get_tree().create_timer(0.8, true, false, true).timeout
+		
+		$"../Enviroment/Sprite2D/Door".play_backwards("door")
+		
+		Global.has_dash = true
+		
+		Engine.time_scale = 1
+		
+		queue_free()
+		
+		get_tree().get_first_node_in_group("player").dash_anim.play("d")
